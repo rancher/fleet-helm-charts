@@ -21,8 +21,9 @@ sources:
       repository: fleet
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
       username: '{{ requiredEnv "UPDATECLI_GITHUB_ACTOR" }}'
-      versionfilter:
-        kind: semver
+      typefilter:
+        prerelease: true
+        release: true
     # The assets name do not contains the 'v' prefix before the version
     transformers:
       - trimprefix: v
