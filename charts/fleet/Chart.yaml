@@ -14,7 +14,7 @@ dependencies:
 - condition: gitops.enabled
   name: gitjob
   repository: file://./charts/gitjob
-  version: 0.7.1
+  version: 0.1.54
 description: Fleet Manager - GitOps at Scale
 icon: https://charts.rancher.io/assets/logos/fleet.svg
 name: fleet
