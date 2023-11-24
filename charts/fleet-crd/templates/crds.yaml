@@ -126,8 +126,6 @@ spec:
                   chart:
                     nullable: true
                     type: string
-                  disableDNS:
-                    type: boolean
                   disablePreProcess:
                     type: boolean
                   force:
@@ -142,8 +140,6 @@ spec:
                   repo:
                     nullable: true
                     type: string
-                  skipSchemaValidation:
-                    type: boolean
                   takeOwnership:
                     type: boolean
                   timeoutSeconds:
@@ -542,8 +538,6 @@ spec:
                         chart:
                           nullable: true
                           type: string
-                        disableDNS:
-                          type: boolean
                         disablePreProcess:
                           type: boolean
                         force:
@@ -556,8 +550,6 @@ spec:
                         repo:
                           nullable: true
                           type: string
-                        skipSchemaValidation:
-                          type: boolean
                         takeOwnership:
                           type: boolean
                         timeoutSeconds:
@@ -1103,8 +1095,6 @@ spec:
                       chart:
                         nullable: true
                         type: string
-                      disableDNS:
-                        type: boolean
                       disablePreProcess:
                         type: boolean
                       force:
@@ -1119,8 +1109,6 @@ spec:
                       repo:
                         nullable: true
                         type: string
-                      skipSchemaValidation:
-                        type: boolean
                       takeOwnership:
                         type: boolean
                       timeoutSeconds:
@@ -1295,8 +1283,6 @@ spec:
                       chart:
                         nullable: true
                         type: string
-                      disableDNS:
-                        type: boolean
                       disablePreProcess:
                         type: boolean
                       force:
@@ -1309,8 +1295,6 @@ spec:
                       repo:
                         nullable: true
                         type: string
-                      skipSchemaValidation:
-                        type: boolean
                       takeOwnership:
                         type: boolean
                       timeoutSeconds:
@@ -2451,15 +2435,6 @@ spec:
               agentResources:
                 nullable: true
                 properties:
-                  claims:
-                    items:
-                      properties:
-                        name:
-                          nullable: true
-                          type: string
-                      type: object
-                    nullable: true
-                    type: array
                   limits:
                     additionalProperties:
                       nullable: true
@@ -2499,9 +2474,6 @@ spec:
                 nullable: true
                 type: string
               kubeConfigSecret:
-                nullable: true
-                type: string
-              kubeConfigSecretNamespace:
                 nullable: true
                 type: string
               paused:
