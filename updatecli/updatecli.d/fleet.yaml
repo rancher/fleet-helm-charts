@@ -1,4 +1,4 @@
-title: Bump Fleet Helm Charts
+name: Bump Fleet Helm Charts
 
 scms:
   fleethelmcharts:
@@ -21,6 +21,8 @@ sources:
       repository: fleet
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
       username: '{{ requiredEnv "UPDATECLI_GITHUB_ACTOR" }}'
+      versionfilter:
+        kind: "semver"
       typefilter:
         prerelease: true
         release: true
