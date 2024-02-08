@@ -21,9 +21,6 @@ sources:
       repository: fleet
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
       username: '{{ requiredEnv "UPDATECLI_GITHUB_ACTOR" }}'
-      versionfilter:
-        kind: "semver"
-        pattern: ">=0.0.0-0"
       typefilter:
         prerelease: true
         release: true
@@ -60,4 +57,3 @@ actions:
       mergemethod: squash
       labels:
         - dependencies
-
