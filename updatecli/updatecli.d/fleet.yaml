@@ -1,4 +1,4 @@
-title: Bump Fleet Helm Charts
+name: Bump Fleet Helm Charts
 
 scms:
   fleethelmcharts:
