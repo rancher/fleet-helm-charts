@@ -25,6 +25,7 @@ spec:
           spec:
             properties:
               correctDrift:
+                nullable: true
                 properties:
                   enabled:
                     type: boolean
@@ -36,6 +37,8 @@ spec:
               defaultNamespace:
                 nullable: true
                 type: string
+              deleteCRDResources:
+                type: boolean
               dependsOn:
                 items:
                   properties:
@@ -254,13 +257,13 @@ spec:
                 properties:
                   autoPartitionSize:
                     nullable: true
-                    type: string
+                    x-kubernetes-int-or-string: true
                   maxUnavailable:
                     nullable: true
-                    type: string
+                    x-kubernetes-int-or-string: true
                   maxUnavailablePartitions:
                     nullable: true
-                    type: string
+                    x-kubernetes-int-or-string: true
                   partitions:
                     items:
                       properties:
@@ -328,7 +331,7 @@ spec:
                           type: object
                         maxUnavailable:
                           nullable: true
-                          type: string
+                          x-kubernetes-int-or-string: true
                         name:
                           nullable: true
                           type: string
@@ -476,6 +479,7 @@ spec:
                           type: object
                       type: object
                     correctDrift:
+                      nullable: true
                       properties:
                         enabled:
                           type: boolean
@@ -487,6 +491,8 @@ spec:
                     defaultNamespace:
                       nullable: true
                       type: string
+                    deleteCRDResources:
+                      type: boolean
                     diff:
                       nullable: true
                       properties:
@@ -988,6 +994,7 @@ spec:
           spec:
             properties:
               correctDrift:
+                nullable: true
                 properties:
                   enabled:
                     type: boolean
@@ -1039,6 +1046,7 @@ spec:
               options:
                 properties:
                   correctDrift:
+                    nullable: true
                     properties:
                       enabled:
                         type: boolean
@@ -1050,6 +1058,8 @@ spec:
                   defaultNamespace:
                     nullable: true
                     type: string
+                  deleteCRDResources:
+                    type: boolean
                   diff:
                     nullable: true
                     properties:
@@ -1231,6 +1241,7 @@ spec:
               stagedOptions:
                 properties:
                   correctDrift:
+                    nullable: true
                     properties:
                       enabled:
                         type: boolean
@@ -1242,6 +1253,8 @@ spec:
                   defaultNamespace:
                     nullable: true
                     type: string
+                  deleteCRDResources:
+                    type: boolean
                   diff:
                     nullable: true
                     properties:
@@ -2838,6 +2851,7 @@ spec:
                 nullable: true
                 type: string
               correctDrift:
+                nullable: true
                 properties:
                   enabled:
                     type: boolean
