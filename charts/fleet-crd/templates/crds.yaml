@@ -25,6 +25,7 @@ spec:
           spec:
             properties:
               correctDrift:
+                nullable: true
                 properties:
                   enabled:
                     type: boolean
@@ -36,6 +37,8 @@ spec:
               defaultNamespace:
                 nullable: true
                 type: string
+              deleteCRDResources:
+                type: boolean
               dependsOn:
                 items:
                   properties:
@@ -126,6 +129,8 @@ spec:
                   chart:
                     nullable: true
                     type: string
+                  disableDNS:
+                    type: boolean
                   disablePreProcess:
                     type: boolean
                   force:
@@ -140,6 +145,8 @@ spec:
                   repo:
                     nullable: true
                     type: string
+                  skipSchemaValidation:
+                    type: boolean
                   takeOwnership:
                     type: boolean
                   timeoutSeconds:
@@ -250,13 +257,13 @@ spec:
                 properties:
                   autoPartitionSize:
                     nullable: true
-                    type: string
+                    x-kubernetes-int-or-string: true
                   maxUnavailable:
                     nullable: true
-                    type: string
+                    x-kubernetes-int-or-string: true
                   maxUnavailablePartitions:
                     nullable: true
-                    type: string
+                    x-kubernetes-int-or-string: true
                   partitions:
                     items:
                       properties:
@@ -324,7 +331,7 @@ spec:
                           type: object
                         maxUnavailable:
                           nullable: true
-                          type: string
+                          x-kubernetes-int-or-string: true
                         name:
                           nullable: true
                           type: string
@@ -472,6 +479,7 @@ spec:
                           type: object
                       type: object
                     correctDrift:
+                      nullable: true
                       properties:
                         enabled:
                           type: boolean
@@ -483,6 +491,8 @@ spec:
                     defaultNamespace:
                       nullable: true
                       type: string
+                    deleteCRDResources:
+                      type: boolean
                     diff:
                       nullable: true
                       properties:
@@ -538,6 +548,8 @@ spec:
                         chart:
                           nullable: true
                           type: string
+                        disableDNS:
+                          type: boolean
                         disablePreProcess:
                           type: boolean
                         force:
@@ -550,6 +562,8 @@ spec:
                         repo:
                           nullable: true
                           type: string
+                        skipSchemaValidation:
+                          type: boolean
                         takeOwnership:
                           type: boolean
                         timeoutSeconds:
@@ -980,6 +994,7 @@ spec:
           spec:
             properties:
               correctDrift:
+                nullable: true
                 properties:
                   enabled:
                     type: boolean
@@ -1031,6 +1046,7 @@ spec:
               options:
                 properties:
                   correctDrift:
+                    nullable: true
                     properties:
                       enabled:
                         type: boolean
@@ -1042,6 +1058,8 @@ spec:
                   defaultNamespace:
                     nullable: true
                     type: string
+                  deleteCRDResources:
+                    type: boolean
                   diff:
                     nullable: true
                     properties:
@@ -1095,6 +1113,8 @@ spec:
                       chart:
                         nullable: true
                         type: string
+                      disableDNS:
+                        type: boolean
                       disablePreProcess:
                         type: boolean
                       force:
@@ -1109,6 +1129,8 @@ spec:
                       repo:
                         nullable: true
                         type: string
+                      skipSchemaValidation:
+                        type: boolean
                       takeOwnership:
                         type: boolean
                       timeoutSeconds:
@@ -1219,6 +1241,7 @@ spec:
               stagedOptions:
                 properties:
                   correctDrift:
+                    nullable: true
                     properties:
                       enabled:
                         type: boolean
@@ -1230,6 +1253,8 @@ spec:
                   defaultNamespace:
                     nullable: true
                     type: string
+                  deleteCRDResources:
+                    type: boolean
                   diff:
                     nullable: true
                     properties:
@@ -1283,6 +1308,8 @@ spec:
                       chart:
                         nullable: true
                         type: string
+                      disableDNS:
+                        type: boolean
                       disablePreProcess:
                         type: boolean
                       force:
@@ -1295,6 +1322,8 @@ spec:
                       repo:
                         nullable: true
                         type: string
+                      skipSchemaValidation:
+                        type: boolean
                       takeOwnership:
                         type: boolean
                       timeoutSeconds:
@@ -2485,6 +2514,9 @@ spec:
               kubeConfigSecret:
                 nullable: true
                 type: string
+              kubeConfigSecretNamespace:
+                nullable: true
+                type: string
               paused:
                 type: boolean
               privateRepoURL:
@@ -2819,6 +2851,7 @@ spec:
                 nullable: true
                 type: string
               correctDrift:
+                nullable: true
                 properties:
                   enabled:
                     type: boolean
