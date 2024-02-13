@@ -49,7 +49,7 @@ targets:
 
 actions:
   default:
-    title: '[updatecli] Bump Fleet charts to {{ source "fleetversion" }}'
+    title: '[updatecli] Add Fleet v{{ source "fleetversion" }} to helm repo'
     kind: github/pullrequest
     scmid: fleethelmcharts
     spec:
