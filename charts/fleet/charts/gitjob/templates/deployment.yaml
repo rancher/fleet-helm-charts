@@ -1,4 +1,3 @@
-{{- if .Values.gitops.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,12 +16,11 @@ spec:
         - image: "{{ template "system_default_registry" . }}{{ .Values.gitjob.repository }}:{{ .Values.gitjob.tag }}"
           name: gitjob
           args:
-          - gitjob
-          - --gitjob-image
-          - "{{ template "system_default_registry" . }}{{ .Values.gitjob.repository }}:{{ .Values.gitjob.tag }}"
           {{- if .Values.debug }}
           - --debug
           {{- end }}
+          - --tekton-image
+          - "{{ template "system_default_registry" . }}{{ .Values.tekton.repository }}:{{ .Values.tekton.tag }}"
           env:
             - name: NAMESPACE
               valueFrom:
@@ -40,15 +38,14 @@ spec:
             - name: CATTLE_DEV_MODE
               value: "true"
           {{- end }}
-      {{- with .Values.gitjob.tolerations }}
+      {{- with .Values.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.gitjob.nodeSelector }}
+      {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- if .Values.priorityClassName }}
       priorityClassName: "{{.Values.priorityClassName}}"
       {{- end }}
-{{- end }}
