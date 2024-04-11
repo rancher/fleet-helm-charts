@@ -1,7 +1,7 @@
 image:
   os: "windows,linux"
-  repository: ghcr.io/rancher/fleet-agent
-  tag: v0.10.0-rc.10
+  repository: rancher/fleet-agent
+  tag: v0.9.3-rc.3
 
 # The public URL of the Kubernetes API server running the Fleet Manager must be set here
 # Example: https://example.com:6443
@@ -57,7 +57,7 @@ global:
     systemDefaultRegistry: ""
   kubectl:
     repository: rancher/kubectl
-    tag: v1.29.0
+    tag: v1.21.5
 
 debug: false
 debugLevel: 0
