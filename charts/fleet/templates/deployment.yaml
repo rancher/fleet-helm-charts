@@ -39,18 +39,6 @@ spec:
         - name: FLEET_CPU_PPROF_PERIOD
           value: {{ quote .Values.cpuPprof.period }}
         {{- end }}
-        {{- if .Values.leaderElection.leaseDuration }}
-        - name: CATTLE_ELECTION_LEASE_DURATION
-          value: {{.Values.leaderElection.leaseDuration}}
-        {{- end }}
-        {{- if .Values.leaderElection.retryPeriod }}
-        - name: CATTLE_ELECTION_RETRY_PERIOD
-          value: {{.Values.leaderElection.retryPeriod}}
-        {{- end }}
-        {{- if .Values.leaderElection.renewDeadline }}
-        - name: CATTLE_ELECTION_RENEW_DEADLINE
-          value: {{.Values.leaderElection.renewDeadline}}
-        {{- end }}
         {{- if .Values.debug }}
         - name: CATTLE_DEV_MODE
           value: "true"
@@ -62,6 +50,9 @@ spec:
         - fleetcontroller
         {{- if not .Values.gitops.enabled }}
         - --disable-gitops
+        {{- end }}
+        {{- if not .Values.bootstrap.enabled }}
+        - --disable-bootstrap
         {{- end }}
         {{- if .Values.debug }}
         - --debug
@@ -82,89 +73,6 @@ spec:
         {{- if .Values.cpuPprof }}
           - mountPath: /tmp/pprof
             name: pprof
-        {{- end }}
-      - env:
-        - name: NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        {{- if .Values.debug }}
-        - name: CATTLE_DEV_MODE
-          value: "true"
-        {{- end }}
-        {{- if .Values.leaderElection.leaseDuration }}
-        - name: CATTLE_ELECTION_LEASE_DURATION
-          value: {{.Values.leaderElection.leaseDuration}}
-        {{- end }}
-        {{- if .Values.leaderElection.retryPeriod }}
-        - name: CATTLE_ELECTION_RETRY_PERIOD
-          value: {{.Values.leaderElection.retryPeriod}}
-        {{- end }}
-        {{- if .Values.leaderElection.renewDeadline }}
-        - name: CATTLE_ELECTION_RENEW_DEADLINE
-          value: {{.Values.leaderElection.renewDeadline}}
-        {{- end }}
-        image: '{{ template "system_default_registry" . }}{{ .Values.image.repository }}:{{ .Values.image.tag }}'
-        name: fleet-cleanup
-        imagePullPolicy: "{{ .Values.image.imagePullPolicy }}"
-        command:
-        - fleetcontroller
-        - cleanup
-        {{- if .Values.debug }}
-        - --debug
-        - --debug-level
-        - {{ quote .Values.debugLevel }}
-        {{- else }}
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          privileged: false
-          capabilities:
-            drop:
-            - ALL
-        {{- end }}
-      - env:
-        - name: NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        {{- if .Values.debug }}
-        - name: CATTLE_DEV_MODE
-          value: "true"
-        {{- end }}
-        {{- if .Values.leaderElection.leaseDuration }}
-        - name: CATTLE_ELECTION_LEASE_DURATION
-          value: {{.Values.leaderElection.leaseDuration}}
-        {{- end }}
-        {{- if .Values.leaderElection.retryPeriod }}
-        - name: CATTLE_ELECTION_RETRY_PERIOD
-          value: {{.Values.leaderElection.retryPeriod}}
-        {{- end }}
-        {{- if .Values.leaderElection.renewDeadline }}
-        - name: CATTLE_ELECTION_RENEW_DEADLINE
-          value: {{.Values.leaderElection.renewDeadline}}
-        {{- end }}
-        image: '{{ template "system_default_registry" . }}{{ .Values.image.repository }}:{{ .Values.image.tag }}'
-        name: fleet-agentmanagement
-        imagePullPolicy: "{{ .Values.image.imagePullPolicy }}"
-        command:
-        - fleetcontroller
-        - agentmanagement
-        {{- if not .Values.bootstrap.enabled }}
-        - --disable-bootstrap
-        {{- end }}
-        {{- if .Values.debug }}
-        - --debug
-        - --debug-level
-        - {{ quote .Values.debugLevel }}
-        {{- else }}
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          privileged: false
-          capabilities:
-            drop:
-            - ALL
         {{- end }}
       volumes:
         - name: tmp
