@@ -1,11 +1,11 @@
 image:
   repository: rancher/fleet
-  tag: v0.10.0-rc.13
+  tag: v0.9.4-rc.2
   imagePullPolicy: IfNotPresent
 
 agentImage:
   repository: rancher/fleet-agent
-  tag: v0.10.0-rc.13
+  tag: v0.9.4-rc.2
   imagePullPolicy: IfNotPresent
 
 # For cluster registration the public URL of the Kubernetes API server must be set here
@@ -66,9 +66,6 @@ priorityClassName: ""
 gitops:
   enabled: true
 
-metrics:
-  enabled: true
-
 debug: false
 debugLevel: 0
 propagateDebugSettingsToAgents: true
@@ -84,9 +81,3 @@ propagateDebugSettingsToAgents: true
 
 migrations:
   clusterRegistrationCleanup: true
-
-## Leader election configuration
-leaderElection:
-  leaseDuration: 30s
-  retryPeriod: 10s
-  renewDeadline: 25s
