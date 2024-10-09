@@ -172,6 +172,31 @@ entries:
       catalog.cattle.io/provides-gvr: clusters.fleet.cattle.io/v1alpha1
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
+    appVersion: 0.9.10-rc.3
+    created: "2024-10-09T13:50:24.106879516Z"
+    dependencies:
+    - condition: gitops.enabled
+      name: gitjob
+      repository: file://./charts/gitjob
+      version: 0.9.15
+    description: Fleet Manager - GitOps at Scale
+    digest: 358289dd6543fe740524d68b53cd0c22c2a4a5208e05d4a3fac81e751fb3fa0e
+    icon: https://charts.rancher.io/assets/logos/fleet.svg
+    name: fleet
+    urls:
+    - https://github.com/rancher/fleet-helm-charts/releases/download/fleet-0.9.10-rc.3/fleet-0.9.10-rc.3.tgz
+    version: 0.9.10-rc.3
+  - annotations:
+      catalog.cattle.io/auto-install: fleet-crd=match
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/namespace: cattle-fleet-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/provides-gvr: clusters.fleet.cattle.io/v1alpha1
+      catalog.cattle.io/release-name: fleet
+    apiVersion: v2
     appVersion: 0.9.10-rc.2
     created: "2024-09-24T16:03:52.89681027Z"
     dependencies:
@@ -806,6 +831,23 @@ entries:
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
+    appVersion: 0.9.10-rc.3
+    created: "2024-10-09T13:50:24.226502941Z"
+    description: Fleet Manager Agent - GitOps at Scale
+    digest: 7f2eb77aff89765c858534e0a97b0cc33df7cbe062d6c78c34a57c344c5bbe5b
+    icon: https://charts.rancher.io/assets/logos/fleet.svg
+    name: fleet-agent
+    urls:
+    - https://github.com/rancher/fleet-helm-charts/releases/download/fleet-agent-0.9.10-rc.3/fleet-agent-0.9.10-rc.3.tgz
+    version: 0.9.10-rc.3
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/namespace: cattle-fleet-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/release-name: fleet-agent
+    apiVersion: v2
     appVersion: 0.9.10-rc.2
     created: "2024-09-24T16:03:53.007287367Z"
     description: Fleet Manager Agent - GitOps at Scale
@@ -1300,6 +1342,23 @@ entries:
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
+    appVersion: 0.9.10-rc.3
+    created: "2024-10-09T13:50:24.344809189Z"
+    description: Fleet Manager CustomResourceDefinitions
+    digest: d067ddf761aeb3eb7d4b9330494bd365869c86d8fcf13bdcd5e7591918be72a0
+    icon: https://charts.rancher.io/assets/logos/fleet.svg
+    name: fleet-crd
+    urls:
+    - https://github.com/rancher/fleet-helm-charts/releases/download/fleet-crd-0.9.10-rc.3/fleet-crd-0.9.10-rc.3.tgz
+    version: 0.9.10-rc.3
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/namespace: cattle-fleet-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/release-name: fleet-crd
+    apiVersion: v2
     appVersion: 0.9.10-rc.2
     created: "2024-09-24T16:03:53.119028526Z"
     description: Fleet Manager CustomResourceDefinitions
@@ -1649,4 +1708,4 @@ entries:
     urls:
     - https://github.com/rancher/fleet-helm-charts/releases/download/fleet-crd-0.7.0/fleet-crd-0.7.0.tgz
     version: 0.7.0
-generated: "2024-10-09T12:23:07.256248362Z"
+generated: "2024-10-09T13:50:24.346144871Z"
