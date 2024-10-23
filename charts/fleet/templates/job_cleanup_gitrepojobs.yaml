@@ -1,9 +1,9 @@
-{{- if .Values.migrations.clusterRegistrationCleanup }}
+{{- if .Values.migrations.gitrepoJobsCleanup }}
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: fleet-cleanup-clusterregistrations
+  name: fleet-cleanup-gitrepo-jobs
   annotations:
     "helm.sh/hook": post-install, post-upgrade
     "helm.sh/hook-delete-policy": hook-succeeded, before-hook-creation
@@ -13,7 +13,7 @@ spec:
       labels:
         app: fleet-job
     spec:
-      serviceAccountName: fleet-controller
+      serviceAccountName: gitjob
       restartPolicy: Never
       securityContext:
         runAsNonRoot: true
@@ -34,7 +34,7 @@ spec:
         - fleet
         args:
         - cleanup
-        - clusterregistration
+        - gitjob
       nodeSelector: {{ include "linux-node-selector" . | nindent 8 }}
       tolerations: {{ include "linux-node-tolerations" . | nindent 8 }}
   backoffLimit: 1
