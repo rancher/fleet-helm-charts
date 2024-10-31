@@ -25,6 +25,5 @@ data:
         "agentNamespace": "{{.Values.bootstrap.agentNamespace}}"
       },
       "webhookReceiverURL": "{{.Values.webhookReceiverURL}}",
-      "githubURLPrefix": "{{.Values.githubURLPrefix}}",
-      "gitClientTimeout": "{{.Values.gitClientTimeout}}"
+      "githubURLPrefix": "{{.Values.githubURLPrefix}}"
     }

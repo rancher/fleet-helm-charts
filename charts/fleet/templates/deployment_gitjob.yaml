@@ -93,8 +93,7 @@ spec:
           {{- if $.Values.debug }}
             - name: CATTLE_DEV_MODE
               value: "true"
-          {{- end }}
-          {{- if not $.Values.disableSecurityContext }}
+          {{- else }}
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
@@ -123,7 +122,7 @@ spec:
       priorityClassName: "{{$.Values.priorityClassName}}"
       {{- end }}
 
-{{- if not $.Values.disableSecurityContext }}
+{{- if not $.Values.debug }}
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000

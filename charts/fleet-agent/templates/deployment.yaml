@@ -27,8 +27,7 @@ spec:
         - --debug
         - --debug-level
         - {{ quote .Values.debugLevel }}
-        {{- end }}
-        {{- if not .Values.disableSecurityContext }}
+        {{- else }}
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true
@@ -51,8 +50,7 @@ spec:
         - --debug
         - --debug-level
         - {{ quote .Values.debugLevel }}
-        {{- end }}
-        {{- if not .Values.disableSecurityContext }}
+        {{- else }}
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true
@@ -78,8 +76,7 @@ spec:
         - --debug
         - --debug-level
         - {{ quote .Values.debugLevel }}
-        {{- end }}
-        {{- if not .Values.disableSecurityContext }}
+        {{- else }}
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true
@@ -103,7 +100,7 @@ spec:
 {{- if .Values.fleetAgent.tolerations }}
 {{ toYaml .Values.fleetAgent.tolerations | indent 8 }}
 {{- end }}
-{{- if not .Values.disableSecurityContext }}
+{{- if not .Values.debug }}
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
