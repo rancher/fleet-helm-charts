@@ -1,9 +1,8 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: fleet-agent
 spec:
-  serviceName: fleet-agent
   selector:
     matchLabels:
       app: fleet-agent
@@ -12,31 +11,6 @@ spec:
       labels:
         app: fleet-agent
     spec:
-      initContainers:
-      - env:
-        - name: NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        image: '{{ template "system_default_registry" . }}{{.Values.image.repository}}:{{.Values.image.tag}}'
-        name: fleet-agent-register
-        command:
-        - fleetagent
-        - register
-        {{- if .Values.debug }}
-        - --debug
-        - --debug-level
-        - {{ quote .Values.debugLevel }}
-        {{- end }}
-        {{- if not .Values.disableSecurityContext }}
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          privileged: false
-          capabilities:
-            drop:
-            - ALL
-        {{- end }}
       containers:
       - env:
         - name: NAMESPACE
@@ -51,8 +25,7 @@ spec:
         - --debug
         - --debug-level
         - {{ quote .Values.debugLevel }}
-        {{- end }}
-        {{- if not .Values.disableSecurityContext }}
+        {{- else }}
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true
@@ -61,40 +34,7 @@ spec:
             drop:
             - ALL
         {{- end }}
-        volumeMounts:
-          - mountPath: /.kube
-            name: kube
-      - env:
-        - name: NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        image: '{{ template "system_default_registry" . }}{{.Values.image.repository}}:{{.Values.image.tag}}'
-        name: fleet-agent-clusterstatus
-        command:
-        - fleetagent
-        - clusterstatus
-        {{- if .Values.debug }}
-        - --debug
-        - --debug-level
-        - {{ quote .Values.debugLevel }}
-        {{- end }}
-        {{- if not .Values.disableSecurityContext }}
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          privileged: false
-          capabilities:
-            drop:
-            - ALL
-        {{- end }}
-      volumes:
-        - name: kube
-          emptyDir: {}
       serviceAccountName: fleet-agent
-      {{- if .Values.fleetAgent.hostNetwork }}
-      hostNetwork: true
-      {{- end }}
       nodeSelector: {{ include "linux-node-selector" . | nindent 8 }}
 {{- if .Values.fleetAgent.nodeSelector }}
 {{ toYaml .Values.fleetAgent.nodeSelector | indent 8 }}
@@ -103,7 +43,7 @@ spec:
 {{- if .Values.fleetAgent.tolerations }}
 {{ toYaml .Values.fleetAgent.tolerations | indent 8 }}
 {{- end }}
-{{- if not .Values.disableSecurityContext }}
+{{- if not .Values.debug }}
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
