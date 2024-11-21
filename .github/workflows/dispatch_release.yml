@@ -1,0 +1,52 @@
+name: Release Charts
+
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch
+# trigger via
+# curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/rancher/fleet-helm-charts/actions/workflows/release.yaml/dispatches --data '{"event_type": "publish_chart", "client_payload": {"version": "v0.8.2-rc.1"}}'
+
+on:
+  repository_dispatch:
+    types: [publish_chart]
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v3.5
+        with:
+          version: v3.14.0
+
+      - name: Download Charts
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+        run: |
+          # Remove old chart
+          rm -r ./charts/fleet*
+
+          VERSION=${VERSION#v}
+
+          # Get charts from fleet release page
+          for NAME in fleet fleet-crd fleet-agent
+          do
+            curl -sS -L -o "/tmp/${NAME}-${VERSION}.tgz" "https://github.com/rancher/fleet/releases/download/v${VERSION}/${NAME}-${VERSION}.tgz"
+            tar -xf "/tmp/${NAME}-${VERSION}.tgz" -C ./charts/
+          done
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.6.0
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CR_SKIP_EXISTING: true
