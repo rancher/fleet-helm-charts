@@ -2,14 +2,16 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: bundledeployments.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
     kind: BundleDeployment
+    listKind: BundleDeploymentList
     plural: bundledeployments
     singular: bundledeployment
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
@@ -72,7 +74,6 @@ spec:
                 correctDrift:
                   description: CorrectDrift specifies how drift correction should
                     work.
-                  nullable: true
                   properties:
                     enabled:
                       description: Enabled correct drift if true.
@@ -112,14 +113,12 @@ spec:
                                 key:
                                   description: key is the label key that the selector
                                     applies to.
-                                  nullable: true
                                   type: string
                                 operator:
                                   description: 'operator represents a key''s relationship
                                     to a set of values.
 
                                     Valid operators are In, NotIn, Exists and DoesNotExist.'
-                                  nullable: true
                                   type: string
                                 values:
                                   description: 'values is an array of string values.
@@ -133,16 +132,17 @@ spec:
 
                                     merge patch.'
                                   items:
-                                    nullable: true
                                     type: string
-                                  nullable: true
                                   type: array
+                                  x-kubernetes-list-type: atomic
+                              required:
+                                - key
+                                - operator
                               type: object
-                            nullable: true
                             type: array
+                            x-kubernetes-list-type: atomic
                           matchLabels:
                             additionalProperties:
-                              nullable: true
                               type: string
                             description: 'matchLabels is a map of {key,value} pairs.
                               A single {key,value} in the matchLabels
@@ -152,9 +152,9 @@ spec:
 
                               operator is "In", and the values array contains only
                               "value". The requirements are ANDed.'
-                            nullable: true
                             type: object
                         type: object
+                        x-kubernetes-map-type: atomic
                     type: object
                   nullable: true
                   type: array
@@ -162,6 +162,10 @@ spec:
                   description: DeploymentID is the ID of the currently applied deployment.
                   nullable: true
                   type: string
+                ociContents:
+                  description: OCIContents is true when this deployment's contents
+                    is stored in an oci registry
+                  type: boolean
                 options:
                   description: Options are the deployment options, that are currently
                     applied.
@@ -169,7 +173,6 @@ spec:
                     correctDrift:
                       description: CorrectDrift specifies how drift correction should
                         work.
-                      nullable: true
                       properties:
                         enabled:
                           description: Enabled correct drift if true.
@@ -198,6 +201,10 @@ spec:
                       description: DeleteCRDResources deletes CRDs. Warning! this
                         will also delete all your Custom Resources.
                       type: boolean
+                    deleteNamespace:
+                      description: DeleteNamespace can be used to delete the deployed
+                        namespace when removing the bundle
+                      type: boolean
                     diff:
                       description: Diff can be used to ignore the modified state of
                         objects which are amended at runtime.
@@ -219,7 +226,6 @@ spec:
                                 description: JSONPointers ignore diffs at a certain
                                   JSON path.
                                 items:
-                                  nullable: true
                                   type: string
                                 nullable: true
                                 type: array
@@ -264,6 +270,7 @@ spec:
                       type: object
                     forceSyncGeneration:
                       description: ForceSyncGeneration is used to force a redeployment
+                      format: int64
                       type: integer
                     helm:
                       description: Helm options for the deployment, like the chart
@@ -284,6 +291,10 @@ spec:
                         disableDNS:
                           description: DisableDNS can be used to customize Helm's
                             EnableDNS option, which Fleet sets to `true` by default.
+                          type: boolean
+                        disableDependencyUpdate:
+                          description: DisableDependencyUpdate allows skipping chart
+                            dependencies update
                           type: boolean
                         disablePreProcess:
                           description: DisablePreProcess disables template processing
@@ -338,7 +349,6 @@ spec:
                           description: ValuesFiles is a list of files to load values
                             from.
                           items:
-                            nullable: true
                             type: string
                           nullable: true
                           type: array
@@ -409,9 +419,7 @@ spec:
                             when monitoring the Bundle.
                           items:
                             additionalProperties:
-                              nullable: true
                               type: string
-                            nullable: true
                             type: object
                           nullable: true
                           type: array
@@ -446,7 +454,6 @@ spec:
                       type: string
                     namespaceAnnotations:
                       additionalProperties:
-                        nullable: true
                         type: string
                       description: NamespaceAnnotations are annotations that will
                         be appended to the namespace created by Fleet.
@@ -454,7 +461,6 @@ spec:
                       type: object
                     namespaceLabels:
                       additionalProperties:
-                        nullable: true
                         type: string
                       description: NamespaceLabels are labels that will be appended
                         to the namespace created by Fleet.
@@ -488,7 +494,6 @@ spec:
                             A file named ./overlays/myoverlay/subdir/resource_patch.yaml
                             will patch the base file.'
                           items:
-                            nullable: true
                             type: string
                           nullable: true
                           type: array
@@ -515,7 +520,6 @@ spec:
                     correctDrift:
                       description: CorrectDrift specifies how drift correction should
                         work.
-                      nullable: true
                       properties:
                         enabled:
                           description: Enabled correct drift if true.
@@ -544,6 +548,10 @@ spec:
                       description: DeleteCRDResources deletes CRDs. Warning! this
                         will also delete all your Custom Resources.
                       type: boolean
+                    deleteNamespace:
+                      description: DeleteNamespace can be used to delete the deployed
+                        namespace when removing the bundle
+                      type: boolean
                     diff:
                       description: Diff can be used to ignore the modified state of
                         objects which are amended at runtime.
@@ -565,7 +573,6 @@ spec:
                                 description: JSONPointers ignore diffs at a certain
                                   JSON path.
                                 items:
-                                  nullable: true
                                   type: string
                                 nullable: true
                                 type: array
@@ -610,6 +617,7 @@ spec:
                       type: object
                     forceSyncGeneration:
                       description: ForceSyncGeneration is used to force a redeployment
+                      format: int64
                       type: integer
                     helm:
                       description: Helm options for the deployment, like the chart
@@ -631,6 +639,10 @@ spec:
                           description: DisableDNS can be used to customize Helm's
                             EnableDNS option, which Fleet sets to `true` by default.
                           type: boolean
+                        disableDependencyUpdate:
+                          description: DisableDependencyUpdate allows skipping chart
+                            dependencies update
+                          type: boolean
                         disablePreProcess:
                           description: DisablePreProcess disables template processing
                             in values
@@ -651,7 +663,9 @@ spec:
                             the
 
                             invoking GitRepo.name + GitRepo.path.'
+                          maxLength: 53
                           nullable: true
+                          pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
                           type: string
                         repo:
                           description: Repo is the name of the HTTPS helm repo to
@@ -682,7 +696,6 @@ spec:
                           description: ValuesFiles is a list of files to load values
                             from.
                           items:
-                            nullable: true
                             type: string
                           nullable: true
                           type: array
@@ -753,9 +766,7 @@ spec:
                             when monitoring the Bundle.
                           items:
                             additionalProperties:
-                              nullable: true
                               type: string
-                            nullable: true
                             type: object
                           nullable: true
                           type: array
@@ -790,7 +801,6 @@ spec:
                       type: string
                     namespaceAnnotations:
                       additionalProperties:
-                        nullable: true
                         type: string
                       description: NamespaceAnnotations are annotations that will
                         be appended to the namespace created by Fleet.
@@ -798,7 +808,6 @@ spec:
                       type: object
                     namespaceLabels:
                       additionalProperties:
-                        nullable: true
                         type: string
                       description: NamespaceLabels are labels that will be appended
                         to the namespace created by Fleet.
@@ -832,7 +841,6 @@ spec:
                             A file named ./overlays/myoverlay/subdir/resource_patch.yaml
                             will patch the base file.'
                           items:
-                            nullable: true
                             type: string
                           nullable: true
                           type: array
@@ -850,34 +858,32 @@ spec:
                       lastTransitionTime:
                         description: Last time the condition transitioned from one
                           status to another.
-                        nullable: true
                         type: string
                       lastUpdateTime:
                         description: The last time this condition was updated.
-                        nullable: true
                         type: string
                       message:
                         description: Human-readable message indicating details about
                           last transition
-                        nullable: true
                         type: string
                       reason:
                         description: The reason for the condition's last transition.
-                        nullable: true
                         type: string
                       status:
                         description: Status of the condition, one of True, False,
                           Unknown.
-                        nullable: true
                         type: string
                       type:
                         description: Type of cluster condition.
-                        nullable: true
                         type: string
+                    required:
+                      - status
+                      - type
                     type: object
                   nullable: true
                   type: array
                 display:
+                  nullable: true
                   properties:
                     deployed:
                       nullable: true
@@ -944,12 +950,9 @@ spec:
                             type: boolean
                           message:
                             items:
-                              nullable: true
                               type: string
-                            nullable: true
                             type: array
                           state:
-                            nullable: true
                             type: string
                           transitioning:
                             type: boolean
@@ -986,6 +989,7 @@ spec:
                         nullable: true
                         type: string
                       createdAt:
+                        format: date-time
                         nullable: true
                         type: string
                       kind:
@@ -1001,6 +1005,7 @@ spec:
                   nullable: true
                   type: array
                 syncGeneration:
+                  format: int64
                   nullable: true
                   type: integer
               type: object
@@ -1013,14 +1018,16 @@ spec:
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: bundlenamespacemappings.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
     kind: BundleNamespaceMapping
+    listKind: BundleNamespaceMappingList
     plural: bundlenamespacemappings
     singular: bundlenamespacemapping
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - name: v1alpha1
@@ -1061,14 +1068,12 @@ spec:
                       key:
                         description: key is the label key that the selector applies
                           to.
-                        nullable: true
                         type: string
                       operator:
                         description: 'operator represents a key''s relationship to
                           a set of values.
 
                           Valid operators are In, NotIn, Exists and DoesNotExist.'
-                        nullable: true
                         type: string
                       values:
                         description: 'values is an array of string values. If the
@@ -1082,16 +1087,17 @@ spec:
 
                           merge patch.'
                         items:
-                          nullable: true
                           type: string
-                        nullable: true
                         type: array
+                        x-kubernetes-list-type: atomic
+                    required:
+                      - key
+                      - operator
                     type: object
-                  nullable: true
                   type: array
+                  x-kubernetes-list-type: atomic
                 matchLabels:
                   additionalProperties:
-                    nullable: true
                     type: string
                   description: 'matchLabels is a map of {key,value} pairs. A single
                     {key,value} in the matchLabels
@@ -1101,9 +1107,9 @@ spec:
 
                     operator is "In", and the values array contains only "value".
                     The requirements are ANDed.'
-                  nullable: true
                   type: object
               type: object
+              x-kubernetes-map-type: atomic
             kind:
               description: 'Kind is a string value representing the REST resource
                 this object represents.
@@ -1141,14 +1147,12 @@ spec:
                       key:
                         description: key is the label key that the selector applies
                           to.
-                        nullable: true
                         type: string
                       operator:
                         description: 'operator represents a key''s relationship to
                           a set of values.
 
                           Valid operators are In, NotIn, Exists and DoesNotExist.'
-                        nullable: true
                         type: string
                       values:
                         description: 'values is an array of string values. If the
@@ -1162,16 +1166,17 @@ spec:
 
                           merge patch.'
                         items:
-                          nullable: true
                           type: string
-                        nullable: true
                         type: array
+                        x-kubernetes-list-type: atomic
+                    required:
+                      - key
+                      - operator
                     type: object
-                  nullable: true
                   type: array
+                  x-kubernetes-list-type: atomic
                 matchLabels:
                   additionalProperties:
-                    nullable: true
                     type: string
                   description: 'matchLabels is a map of {key,value} pairs. A single
                     {key,value} in the matchLabels
@@ -1181,9 +1186,9 @@ spec:
 
                     operator is "In", and the values array contains only "value".
                     The requirements are ANDed.'
-                  nullable: true
                   type: object
               type: object
+              x-kubernetes-map-type: atomic
           type: object
       served: true
       storage: true
@@ -1193,14 +1198,16 @@ spec:
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: bundles.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
     kind: Bundle
+    listKind: BundleList
     plural: bundles
     singular: bundle
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
@@ -1264,10 +1271,14 @@ spec:
               type: object
             spec:
               properties:
+                contentsId:
+                  description: ContentsID stores the contents id when deploying contents
+                    using an OCI registry.
+                  nullable: true
+                  type: string
                 correctDrift:
                   description: CorrectDrift specifies how drift correction should
                     work.
-                  nullable: true
                   properties:
                     enabled:
                       description: Enabled correct drift if true.
@@ -1296,6 +1307,10 @@ spec:
                   description: DeleteCRDResources deletes CRDs. Warning! this will
                     also delete all your Custom Resources.
                   type: boolean
+                deleteNamespace:
+                  description: DeleteNamespace can be used to delete the deployed
+                    namespace when removing the bundle
+                  type: boolean
                 dependsOn:
                   description: DependsOn refers to the bundles which must be ready
                     before this bundle can be deployed.
@@ -1321,14 +1336,12 @@ spec:
                                 key:
                                   description: key is the label key that the selector
                                     applies to.
-                                  nullable: true
                                   type: string
                                 operator:
                                   description: 'operator represents a key''s relationship
                                     to a set of values.
 
                                     Valid operators are In, NotIn, Exists and DoesNotExist.'
-                                  nullable: true
                                   type: string
                                 values:
                                   description: 'values is an array of string values.
@@ -1342,16 +1355,17 @@ spec:
 
                                     merge patch.'
                                   items:
-                                    nullable: true
                                     type: string
-                                  nullable: true
                                   type: array
+                                  x-kubernetes-list-type: atomic
+                              required:
+                                - key
+                                - operator
                               type: object
-                            nullable: true
                             type: array
+                            x-kubernetes-list-type: atomic
                           matchLabels:
                             additionalProperties:
-                              nullable: true
                               type: string
                             description: 'matchLabels is a map of {key,value} pairs.
                               A single {key,value} in the matchLabels
@@ -1361,9 +1375,9 @@ spec:
 
                               operator is "In", and the values array contains only
                               "value". The requirements are ANDed.'
-                            nullable: true
                             type: object
                         type: object
+                        x-kubernetes-map-type: atomic
                     type: object
                   nullable: true
                   type: array
@@ -1388,7 +1402,6 @@ spec:
                             description: JSONPointers ignore diffs at a certain JSON
                               path.
                             items:
-                              nullable: true
                               type: string
                             nullable: true
                             type: array
@@ -1431,6 +1444,7 @@ spec:
                   type: object
                 forceSyncGeneration:
                   description: ForceSyncGeneration is used to force a redeployment
+                  format: int64
                   type: integer
                 helm:
                   description: Helm options for the deployment, like the chart name,
@@ -1451,6 +1465,10 @@ spec:
                     disableDNS:
                       description: DisableDNS can be used to customize Helm's EnableDNS
                         option, which Fleet sets to `true` by default.
+                      type: boolean
+                    disableDependencyUpdate:
+                      description: DisableDependencyUpdate allows skipping chart dependencies
+                        update
                       type: boolean
                     disablePreProcess:
                       description: DisablePreProcess disables template processing
@@ -1503,7 +1521,6 @@ spec:
                     valuesFiles:
                       description: ValuesFiles is a list of files to load values from.
                       items:
-                        nullable: true
                         type: string
                       nullable: true
                       type: array
@@ -1573,9 +1590,7 @@ spec:
                         when monitoring the Bundle.
                       items:
                         additionalProperties:
-                          nullable: true
                           type: string
-                        nullable: true
                         type: object
                       nullable: true
                       type: array
@@ -1610,7 +1625,6 @@ spec:
                   type: string
                 namespaceAnnotations:
                   additionalProperties:
-                    nullable: true
                     type: string
                   description: NamespaceAnnotations are annotations that will be appended
                     to the namespace created by Fleet.
@@ -1618,7 +1632,6 @@ spec:
                   type: object
                 namespaceLabels:
                   additionalProperties:
-                    nullable: true
                     type: string
                   description: NamespaceLabels are labels that will be appended to
                     the namespace created by Fleet.
@@ -1661,6 +1674,9 @@ spec:
                   nullable: true
                   properties:
                     autoPartitionSize:
+                      anyOf:
+                        - type: integer
+                        - type: string
                       description: 'A number or percentage of how to automatically
                         partition clusters if no
 
@@ -1670,6 +1686,9 @@ spec:
                       nullable: true
                       x-kubernetes-int-or-string: true
                     maxUnavailable:
+                      anyOf:
+                        - type: integer
+                        - type: string
                       description: 'A number or percentage of clusters that can be
                         unavailable during an update
 
@@ -1686,6 +1705,9 @@ spec:
                       nullable: true
                       x-kubernetes-int-or-string: true
                     maxUnavailablePartitions:
+                      anyOf:
+                        - type: integer
+                        - type: string
                       description: 'A number or percentage of cluster partitions that
                         can be unavailable during
 
@@ -1708,7 +1730,6 @@ spec:
                         properties:
                           clusterGroup:
                             description: A cluster group name to include in this partition
-                            nullable: true
                             type: string
                           clusterGroupSelector:
                             description: Selector matching cluster group labels to
@@ -1728,7 +1749,6 @@ spec:
                                     key:
                                       description: key is the label key that the selector
                                         applies to.
-                                      nullable: true
                                       type: string
                                     operator:
                                       description: 'operator represents a key''s relationship
@@ -1736,7 +1756,6 @@ spec:
 
                                         Valid operators are In, NotIn, Exists and
                                         DoesNotExist.'
-                                      nullable: true
                                       type: string
                                     values:
                                       description: 'values is an array of string values.
@@ -1750,16 +1769,17 @@ spec:
 
                                         merge patch.'
                                       items:
-                                        nullable: true
                                         type: string
-                                      nullable: true
                                       type: array
+                                      x-kubernetes-list-type: atomic
+                                  required:
+                                    - key
+                                    - operator
                                   type: object
-                                nullable: true
                                 type: array
+                                x-kubernetes-list-type: atomic
                               matchLabels:
                                 additionalProperties:
-                                  nullable: true
                                   type: string
                                 description: 'matchLabels is a map of {key,value}
                                   pairs. A single {key,value} in the matchLabels
@@ -1769,18 +1789,16 @@ spec:
 
                                   operator is "In", and the values array contains
                                   only "value". The requirements are ANDed.'
-                                nullable: true
                                 type: object
                             type: object
+                            x-kubernetes-map-type: atomic
                           clusterName:
                             description: ClusterName is the name of a cluster to include
                               in this partition
-                            nullable: true
                             type: string
                           clusterSelector:
                             description: Selector matching cluster labels to include
                               in this partition
-                            nullable: true
                             properties:
                               matchExpressions:
                                 description: matchExpressions is a list of label selector
@@ -1795,7 +1813,6 @@ spec:
                                     key:
                                       description: key is the label key that the selector
                                         applies to.
-                                      nullable: true
                                       type: string
                                     operator:
                                       description: 'operator represents a key''s relationship
@@ -1803,7 +1820,6 @@ spec:
 
                                         Valid operators are In, NotIn, Exists and
                                         DoesNotExist.'
-                                      nullable: true
                                       type: string
                                     values:
                                       description: 'values is an array of string values.
@@ -1817,16 +1833,17 @@ spec:
 
                                         merge patch.'
                                       items:
-                                        nullable: true
                                         type: string
-                                      nullable: true
                                       type: array
+                                      x-kubernetes-list-type: atomic
+                                  required:
+                                    - key
+                                    - operator
                                   type: object
-                                nullable: true
                                 type: array
+                                x-kubernetes-list-type: atomic
                               matchLabels:
                                 additionalProperties:
-                                  nullable: true
                                   type: string
                                 description: 'matchLabels is a map of {key,value}
                                   pairs. A single {key,value} in the matchLabels
@@ -1836,17 +1853,19 @@ spec:
 
                                   operator is "In", and the values array contains
                                   only "value". The requirements are ANDed.'
-                                nullable: true
                                 type: object
                             type: object
+                            x-kubernetes-map-type: atomic
                           maxUnavailable:
+                            anyOf:
+                              - type: integer
+                              - type: string
                             description: 'A number or percentage of clusters that
                               can be unavailable in this
 
                               partition before this partition is treated as done.
 
                               default: 10%'
-                            nullable: true
                             x-kubernetes-int-or-string: true
                           name:
                             description: A user-friendly name given to the partition
@@ -1898,14 +1917,12 @@ spec:
                                 key:
                                   description: key is the label key that the selector
                                     applies to.
-                                  nullable: true
                                   type: string
                                 operator:
                                   description: 'operator represents a key''s relationship
                                     to a set of values.
 
                                     Valid operators are In, NotIn, Exists and DoesNotExist.'
-                                  nullable: true
                                   type: string
                                 values:
                                   description: 'values is an array of string values.
@@ -1919,16 +1936,17 @@ spec:
 
                                     merge patch.'
                                   items:
-                                    nullable: true
                                     type: string
-                                  nullable: true
                                   type: array
+                                  x-kubernetes-list-type: atomic
+                              required:
+                                - key
+                                - operator
                               type: object
-                            nullable: true
                             type: array
+                            x-kubernetes-list-type: atomic
                           matchLabels:
                             additionalProperties:
-                              nullable: true
                               type: string
                             description: 'matchLabels is a map of {key,value} pairs.
                               A single {key,value} in the matchLabels
@@ -1938,9 +1956,9 @@ spec:
 
                               operator is "In", and the values array contains only
                               "value". The requirements are ANDed.'
-                            nullable: true
                             type: object
                         type: object
+                        x-kubernetes-map-type: atomic
                       clusterName:
                         nullable: true
                         type: string
@@ -1966,14 +1984,12 @@ spec:
                                 key:
                                   description: key is the label key that the selector
                                     applies to.
-                                  nullable: true
                                   type: string
                                 operator:
                                   description: 'operator represents a key''s relationship
                                     to a set of values.
 
                                     Valid operators are In, NotIn, Exists and DoesNotExist.'
-                                  nullable: true
                                   type: string
                                 values:
                                   description: 'values is an array of string values.
@@ -1987,16 +2003,17 @@ spec:
 
                                     merge patch.'
                                   items:
-                                    nullable: true
                                     type: string
-                                  nullable: true
                                   type: array
+                                  x-kubernetes-list-type: atomic
+                              required:
+                                - key
+                                - operator
                               type: object
-                            nullable: true
                             type: array
+                            x-kubernetes-list-type: atomic
                           matchLabels:
                             additionalProperties:
-                              nullable: true
                               type: string
                             description: 'matchLabels is a map of {key,value} pairs.
                               A single {key,value} in the matchLabels
@@ -2006,14 +2023,13 @@ spec:
 
                               operator is "In", and the values array contains only
                               "value". The requirements are ANDed.'
-                            nullable: true
                             type: object
                         type: object
+                        x-kubernetes-map-type: atomic
                       name:
                         nullable: true
                         type: string
                     type: object
-                  nullable: true
                   type: array
                 targets:
                   description: 'Targets refer to the clusters which will be deployed
@@ -2048,14 +2064,12 @@ spec:
                                 key:
                                   description: key is the label key that the selector
                                     applies to.
-                                  nullable: true
                                   type: string
                                 operator:
                                   description: 'operator represents a key''s relationship
                                     to a set of values.
 
                                     Valid operators are In, NotIn, Exists and DoesNotExist.'
-                                  nullable: true
                                   type: string
                                 values:
                                   description: 'values is an array of string values.
@@ -2069,16 +2083,17 @@ spec:
 
                                     merge patch.'
                                   items:
-                                    nullable: true
                                     type: string
-                                  nullable: true
                                   type: array
+                                  x-kubernetes-list-type: atomic
+                              required:
+                                - key
+                                - operator
                               type: object
-                            nullable: true
                             type: array
+                            x-kubernetes-list-type: atomic
                           matchLabels:
                             additionalProperties:
-                              nullable: true
                               type: string
                             description: 'matchLabels is a map of {key,value} pairs.
                               A single {key,value} in the matchLabels
@@ -2088,9 +2103,9 @@ spec:
 
                               operator is "In", and the values array contains only
                               "value". The requirements are ANDed.'
-                            nullable: true
                             type: object
                         type: object
+                        x-kubernetes-map-type: atomic
                       clusterName:
                         description: 'ClusterName to match a specific cluster by name
                           that will be
@@ -2126,14 +2141,12 @@ spec:
                                 key:
                                   description: key is the label key that the selector
                                     applies to.
-                                  nullable: true
                                   type: string
                                 operator:
                                   description: 'operator represents a key''s relationship
                                     to a set of values.
 
                                     Valid operators are In, NotIn, Exists and DoesNotExist.'
-                                  nullable: true
                                   type: string
                                 values:
                                   description: 'values is an array of string values.
@@ -2147,16 +2160,17 @@ spec:
 
                                     merge patch.'
                                   items:
-                                    nullable: true
                                     type: string
-                                  nullable: true
                                   type: array
+                                  x-kubernetes-list-type: atomic
+                              required:
+                                - key
+                                - operator
                               type: object
-                            nullable: true
                             type: array
+                            x-kubernetes-list-type: atomic
                           matchLabels:
                             additionalProperties:
-                              nullable: true
                               type: string
                             description: 'matchLabels is a map of {key,value} pairs.
                               A single {key,value} in the matchLabels
@@ -2166,13 +2180,12 @@ spec:
 
                               operator is "In", and the values array contains only
                               "value". The requirements are ANDed.'
-                            nullable: true
                             type: object
                         type: object
+                        x-kubernetes-map-type: atomic
                       correctDrift:
                         description: CorrectDrift specifies how drift correction should
                           work.
-                        nullable: true
                         properties:
                           enabled:
                             description: Enabled correct drift if true.
@@ -2201,6 +2214,10 @@ spec:
                         description: DeleteCRDResources deletes CRDs. Warning! this
                           will also delete all your Custom Resources.
                         type: boolean
+                      deleteNamespace:
+                        description: DeleteNamespace can be used to delete the deployed
+                          namespace when removing the bundle
+                        type: boolean
                       diff:
                         description: Diff can be used to ignore the modified state
                           of objects which are amended at runtime.
@@ -2222,7 +2239,6 @@ spec:
                                   description: JSONPointers ignore diffs at a certain
                                     JSON path.
                                   items:
-                                    nullable: true
                                     type: string
                                   nullable: true
                                   type: array
@@ -2273,6 +2289,7 @@ spec:
                         type: boolean
                       forceSyncGeneration:
                         description: ForceSyncGeneration is used to force a redeployment
+                        format: int64
                         type: integer
                       helm:
                         description: Helm options for the deployment, like the chart
@@ -2294,6 +2311,10 @@ spec:
                             description: DisableDNS can be used to customize Helm's
                               EnableDNS option, which Fleet sets to `true` by default.
                             type: boolean
+                          disableDependencyUpdate:
+                            description: DisableDependencyUpdate allows skipping chart
+                              dependencies update
+                            type: boolean
                           disablePreProcess:
                             description: DisablePreProcess disables template processing
                               in values
@@ -2314,7 +2335,9 @@ spec:
                               the
 
                               invoking GitRepo.name + GitRepo.path.'
+                            maxLength: 53
                             nullable: true
+                            pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
                             type: string
                           repo:
                             description: Repo is the name of the HTTPS helm repo to
@@ -2345,7 +2368,6 @@ spec:
                             description: ValuesFiles is a list of files to load values
                               from.
                             items:
-                              nullable: true
                               type: string
                             nullable: true
                             type: array
@@ -2416,9 +2438,7 @@ spec:
                               ignored when monitoring the Bundle.
                             items:
                               additionalProperties:
-                                nullable: true
                                 type: string
-                              nullable: true
                               type: object
                             nullable: true
                             type: array
@@ -2448,7 +2468,6 @@ spec:
 
                           not specified a default name of the format "target000" will
                           be used'
-                        nullable: true
                         type: string
                       namespace:
                         description: 'TargetNamespace if present will assign all resource
@@ -2462,7 +2481,6 @@ spec:
                         type: string
                       namespaceAnnotations:
                         additionalProperties:
-                          nullable: true
                           type: string
                         description: NamespaceAnnotations are annotations that will
                           be appended to the namespace created by Fleet.
@@ -2470,7 +2488,6 @@ spec:
                         type: object
                       namespaceLabels:
                         additionalProperties:
-                          nullable: true
                           type: string
                         description: NamespaceLabels are labels that will be appended
                           to the namespace created by Fleet.
@@ -2504,13 +2521,11 @@ spec:
                               A file named ./overlays/myoverlay/subdir/resource_patch.yaml
                               will patch the base file.'
                             items:
-                              nullable: true
                               type: string
                             nullable: true
                             type: array
                         type: object
                     type: object
-                  nullable: true
                   type: array
                 yaml:
                   description: 'YAML options, if using raw YAML these are names that
@@ -2535,7 +2550,6 @@ spec:
                         A file named ./overlays/myoverlay/subdir/resource_patch.yaml
                         will patch the base file.'
                       items:
-                        nullable: true
                         type: string
                       nullable: true
                       type: array
@@ -2553,32 +2567,28 @@ spec:
                       lastTransitionTime:
                         description: Last time the condition transitioned from one
                           status to another.
-                        nullable: true
                         type: string
                       lastUpdateTime:
                         description: The last time this condition was updated.
-                        nullable: true
                         type: string
                       message:
                         description: Human-readable message indicating details about
                           last transition
-                        nullable: true
                         type: string
                       reason:
                         description: The reason for the condition's last transition.
-                        nullable: true
                         type: string
                       status:
                         description: Status of the condition, one of True, False,
                           Unknown.
-                        nullable: true
                         type: string
                       type:
                         description: Type of cluster condition.
-                        nullable: true
                         type: string
+                    required:
+                      - status
+                      - type
                     type: object
-                  nullable: true
                   type: array
                 display:
                   description: 'Display contains the number of ready, desiredready
@@ -2632,7 +2642,14 @@ spec:
                 observedGeneration:
                   description: ObservedGeneration is the current generation of the
                     bundle.
+                  format: int64
                   type: integer
+                ociReference:
+                  description: 'OCIReference is the OCI reference used to store contents,
+                    this is
+
+                    only for informational purposes.'
+                  type: string
                 partitions:
                   description: PartitionStatus lists the status of each partition.
                   items:
@@ -2764,12 +2781,9 @@ spec:
                                             type: boolean
                                           message:
                                             items:
-                                              nullable: true
                                               type: string
-                                            nullable: true
                                             type: array
                                           state:
-                                            nullable: true
                                             type: string
                                           transitioning:
                                             type: boolean
@@ -2831,7 +2845,6 @@ spec:
                           in the partition.
                         type: integer
                     type: object
-                  nullable: true
                   type: array
                 resourceKey:
                   description: 'ResourceKey lists resources, which will likely be
@@ -2864,6 +2877,10 @@ spec:
                     type: object
                   nullable: true
                   type: array
+                resourcesSha256Sum:
+                  description: ResourcesSHA256Sum corresponds to the JSON serialization
+                    of the .Spec.Resources field
+                  type: string
                 summary:
                   description: 'Summary contains the number of bundle deployments
                     in each state and
@@ -2979,12 +2996,9 @@ spec:
                                       type: boolean
                                     message:
                                       items:
-                                        nullable: true
                                         type: string
-                                      nullable: true
                                       type: array
                                     state:
-                                      nullable: true
                                       type: string
                                     transitioning:
                                       type: boolean
@@ -3062,6 +3076,8 @@ spec:
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: clustergroups.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -3069,9 +3085,9 @@ spec:
     categories:
       - fleet
     kind: ClusterGroup
+    listKind: ClusterGroupList
     plural: clustergroups
     singular: clustergroup
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
@@ -3134,14 +3150,12 @@ spec:
                           key:
                             description: key is the label key that the selector applies
                               to.
-                            nullable: true
                             type: string
                           operator:
                             description: 'operator represents a key''s relationship
                               to a set of values.
 
                               Valid operators are In, NotIn, Exists and DoesNotExist.'
-                            nullable: true
                             type: string
                           values:
                             description: 'values is an array of string values. If
@@ -3155,16 +3169,17 @@ spec:
 
                               merge patch.'
                             items:
-                              nullable: true
                               type: string
-                            nullable: true
                             type: array
+                            x-kubernetes-list-type: atomic
+                        required:
+                          - key
+                          - operator
                         type: object
-                      nullable: true
                       type: array
+                      x-kubernetes-list-type: atomic
                     matchLabels:
                       additionalProperties:
-                        nullable: true
                         type: string
                       description: 'matchLabels is a map of {key,value} pairs. A single
                         {key,value} in the matchLabels
@@ -3174,9 +3189,9 @@ spec:
 
                         operator is "In", and the values array contains only "value".
                         The requirements are ANDed.'
-                      nullable: true
                       type: object
                   type: object
+                  x-kubernetes-map-type: atomic
               type: object
             status:
               properties:
@@ -3192,32 +3207,28 @@ spec:
                       lastTransitionTime:
                         description: Last time the condition transitioned from one
                           status to another.
-                        nullable: true
                         type: string
                       lastUpdateTime:
                         description: The last time this condition was updated.
-                        nullable: true
                         type: string
                       message:
                         description: Human-readable message indicating details about
                           last transition
-                        nullable: true
                         type: string
                       reason:
                         description: The reason for the condition's last transition.
-                        nullable: true
                         type: string
                       status:
                         description: Status of the condition, one of True, False,
                           Unknown.
-                        nullable: true
                         type: string
                       type:
                         description: Type of cluster condition.
-                        nullable: true
                         type: string
+                    required:
+                      - status
+                      - type
                     type: object
-                  nullable: true
                   type: array
                 display:
                   description: 'Display contains the number of ready, desiredready
@@ -3261,7 +3272,6 @@ spec:
                   description: NonReadyClusters is a list of cluster names that are
                     not ready.
                   items:
-                    nullable: true
                     type: string
                   nullable: true
                   type: array
@@ -3418,12 +3428,9 @@ spec:
                                       type: boolean
                                     message:
                                       items:
-                                        nullable: true
                                         type: string
-                                      nullable: true
                                       type: array
                                     state:
-                                      nullable: true
                                       type: string
                                     transitioning:
                                       type: boolean
@@ -3489,14 +3496,16 @@ spec:
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: clusterregistrations.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
     kind: ClusterRegistration
+    listKind: ClusterRegistrationList
     plural: clusterregistrations
     singular: clusterregistration
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
@@ -3558,7 +3567,6 @@ spec:
                   type: string
                 clusterLabels:
                   additionalProperties:
-                    nullable: true
                     type: string
                   description: ClusterLabels are copied to the cluster resource during
                     the registration.
@@ -3592,14 +3600,16 @@ spec:
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: clusterregistrationtokens.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
     kind: ClusterRegistrationToken
+    listKind: ClusterRegistrationTokenList
     plural: clusterregistrationtokens
     singular: clusterregistrationtoken
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
@@ -3637,11 +3647,6 @@ spec:
                 More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
               type: string
             metadata:
-              properties:
-                name:
-                  maxLength: 63
-                  pattern: ^[-a-z0-9]+$
-                  type: string
               type: object
             spec:
               properties:
@@ -3657,7 +3662,7 @@ spec:
               properties:
                 expires:
                   description: Expires is the time when the token expires.
-                  nullable: true
+                  format: date-time
                   type: string
                 secretName:
                   description: SecretName is the name of the secret containing the
@@ -3674,25 +3679,21 @@ spec:
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: clusters.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
     kind: Cluster
+    listKind: ClusterList
     plural: clusters
     singular: cluster
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
         - jsonPath: .status.display.readyBundles
           name: Bundles-Ready
-          type: string
-        - jsonPath: .status.display.readyNodes
-          name: Nodes-Ready
-          type: string
-        - jsonPath: .status.display.sampleNode
-          name: Sample-Node
           type: string
         - jsonPath: .status.agent.lastSeen
           name: Last-Seen
@@ -3737,11 +3738,6 @@ spec:
                 More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
               type: string
             metadata:
-              properties:
-                name:
-                  maxLength: 63
-                  pattern: ^[-a-z0-9]+$
-                  type: string
               type: object
             spec:
               properties:
@@ -3755,7 +3751,6 @@ spec:
                     nodeAffinity:
                       description: Describes node affinity scheduling rules for the
                         pod.
-                      nullable: true
                       properties:
                         preferredDuringSchedulingIgnoredDuringExecution:
                           description: 'The scheduler will prefer to schedule pods
@@ -3807,7 +3802,6 @@ spec:
                                         key:
                                           description: The label key that the selector
                                             applies to.
-                                          nullable: true
                                           type: string
                                         operator:
                                           description: 'Represents a key''s relationship
@@ -3815,14 +3809,6 @@ spec:
 
                                             Valid operators are In, NotIn, Exists,
                                             DoesNotExist. Gt, and Lt.'
-                                          enum:
-                                            - In
-                                            - NotIn
-                                            - Exists
-                                            - DoesNotExist
-                                            - Gt
-                                            - Lt
-                                          nullable: true
                                           type: string
                                         values:
                                           description: 'An array of string values.
@@ -3840,13 +3826,15 @@ spec:
                                             This array is replaced during a strategic
                                             merge patch.'
                                           items:
-                                            nullable: true
                                             type: string
-                                          nullable: true
                                           type: array
+                                          x-kubernetes-list-type: atomic
+                                      required:
+                                        - key
+                                        - operator
                                       type: object
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                   matchFields:
                                     description: A list of node selector requirements
                                       by node's fields.
@@ -3860,7 +3848,6 @@ spec:
                                         key:
                                           description: The label key that the selector
                                             applies to.
-                                          nullable: true
                                           type: string
                                         operator:
                                           description: 'Represents a key''s relationship
@@ -3868,14 +3855,6 @@ spec:
 
                                             Valid operators are In, NotIn, Exists,
                                             DoesNotExist. Gt, and Lt.'
-                                          enum:
-                                            - In
-                                            - NotIn
-                                            - Exists
-                                            - DoesNotExist
-                                            - Gt
-                                            - Lt
-                                          nullable: true
                                           type: string
                                         values:
                                           description: 'An array of string values.
@@ -3893,21 +3872,28 @@ spec:
                                             This array is replaced during a strategic
                                             merge patch.'
                                           items:
-                                            nullable: true
                                             type: string
-                                          nullable: true
                                           type: array
+                                          x-kubernetes-list-type: atomic
+                                      required:
+                                        - key
+                                        - operator
                                       type: object
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                 type: object
+                                x-kubernetes-map-type: atomic
                               weight:
                                 description: Weight associated with matching the corresponding
                                   nodeSelectorTerm, in the range 1-100.
+                                format: int32
                                 type: integer
+                            required:
+                              - preference
+                              - weight
                             type: object
-                          nullable: true
                           type: array
+                          x-kubernetes-list-type: atomic
                         requiredDuringSchedulingIgnoredDuringExecution:
                           description: 'If the affinity requirements specified by
                             this field are not met at
@@ -3923,7 +3909,6 @@ spec:
 
                             may or may not try to eventually evict the pod from its
                             node.'
-                          nullable: true
                           properties:
                             nodeSelectorTerms:
                               description: Required. A list of node selector terms.
@@ -3950,7 +3935,6 @@ spec:
                                         key:
                                           description: The label key that the selector
                                             applies to.
-                                          nullable: true
                                           type: string
                                         operator:
                                           description: 'Represents a key''s relationship
@@ -3958,14 +3942,6 @@ spec:
 
                                             Valid operators are In, NotIn, Exists,
                                             DoesNotExist. Gt, and Lt.'
-                                          enum:
-                                            - In
-                                            - NotIn
-                                            - Exists
-                                            - DoesNotExist
-                                            - Gt
-                                            - Lt
-                                          nullable: true
                                           type: string
                                         values:
                                           description: 'An array of string values.
@@ -3983,13 +3959,15 @@ spec:
                                             This array is replaced during a strategic
                                             merge patch.'
                                           items:
-                                            nullable: true
                                             type: string
-                                          nullable: true
                                           type: array
+                                          x-kubernetes-list-type: atomic
+                                      required:
+                                        - key
+                                        - operator
                                       type: object
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                   matchFields:
                                     description: A list of node selector requirements
                                       by node's fields.
@@ -4003,7 +3981,6 @@ spec:
                                         key:
                                           description: The label key that the selector
                                             applies to.
-                                          nullable: true
                                           type: string
                                         operator:
                                           description: 'Represents a key''s relationship
@@ -4011,14 +3988,6 @@ spec:
 
                                             Valid operators are In, NotIn, Exists,
                                             DoesNotExist. Gt, and Lt.'
-                                          enum:
-                                            - In
-                                            - NotIn
-                                            - Exists
-                                            - DoesNotExist
-                                            - Gt
-                                            - Lt
-                                          nullable: true
                                           type: string
                                         values:
                                           description: 'An array of string values.
@@ -4036,22 +4005,27 @@ spec:
                                             This array is replaced during a strategic
                                             merge patch.'
                                           items:
-                                            nullable: true
                                             type: string
-                                          nullable: true
                                           type: array
+                                          x-kubernetes-list-type: atomic
+                                      required:
+                                        - key
+                                        - operator
                                       type: object
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                 type: object
-                              nullable: true
+                                x-kubernetes-map-type: atomic
                               type: array
+                              x-kubernetes-list-type: atomic
+                          required:
+                            - nodeSelectorTerms
                           type: object
+                          x-kubernetes-map-type: atomic
                       type: object
                     podAffinity:
                       description: Describes pod affinity scheduling rules (e.g. co-locate
                         this pod in the same node, zone, etc. as some other pod(s)).
-                      nullable: true
                       properties:
                         preferredDuringSchedulingIgnoredDuringExecution:
                           description: 'The scheduler will prefer to schedule pods
@@ -4089,9 +4063,11 @@ spec:
                                   with the corresponding weight.
                                 properties:
                                   labelSelector:
-                                    description: A label query over a set of resources,
+                                    description: 'A label query over a set of resources,
                                       in this case pods.
-                                    nullable: true
+
+                                      If it''s null, this PodAffinityTerm matches
+                                      with no Pods.'
                                     properties:
                                       matchExpressions:
                                         description: matchExpressions is a list of
@@ -4107,7 +4083,6 @@ spec:
                                             key:
                                               description: key is the label key that
                                                 the selector applies to.
-                                              nullable: true
                                               type: string
                                             operator:
                                               description: 'operator represents a
@@ -4115,12 +4090,6 @@ spec:
 
                                                 Valid operators are In, NotIn, Exists
                                                 and DoesNotExist.'
-                                              enum:
-                                                - In
-                                                - NotIn
-                                                - Exists
-                                                - DoesNotExist
-                                              nullable: true
                                               type: string
                                             values:
                                               description: 'values is an array of
@@ -4135,16 +4104,17 @@ spec:
 
                                                 merge patch.'
                                               items:
-                                                nullable: true
                                                 type: string
-                                              nullable: true
                                               type: array
+                                              x-kubernetes-list-type: atomic
+                                          required:
+                                            - key
+                                            - operator
                                           type: object
-                                        nullable: true
                                         type: array
+                                        x-kubernetes-list-type: atomic
                                       matchLabels:
                                         additionalProperties:
-                                          nullable: true
                                           type: string
                                         description: 'matchLabels is a map of {key,value}
                                           pairs. A single {key,value} in the matchLabels
@@ -4154,9 +4124,72 @@ spec:
 
                                           operator is "In", and the values array contains
                                           only "value". The requirements are ANDed.'
-                                        nullable: true
                                         type: object
                                     type: object
+                                    x-kubernetes-map-type: atomic
+                                  matchLabelKeys:
+                                    description: 'MatchLabelKeys is a set of pod label
+                                      keys to select which pods will
+
+                                      be taken into consideration. The keys are used
+                                      to lookup values from the
+
+                                      incoming pod labels, those key-value labels
+                                      are merged with `labelSelector` as `key in (value)`
+
+                                      to select the group of existing pods which pods
+                                      will be taken into consideration
+
+                                      for the incoming pod''s pod (anti) affinity.
+                                      Keys that don''t exist in the incoming
+
+                                      pod labels will be ignored. The default value
+                                      is empty.
+
+                                      The same key is forbidden to exist in both matchLabelKeys
+                                      and labelSelector.
+
+                                      Also, matchLabelKeys cannot be set when labelSelector
+                                      isn''t set.
+
+                                      This is an alpha field and requires enabling
+                                      MatchLabelKeysInPodAffinity feature gate.'
+                                    items:
+                                      type: string
+                                    type: array
+                                    x-kubernetes-list-type: atomic
+                                  mismatchLabelKeys:
+                                    description: 'MismatchLabelKeys is a set of pod
+                                      label keys to select which pods will
+
+                                      be taken into consideration. The keys are used
+                                      to lookup values from the
+
+                                      incoming pod labels, those key-value labels
+                                      are merged with `labelSelector` as `key notin
+                                      (value)`
+
+                                      to select the group of existing pods which pods
+                                      will be taken into consideration
+
+                                      for the incoming pod''s pod (anti) affinity.
+                                      Keys that don''t exist in the incoming
+
+                                      pod labels will be ignored. The default value
+                                      is empty.
+
+                                      The same key is forbidden to exist in both mismatchLabelKeys
+                                      and labelSelector.
+
+                                      Also, mismatchLabelKeys cannot be set when labelSelector
+                                      isn''t set.
+
+                                      This is an alpha field and requires enabling
+                                      MatchLabelKeysInPodAffinity feature gate.'
+                                    items:
+                                      type: string
+                                    type: array
+                                    x-kubernetes-list-type: atomic
                                   namespaceSelector:
                                     description: 'A label query over the set of namespaces
                                       that the term applies to.
@@ -4170,7 +4203,6 @@ spec:
                                       means "this pod''s namespace".
 
                                       An empty selector ({}) matches all namespaces.'
-                                    nullable: true
                                     properties:
                                       matchExpressions:
                                         description: matchExpressions is a list of
@@ -4186,7 +4218,6 @@ spec:
                                             key:
                                               description: key is the label key that
                                                 the selector applies to.
-                                              nullable: true
                                               type: string
                                             operator:
                                               description: 'operator represents a
@@ -4194,12 +4225,6 @@ spec:
 
                                                 Valid operators are In, NotIn, Exists
                                                 and DoesNotExist.'
-                                              enum:
-                                                - In
-                                                - NotIn
-                                                - Exists
-                                                - DoesNotExist
-                                              nullable: true
                                               type: string
                                             values:
                                               description: 'values is an array of
@@ -4214,16 +4239,17 @@ spec:
 
                                                 merge patch.'
                                               items:
-                                                nullable: true
                                                 type: string
-                                              nullable: true
                                               type: array
+                                              x-kubernetes-list-type: atomic
+                                          required:
+                                            - key
+                                            - operator
                                           type: object
-                                        nullable: true
                                         type: array
+                                        x-kubernetes-list-type: atomic
                                       matchLabels:
                                         additionalProperties:
-                                          nullable: true
                                           type: string
                                         description: 'matchLabels is a map of {key,value}
                                           pairs. A single {key,value} in the matchLabels
@@ -4233,9 +4259,9 @@ spec:
 
                                           operator is "In", and the values array contains
                                           only "value". The requirements are ANDed.'
-                                        nullable: true
                                         type: object
                                     type: object
+                                    x-kubernetes-map-type: atomic
                                   namespaces:
                                     description: 'namespaces specifies a static list
                                       of namespace names that the term applies to.
@@ -4248,10 +4274,9 @@ spec:
                                       null or empty namespaces list and null namespaceSelector
                                       means "this pod''s namespace".'
                                     items:
-                                      nullable: true
                                       type: string
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                   topologyKey:
                                     description: 'This pod should be co-located (affinity)
                                       or not co-located (anti-affinity) with the pods
@@ -4267,18 +4292,23 @@ spec:
                                       selected pods is running.
 
                                       Empty topologyKey is not allowed.'
-                                    nullable: true
                                     type: string
+                                required:
+                                  - topologyKey
                                 type: object
                               weight:
                                 description: 'weight associated with matching the
                                   corresponding podAffinityTerm,
 
                                   in the range 1-100.'
+                                format: int32
                                 type: integer
+                            required:
+                              - podAffinityTerm
+                              - weight
                             type: object
-                          nullable: true
                           type: array
+                          x-kubernetes-list-type: atomic
                         requiredDuringSchedulingIgnoredDuringExecution:
                           description: 'If the affinity requirements specified by
                             this field are not met at
@@ -4319,9 +4349,11 @@ spec:
                               a pod of the set of pods is running'
                             properties:
                               labelSelector:
-                                description: A label query over a set of resources,
+                                description: 'A label query over a set of resources,
                                   in this case pods.
-                                nullable: true
+
+                                  If it''s null, this PodAffinityTerm matches with
+                                  no Pods.'
                                 properties:
                                   matchExpressions:
                                     description: matchExpressions is a list of label
@@ -4337,7 +4369,6 @@ spec:
                                         key:
                                           description: key is the label key that the
                                             selector applies to.
-                                          nullable: true
                                           type: string
                                         operator:
                                           description: 'operator represents a key''s
@@ -4345,12 +4376,6 @@ spec:
 
                                             Valid operators are In, NotIn, Exists
                                             and DoesNotExist.'
-                                          enum:
-                                            - In
-                                            - NotIn
-                                            - Exists
-                                            - DoesNotExist
-                                          nullable: true
                                           type: string
                                         values:
                                           description: 'values is an array of string
@@ -4364,16 +4389,17 @@ spec:
 
                                             merge patch.'
                                           items:
-                                            nullable: true
                                             type: string
-                                          nullable: true
                                           type: array
+                                          x-kubernetes-list-type: atomic
+                                      required:
+                                        - key
+                                        - operator
                                       type: object
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                   matchLabels:
                                     additionalProperties:
-                                      nullable: true
                                       type: string
                                     description: 'matchLabels is a map of {key,value}
                                       pairs. A single {key,value} in the matchLabels
@@ -4383,9 +4409,71 @@ spec:
 
                                       operator is "In", and the values array contains
                                       only "value". The requirements are ANDed.'
-                                    nullable: true
                                     type: object
                                 type: object
+                                x-kubernetes-map-type: atomic
+                              matchLabelKeys:
+                                description: 'MatchLabelKeys is a set of pod label
+                                  keys to select which pods will
+
+                                  be taken into consideration. The keys are used to
+                                  lookup values from the
+
+                                  incoming pod labels, those key-value labels are
+                                  merged with `labelSelector` as `key in (value)`
+
+                                  to select the group of existing pods which pods
+                                  will be taken into consideration
+
+                                  for the incoming pod''s pod (anti) affinity. Keys
+                                  that don''t exist in the incoming
+
+                                  pod labels will be ignored. The default value is
+                                  empty.
+
+                                  The same key is forbidden to exist in both matchLabelKeys
+                                  and labelSelector.
+
+                                  Also, matchLabelKeys cannot be set when labelSelector
+                                  isn''t set.
+
+                                  This is an alpha field and requires enabling MatchLabelKeysInPodAffinity
+                                  feature gate.'
+                                items:
+                                  type: string
+                                type: array
+                                x-kubernetes-list-type: atomic
+                              mismatchLabelKeys:
+                                description: 'MismatchLabelKeys is a set of pod label
+                                  keys to select which pods will
+
+                                  be taken into consideration. The keys are used to
+                                  lookup values from the
+
+                                  incoming pod labels, those key-value labels are
+                                  merged with `labelSelector` as `key notin (value)`
+
+                                  to select the group of existing pods which pods
+                                  will be taken into consideration
+
+                                  for the incoming pod''s pod (anti) affinity. Keys
+                                  that don''t exist in the incoming
+
+                                  pod labels will be ignored. The default value is
+                                  empty.
+
+                                  The same key is forbidden to exist in both mismatchLabelKeys
+                                  and labelSelector.
+
+                                  Also, mismatchLabelKeys cannot be set when labelSelector
+                                  isn''t set.
+
+                                  This is an alpha field and requires enabling MatchLabelKeysInPodAffinity
+                                  feature gate.'
+                                items:
+                                  type: string
+                                type: array
+                                x-kubernetes-list-type: atomic
                               namespaceSelector:
                                 description: 'A label query over the set of namespaces
                                   that the term applies to.
@@ -4399,7 +4487,6 @@ spec:
                                   means "this pod''s namespace".
 
                                   An empty selector ({}) matches all namespaces.'
-                                nullable: true
                                 properties:
                                   matchExpressions:
                                     description: matchExpressions is a list of label
@@ -4415,7 +4502,6 @@ spec:
                                         key:
                                           description: key is the label key that the
                                             selector applies to.
-                                          nullable: true
                                           type: string
                                         operator:
                                           description: 'operator represents a key''s
@@ -4423,12 +4509,6 @@ spec:
 
                                             Valid operators are In, NotIn, Exists
                                             and DoesNotExist.'
-                                          enum:
-                                            - In
-                                            - NotIn
-                                            - Exists
-                                            - DoesNotExist
-                                          nullable: true
                                           type: string
                                         values:
                                           description: 'values is an array of string
@@ -4442,16 +4522,17 @@ spec:
 
                                             merge patch.'
                                           items:
-                                            nullable: true
                                             type: string
-                                          nullable: true
                                           type: array
+                                          x-kubernetes-list-type: atomic
+                                      required:
+                                        - key
+                                        - operator
                                       type: object
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                   matchLabels:
                                     additionalProperties:
-                                      nullable: true
                                       type: string
                                     description: 'matchLabels is a map of {key,value}
                                       pairs. A single {key,value} in the matchLabels
@@ -4461,9 +4542,9 @@ spec:
 
                                       operator is "In", and the values array contains
                                       only "value". The requirements are ANDed.'
-                                    nullable: true
                                     type: object
                                 type: object
+                                x-kubernetes-map-type: atomic
                               namespaces:
                                 description: 'namespaces specifies a static list of
                                   namespace names that the term applies to.
@@ -4476,10 +4557,9 @@ spec:
                                   null or empty namespaces list and null namespaceSelector
                                   means "this pod''s namespace".'
                                 items:
-                                  nullable: true
                                   type: string
-                                nullable: true
                                 type: array
+                                x-kubernetes-list-type: atomic
                               topologyKey:
                                 description: 'This pod should be co-located (affinity)
                                   or not co-located (anti-affinity) with the pods
@@ -4494,17 +4574,17 @@ spec:
                                   selected pods is running.
 
                                   Empty topologyKey is not allowed.'
-                                nullable: true
                                 type: string
+                            required:
+                              - topologyKey
                             type: object
-                          nullable: true
                           type: array
+                          x-kubernetes-list-type: atomic
                       type: object
                     podAntiAffinity:
                       description: Describes pod anti-affinity scheduling rules (e.g.
                         avoid putting this pod in the same node, zone, etc. as some
                         other pod(s)).
-                      nullable: true
                       properties:
                         preferredDuringSchedulingIgnoredDuringExecution:
                           description: 'The scheduler will prefer to schedule pods
@@ -4542,9 +4622,11 @@ spec:
                                   with the corresponding weight.
                                 properties:
                                   labelSelector:
-                                    description: A label query over a set of resources,
+                                    description: 'A label query over a set of resources,
                                       in this case pods.
-                                    nullable: true
+
+                                      If it''s null, this PodAffinityTerm matches
+                                      with no Pods.'
                                     properties:
                                       matchExpressions:
                                         description: matchExpressions is a list of
@@ -4560,7 +4642,6 @@ spec:
                                             key:
                                               description: key is the label key that
                                                 the selector applies to.
-                                              nullable: true
                                               type: string
                                             operator:
                                               description: 'operator represents a
@@ -4568,12 +4649,6 @@ spec:
 
                                                 Valid operators are In, NotIn, Exists
                                                 and DoesNotExist.'
-                                              enum:
-                                                - In
-                                                - NotIn
-                                                - Exists
-                                                - DoesNotExist
-                                              nullable: true
                                               type: string
                                             values:
                                               description: 'values is an array of
@@ -4588,16 +4663,17 @@ spec:
 
                                                 merge patch.'
                                               items:
-                                                nullable: true
                                                 type: string
-                                              nullable: true
                                               type: array
+                                              x-kubernetes-list-type: atomic
+                                          required:
+                                            - key
+                                            - operator
                                           type: object
-                                        nullable: true
                                         type: array
+                                        x-kubernetes-list-type: atomic
                                       matchLabels:
                                         additionalProperties:
-                                          nullable: true
                                           type: string
                                         description: 'matchLabels is a map of {key,value}
                                           pairs. A single {key,value} in the matchLabels
@@ -4607,9 +4683,72 @@ spec:
 
                                           operator is "In", and the values array contains
                                           only "value". The requirements are ANDed.'
-                                        nullable: true
                                         type: object
                                     type: object
+                                    x-kubernetes-map-type: atomic
+                                  matchLabelKeys:
+                                    description: 'MatchLabelKeys is a set of pod label
+                                      keys to select which pods will
+
+                                      be taken into consideration. The keys are used
+                                      to lookup values from the
+
+                                      incoming pod labels, those key-value labels
+                                      are merged with `labelSelector` as `key in (value)`
+
+                                      to select the group of existing pods which pods
+                                      will be taken into consideration
+
+                                      for the incoming pod''s pod (anti) affinity.
+                                      Keys that don''t exist in the incoming
+
+                                      pod labels will be ignored. The default value
+                                      is empty.
+
+                                      The same key is forbidden to exist in both matchLabelKeys
+                                      and labelSelector.
+
+                                      Also, matchLabelKeys cannot be set when labelSelector
+                                      isn''t set.
+
+                                      This is an alpha field and requires enabling
+                                      MatchLabelKeysInPodAffinity feature gate.'
+                                    items:
+                                      type: string
+                                    type: array
+                                    x-kubernetes-list-type: atomic
+                                  mismatchLabelKeys:
+                                    description: 'MismatchLabelKeys is a set of pod
+                                      label keys to select which pods will
+
+                                      be taken into consideration. The keys are used
+                                      to lookup values from the
+
+                                      incoming pod labels, those key-value labels
+                                      are merged with `labelSelector` as `key notin
+                                      (value)`
+
+                                      to select the group of existing pods which pods
+                                      will be taken into consideration
+
+                                      for the incoming pod''s pod (anti) affinity.
+                                      Keys that don''t exist in the incoming
+
+                                      pod labels will be ignored. The default value
+                                      is empty.
+
+                                      The same key is forbidden to exist in both mismatchLabelKeys
+                                      and labelSelector.
+
+                                      Also, mismatchLabelKeys cannot be set when labelSelector
+                                      isn''t set.
+
+                                      This is an alpha field and requires enabling
+                                      MatchLabelKeysInPodAffinity feature gate.'
+                                    items:
+                                      type: string
+                                    type: array
+                                    x-kubernetes-list-type: atomic
                                   namespaceSelector:
                                     description: 'A label query over the set of namespaces
                                       that the term applies to.
@@ -4623,7 +4762,6 @@ spec:
                                       means "this pod''s namespace".
 
                                       An empty selector ({}) matches all namespaces.'
-                                    nullable: true
                                     properties:
                                       matchExpressions:
                                         description: matchExpressions is a list of
@@ -4639,7 +4777,6 @@ spec:
                                             key:
                                               description: key is the label key that
                                                 the selector applies to.
-                                              nullable: true
                                               type: string
                                             operator:
                                               description: 'operator represents a
@@ -4647,12 +4784,6 @@ spec:
 
                                                 Valid operators are In, NotIn, Exists
                                                 and DoesNotExist.'
-                                              enum:
-                                                - In
-                                                - NotIn
-                                                - Exists
-                                                - DoesNotExist
-                                              nullable: true
                                               type: string
                                             values:
                                               description: 'values is an array of
@@ -4667,16 +4798,17 @@ spec:
 
                                                 merge patch.'
                                               items:
-                                                nullable: true
                                                 type: string
-                                              nullable: true
                                               type: array
+                                              x-kubernetes-list-type: atomic
+                                          required:
+                                            - key
+                                            - operator
                                           type: object
-                                        nullable: true
                                         type: array
+                                        x-kubernetes-list-type: atomic
                                       matchLabels:
                                         additionalProperties:
-                                          nullable: true
                                           type: string
                                         description: 'matchLabels is a map of {key,value}
                                           pairs. A single {key,value} in the matchLabels
@@ -4686,9 +4818,9 @@ spec:
 
                                           operator is "In", and the values array contains
                                           only "value". The requirements are ANDed.'
-                                        nullable: true
                                         type: object
                                     type: object
+                                    x-kubernetes-map-type: atomic
                                   namespaces:
                                     description: 'namespaces specifies a static list
                                       of namespace names that the term applies to.
@@ -4701,10 +4833,9 @@ spec:
                                       null or empty namespaces list and null namespaceSelector
                                       means "this pod''s namespace".'
                                     items:
-                                      nullable: true
                                       type: string
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                   topologyKey:
                                     description: 'This pod should be co-located (affinity)
                                       or not co-located (anti-affinity) with the pods
@@ -4720,18 +4851,23 @@ spec:
                                       selected pods is running.
 
                                       Empty topologyKey is not allowed.'
-                                    nullable: true
                                     type: string
+                                required:
+                                  - topologyKey
                                 type: object
                               weight:
                                 description: 'weight associated with matching the
                                   corresponding podAffinityTerm,
 
                                   in the range 1-100.'
+                                format: int32
                                 type: integer
+                            required:
+                              - podAffinityTerm
+                              - weight
                             type: object
-                          nullable: true
                           type: array
+                          x-kubernetes-list-type: atomic
                         requiredDuringSchedulingIgnoredDuringExecution:
                           description: 'If the anti-affinity requirements specified
                             by this field are not met at
@@ -4772,9 +4908,11 @@ spec:
                               a pod of the set of pods is running'
                             properties:
                               labelSelector:
-                                description: A label query over a set of resources,
+                                description: 'A label query over a set of resources,
                                   in this case pods.
-                                nullable: true
+
+                                  If it''s null, this PodAffinityTerm matches with
+                                  no Pods.'
                                 properties:
                                   matchExpressions:
                                     description: matchExpressions is a list of label
@@ -4790,7 +4928,6 @@ spec:
                                         key:
                                           description: key is the label key that the
                                             selector applies to.
-                                          nullable: true
                                           type: string
                                         operator:
                                           description: 'operator represents a key''s
@@ -4798,12 +4935,6 @@ spec:
 
                                             Valid operators are In, NotIn, Exists
                                             and DoesNotExist.'
-                                          enum:
-                                            - In
-                                            - NotIn
-                                            - Exists
-                                            - DoesNotExist
-                                          nullable: true
                                           type: string
                                         values:
                                           description: 'values is an array of string
@@ -4817,16 +4948,17 @@ spec:
 
                                             merge patch.'
                                           items:
-                                            nullable: true
                                             type: string
-                                          nullable: true
                                           type: array
+                                          x-kubernetes-list-type: atomic
+                                      required:
+                                        - key
+                                        - operator
                                       type: object
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                   matchLabels:
                                     additionalProperties:
-                                      nullable: true
                                       type: string
                                     description: 'matchLabels is a map of {key,value}
                                       pairs. A single {key,value} in the matchLabels
@@ -4836,9 +4968,71 @@ spec:
 
                                       operator is "In", and the values array contains
                                       only "value". The requirements are ANDed.'
-                                    nullable: true
                                     type: object
                                 type: object
+                                x-kubernetes-map-type: atomic
+                              matchLabelKeys:
+                                description: 'MatchLabelKeys is a set of pod label
+                                  keys to select which pods will
+
+                                  be taken into consideration. The keys are used to
+                                  lookup values from the
+
+                                  incoming pod labels, those key-value labels are
+                                  merged with `labelSelector` as `key in (value)`
+
+                                  to select the group of existing pods which pods
+                                  will be taken into consideration
+
+                                  for the incoming pod''s pod (anti) affinity. Keys
+                                  that don''t exist in the incoming
+
+                                  pod labels will be ignored. The default value is
+                                  empty.
+
+                                  The same key is forbidden to exist in both matchLabelKeys
+                                  and labelSelector.
+
+                                  Also, matchLabelKeys cannot be set when labelSelector
+                                  isn''t set.
+
+                                  This is an alpha field and requires enabling MatchLabelKeysInPodAffinity
+                                  feature gate.'
+                                items:
+                                  type: string
+                                type: array
+                                x-kubernetes-list-type: atomic
+                              mismatchLabelKeys:
+                                description: 'MismatchLabelKeys is a set of pod label
+                                  keys to select which pods will
+
+                                  be taken into consideration. The keys are used to
+                                  lookup values from the
+
+                                  incoming pod labels, those key-value labels are
+                                  merged with `labelSelector` as `key notin (value)`
+
+                                  to select the group of existing pods which pods
+                                  will be taken into consideration
+
+                                  for the incoming pod''s pod (anti) affinity. Keys
+                                  that don''t exist in the incoming
+
+                                  pod labels will be ignored. The default value is
+                                  empty.
+
+                                  The same key is forbidden to exist in both mismatchLabelKeys
+                                  and labelSelector.
+
+                                  Also, mismatchLabelKeys cannot be set when labelSelector
+                                  isn''t set.
+
+                                  This is an alpha field and requires enabling MatchLabelKeysInPodAffinity
+                                  feature gate.'
+                                items:
+                                  type: string
+                                type: array
+                                x-kubernetes-list-type: atomic
                               namespaceSelector:
                                 description: 'A label query over the set of namespaces
                                   that the term applies to.
@@ -4852,7 +5046,6 @@ spec:
                                   means "this pod''s namespace".
 
                                   An empty selector ({}) matches all namespaces.'
-                                nullable: true
                                 properties:
                                   matchExpressions:
                                     description: matchExpressions is a list of label
@@ -4868,7 +5061,6 @@ spec:
                                         key:
                                           description: key is the label key that the
                                             selector applies to.
-                                          nullable: true
                                           type: string
                                         operator:
                                           description: 'operator represents a key''s
@@ -4876,12 +5068,6 @@ spec:
 
                                             Valid operators are In, NotIn, Exists
                                             and DoesNotExist.'
-                                          enum:
-                                            - In
-                                            - NotIn
-                                            - Exists
-                                            - DoesNotExist
-                                          nullable: true
                                           type: string
                                         values:
                                           description: 'values is an array of string
@@ -4895,16 +5081,17 @@ spec:
 
                                             merge patch.'
                                           items:
-                                            nullable: true
                                             type: string
-                                          nullable: true
                                           type: array
+                                          x-kubernetes-list-type: atomic
+                                      required:
+                                        - key
+                                        - operator
                                       type: object
-                                    nullable: true
                                     type: array
+                                    x-kubernetes-list-type: atomic
                                   matchLabels:
                                     additionalProperties:
-                                      nullable: true
                                       type: string
                                     description: 'matchLabels is a map of {key,value}
                                       pairs. A single {key,value} in the matchLabels
@@ -4914,9 +5101,9 @@ spec:
 
                                       operator is "In", and the values array contains
                                       only "value". The requirements are ANDed.'
-                                    nullable: true
                                     type: object
                                 type: object
+                                x-kubernetes-map-type: atomic
                               namespaces:
                                 description: 'namespaces specifies a static list of
                                   namespace names that the term applies to.
@@ -4929,10 +5116,9 @@ spec:
                                   null or empty namespaces list and null namespaceSelector
                                   means "this pod''s namespace".'
                                 items:
-                                  nullable: true
                                   type: string
-                                nullable: true
                                 type: array
+                                x-kubernetes-list-type: atomic
                               topologyKey:
                                 description: 'This pod should be co-located (affinity)
                                   or not co-located (anti-affinity) with the pods
@@ -4947,11 +5133,12 @@ spec:
                                   selected pods is running.
 
                                   Empty topologyKey is not allowed.'
-                                nullable: true
                                 type: string
+                            required:
+                              - topologyKey
                             type: object
-                          nullable: true
                           type: array
+                          x-kubernetes-list-type: atomic
                       type: object
                   type: object
                 agentEnvVars:
@@ -4963,7 +5150,6 @@ spec:
                     properties:
                       name:
                         description: Name of the environment variable. Must be a C_IDENTIFIER.
-                        nullable: true
                         type: string
                       value:
                         description: 'Variable references $(VAR_NAME) are expanded
@@ -4988,55 +5174,64 @@ spec:
                           exists or not.
 
                           Defaults to "".'
-                        nullable: true
                         type: string
                       valueFrom:
                         description: Source for the environment variable's value.
                           Cannot be used if value is not empty.
-                        nullable: true
                         properties:
                           configMapKeyRef:
                             description: Selects a key of a ConfigMap.
-                            nullable: true
                             properties:
                               key:
                                 description: The key to select.
-                                nullable: true
                                 type: string
                               name:
+                                default: ''
                                 description: 'Name of the referent.
+
+                                  This field is effectively required, but due to backwards
+                                  compatibility is
+
+                                  allowed to be empty. Instances of this type with
+                                  an empty value here are
+
+                                  almost certainly wrong.
+
+                                  TODO: Add other useful fields. apiVersion, kind,
+                                  uid?
 
                                   More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 
-                                  TODO: Add other useful fields. apiVersion, kind,
-                                  uid?'
-                                nullable: true
+                                  TODO: Drop `kubebuilder:default` when controller-gen
+                                  doesn''t need it https://github.com/kubernetes-sigs/kubebuilder/issues/3896.'
                                 type: string
                               optional:
                                 description: Specify whether the ConfigMap or its
                                   key must be defined
-                                nullable: true
                                 type: boolean
+                            required:
+                              - key
                             type: object
+                            x-kubernetes-map-type: atomic
                           fieldRef:
                             description: 'Selects a field of the pod: supports metadata.name,
                               metadata.namespace, `metadata.labels[''<KEY>'']`, `metadata.annotations[''<KEY>'']`,
 
                               spec.nodeName, spec.serviceAccountName, status.hostIP,
                               status.podIP, status.podIPs.'
-                            nullable: true
                             properties:
                               apiVersion:
                                 description: Version of the schema the FieldPath is
                                   written in terms of, defaults to "v1".
-                                nullable: true
                                 type: string
                               fieldPath:
                                 description: Path of the field to select in the specified
                                   API version.
-                                nullable: true
                                 type: string
+                            required:
+                              - fieldPath
                             type: object
+                            x-kubernetes-map-type: atomic
                           resourceFieldRef:
                             description: 'Selects a resource of the container: only
                               resources limits and requests
@@ -5044,48 +5239,64 @@ spec:
                               (limits.cpu, limits.memory, limits.ephemeral-storage,
                               requests.cpu, requests.memory and requests.ephemeral-storage)
                               are currently supported.'
-                            nullable: true
                             properties:
                               containerName:
                                 description: 'Container name: required for volumes,
                                   optional for env vars'
-                                nullable: true
                                 type: string
                               divisor:
+                                anyOf:
+                                  - type: integer
+                                  - type: string
                                 description: Specifies the output format of the exposed
                                   resources, defaults to "1"
-                                nullable: true
-                                type: string
+                                pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                                x-kubernetes-int-or-string: true
                               resource:
                                 description: 'Required: resource to select'
-                                nullable: true
                                 type: string
+                            required:
+                              - resource
                             type: object
+                            x-kubernetes-map-type: atomic
                           secretKeyRef:
                             description: Selects a key of a secret in the pod's namespace
-                            nullable: true
                             properties:
                               key:
                                 description: The key of the secret to select from.  Must
                                   be a valid secret key.
-                                nullable: true
                                 type: string
                               name:
+                                default: ''
                                 description: 'Name of the referent.
+
+                                  This field is effectively required, but due to backwards
+                                  compatibility is
+
+                                  allowed to be empty. Instances of this type with
+                                  an empty value here are
+
+                                  almost certainly wrong.
+
+                                  TODO: Add other useful fields. apiVersion, kind,
+                                  uid?
 
                                   More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 
-                                  TODO: Add other useful fields. apiVersion, kind,
-                                  uid?'
-                                nullable: true
+                                  TODO: Drop `kubebuilder:default` when controller-gen
+                                  doesn''t need it https://github.com/kubernetes-sigs/kubebuilder/issues/3896.'
                                 type: string
                               optional:
                                 description: Specify whether the Secret or its key
                                   must be defined
-                                nullable: true
                                 type: boolean
+                            required:
+                              - key
                             type: object
+                            x-kubernetes-map-type: atomic
                         type: object
+                    required:
+                      - name
                     type: object
                   nullable: true
                   type: array
@@ -5125,25 +5336,33 @@ spec:
                               available
 
                               inside a container.'
-                            nullable: true
                             type: string
+                        required:
+                          - name
                         type: object
-                      nullable: true
                       type: array
+                      x-kubernetes-list-map-keys:
+                        - name
+                      x-kubernetes-list-type: map
                     limits:
                       additionalProperties:
-                        nullable: true
-                        type: string
+                        anyOf:
+                          - type: integer
+                          - type: string
+                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                        x-kubernetes-int-or-string: true
                       description: 'Limits describes the maximum amount of compute
                         resources allowed.
 
                         More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
-                      nullable: true
                       type: object
                     requests:
                       additionalProperties:
-                        nullable: true
-                        type: string
+                        anyOf:
+                          - type: integer
+                          - type: string
+                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
+                        x-kubernetes-int-or-string: true
                       description: 'Requests describes the minimum amount of compute
                         resources required.
 
@@ -5154,7 +5373,6 @@ spec:
                         exceed Limits.
 
                         More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
-                      nullable: true
                       type: object
                   type: object
                 agentTolerations:
@@ -5172,7 +5390,6 @@ spec:
 
                           When specified, allowed values are NoSchedule, PreferNoSchedule
                           and NoExecute.'
-                        nullable: true
                         type: string
                       key:
                         description: 'Key is the taint key that the toleration applies
@@ -5180,7 +5397,6 @@ spec:
 
                           If the key is empty, operator must be Exists; this combination
                           means to match all values and all keys.'
-                        nullable: true
                         type: string
                       operator:
                         description: 'Operator represents a key''s relationship to
@@ -5192,7 +5408,6 @@ spec:
                           can
 
                           tolerate all taints of a particular category.'
-                        nullable: true
                         type: string
                       tolerationSeconds:
                         description: 'TolerationSeconds represents the period of time
@@ -5206,8 +5421,7 @@ spec:
 
                           negative values will be treated as 0 (evict immediately)
                           by the system.'
-                        maximum: 86400
-                        nullable: true
+                        format: int64
                         type: integer
                       value:
                         description: 'Value is the taint value the toleration matches
@@ -5215,7 +5429,6 @@ spec:
 
                           If the operator is Exists, the value should be empty, otherwise
                           just a regular string.'
-                        nullable: true
                         type: string
                     type: object
                   nullable: true
@@ -5227,6 +5440,13 @@ spec:
                     either be predefined, or generated when importing the cluster.'
                   nullable: true
                   type: string
+                hostNetwork:
+                  description: 'HostNetwork sets the agent StatefulSet to use hostNetwork:
+                    true setting.
+
+                    Allows for provisioning of network related bundles (CNI configuration).'
+                  nullable: true
+                  type: boolean
                 kubeConfigSecret:
                   description: 'KubeConfigSecret is the name of the secret containing
                     the kubeconfig for the downstream cluster.
@@ -5256,6 +5476,7 @@ spec:
                 redeployAgentGeneration:
                   description: RedeployAgentGeneration can be used to force redeploying
                     the agent.
+                  format: int64
                   type: integer
                 templateValues:
                   description: TemplateValues defines a cluster specific mapping of
@@ -5274,6 +5495,7 @@ spec:
                         to update the status
 
                         of the cluster resource.'
+                      format: date-time
                       nullable: true
                       type: string
                     namespace:
@@ -5281,40 +5503,12 @@ spec:
                         e.g. "cattle-fleet-system".
                       nullable: true
                       type: string
-                    nonReadyNodeNames:
-                      description: 'NonReadyNode contains the names of non-ready nodes.
-                        The list is
-
-                        limited to at most 3 names.'
-                      items:
-                        nullable: true
-                        type: string
-                      nullable: true
-                      type: array
-                    nonReadyNodes:
-                      description: NonReadyNodes is the number of nodes that are not
-                        ready.
-                      type: integer
-                    readyNodeNames:
-                      description: 'ReadyNodes contains the names of ready nodes.
-                        The list is limited to
-
-                        at most 3 names.'
-                      items:
-                        nullable: true
-                        type: string
-                      nullable: true
-                      type: array
-                    readyNodes:
-                      description: ReadyNodes is the number of nodes that are ready.
-                      type: integer
                   type: object
                 agentAffinityHash:
                   description: 'AgentAffinityHash is a hash of the agent''s affinity
                     configuration,
 
                     used to detect changes.'
-                  nullable: true
                   type: string
                 agentConfigChanged:
                   description: 'AgentConfigChanged is set to true if any of the agent
@@ -5327,6 +5521,7 @@ spec:
                 agentDeployedGeneration:
                   description: AgentDeployedGeneration is the generation of the agent
                     that is currently deployed.
+                  format: int64
                   nullable: true
                   type: integer
                 agentEnvVarsHash:
@@ -5334,6 +5529,11 @@ spec:
                     used to detect changes.
                   nullable: true
                   type: string
+                agentHostNetwork:
+                  description: AgentHostNetwork defines observed state of spec.hostNetwork
+                    setting that is currently used.
+                  nullable: true
+                  type: boolean
                 agentMigrated:
                   description: 'AgentMigrated is always set to true after importing
                     a cluster. If
@@ -5408,32 +5608,28 @@ spec:
                       lastTransitionTime:
                         description: Last time the condition transitioned from one
                           status to another.
-                        nullable: true
                         type: string
                       lastUpdateTime:
                         description: The last time this condition was updated.
-                        nullable: true
                         type: string
                       message:
                         description: Human-readable message indicating details about
                           last transition
-                        nullable: true
                         type: string
                       reason:
                         description: The reason for the condition's last transition.
-                        nullable: true
                         type: string
                       status:
                         description: Status of the condition, one of True, False,
                           Unknown.
-                        nullable: true
                         type: string
                       type:
                         description: Type of cluster condition.
-                        nullable: true
                         type: string
+                    required:
+                      - status
+                      - type
                     type: object
-                  nullable: true
                   type: array
                 desiredReadyGitRepos:
                   description: 'DesiredReadyGitRepos is the number of gitrepos for
@@ -5453,22 +5649,6 @@ spec:
                         desired
 
                         to be ready.'
-                      nullable: true
-                      type: string
-                    readyNodes:
-                      description: 'ReadyNodes is a string in the form "%d/%d", that
-                        describes the
-
-                        number of nodes that are ready vs. the number of expected
-                        nodes.'
-                      nullable: true
-                      type: string
-                    sampleNode:
-                      description: 'SampleNode is the name of one of the nodes that
-                        are ready. If no
-
-                        node is ready, it''s the name of a node that is not ready.'
-                      nullable: true
                       type: string
                     state:
                       description: State of the cluster, either one of the bundle
@@ -5476,6 +5656,10 @@ spec:
                       nullable: true
                       type: string
                   type: object
+                garbageCollectionInterval:
+                  description: GarbageCollectionInterval determines how often agents
+                    clean up obsolete Helm releases.
+                  type: string
                 namespace:
                   description: 'Namespace is the cluster namespace, it contains the
                     clusters service
@@ -5483,7 +5667,6 @@ spec:
                     account as well as any bundledeployments. Example:
 
                     "cluster-fleet-local-cluster-294db1acfa77-d9ccf852678f"'
-                  nullable: true
                   type: string
                 readyGitRepos:
                   description: ReadyGitRepos is the number of gitrepos for this cluster
@@ -5639,12 +5822,9 @@ spec:
                                       type: boolean
                                     message:
                                       items:
-                                        nullable: true
                                         type: string
-                                      nullable: true
                                       type: array
                                     state:
-                                      nullable: true
                                       type: string
                                     transitioning:
                                       type: boolean
@@ -5710,14 +5890,16 @@ spec:
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: contents.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
     kind: Content
+    listKind: ContentList
     plural: contents
     singular: content
-  preserveUnknownFields: false
   scope: Cluster
   versions:
     - name: v1alpha1
@@ -5746,6 +5928,7 @@ spec:
                 The bundle resources are copied into the bundledeployment''s content
 
                 resource, so the downstream agent can deploy them.'
+              format: byte
               nullable: true
               type: string
             kind:
@@ -5763,21 +5946,28 @@ spec:
               type: string
             metadata:
               type: object
+            sha256sum:
+              description: SHA256Sum of the Content field
+              type: string
           type: object
       served: true
       storage: true
+      subresources:
+        status: {}
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: gitreporestrictions.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
     kind: GitRepoRestriction
+    listKind: GitRepoRestrictionList
     plural: gitreporestrictions
     singular: gitreporestriction
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
@@ -5799,7 +5989,6 @@ spec:
               description: AllowedClientSecretNames is a list of client secret names
                 that GitRepos are allowed to use.
               items:
-                nullable: true
                 type: string
               nullable: true
               type: array
@@ -5809,7 +5998,6 @@ spec:
 
                 valid values of the Repo field of a GitRepo.'
               items:
-                nullable: true
                 type: string
               nullable: true
               type: array
@@ -5817,7 +6005,6 @@ spec:
               description: AllowedServiceAccounts is a list of service accounts that
                 GitRepos are allowed to use.
               items:
-                nullable: true
                 type: string
               nullable: true
               type: array
@@ -5829,7 +6016,6 @@ spec:
 
                 be set.'
               items:
-                nullable: true
                 type: string
               nullable: true
               type: array
@@ -5878,6 +6064,8 @@ spec:
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: gitrepos.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -5885,9 +6073,9 @@ spec:
     categories:
       - fleet
     kind: GitRepo
+    listKind: GitRepoList
     plural: gitrepos
     singular: gitrepo
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
@@ -5948,6 +6136,7 @@ spec:
                 caBundle:
                   description: CABundle is a PEM encoded CA bundle which will be used
                     to validate the repo's certificate.
+                  format: byte
                   nullable: true
                   type: string
                 clientSecretName:
@@ -5961,7 +6150,6 @@ spec:
                 correctDrift:
                   description: CorrectDrift specifies how drift correction should
                     work.
-                  nullable: true
                   properties:
                     enabled:
                       description: Enabled correct drift if true.
@@ -5976,9 +6164,18 @@ spec:
                         in the helm history.
                       type: boolean
                   type: object
+                deleteNamespace:
+                  description: DeleteNamespace specifies if the namespace created
+                    must be deleted after deleting the GitRepo.
+                  type: boolean
+                disablePolling:
+                  description: Disables git polling. When enabled only webhooks will
+                    be used.
+                  type: boolean
                 forceSyncGeneration:
                   description: Increment this number to force a redeployment of contents
                     from Git.
+                  format: int64
                   type: integer
                 helmRepoURLRegex:
                   description: 'HelmRepoURLRegex Helm credentials will be used if
@@ -6023,7 +6220,6 @@ spec:
                 imageScanInterval:
                   description: ImageScanInterval is the interval of syncing scanned
                     images and writing back to git repo.
-                  nullable: true
                   type: string
                 insecureSkipTLSVerify:
                   description: InsecureSkipTLSverify will use insecure HTTPS to clone
@@ -6033,6 +6229,28 @@ spec:
                   description: KeepResources specifies if the resources created must
                     be kept after deleting the GitRepo.
                   type: boolean
+                ociRegistry:
+                  description: OCIRegistry specifies the OCI registry related parameters
+                  properties:
+                    authSecretName:
+                      description: AuthSecretName contains the auth secret where the
+                        OCI regristry credentials are stored.
+                      nullable: true
+                      type: string
+                    basicHTTP:
+                      description: BasicHTTP uses HTTP connections to the OCI registry
+                        when enabled.
+                      nullable: true
+                      type: boolean
+                    insecureSkipTLS:
+                      description: InsecureSkipTLS allows connections to OCI registry
+                        without certs when enabled.
+                      nullable: true
+                      type: boolean
+                    reference:
+                      description: Reference of the OCI Registry
+                      type: string
+                  type: object
                 paths:
                   description: 'Paths is the directories relative to the git repo
                     root that contain resources to be applied.
@@ -6042,7 +6260,6 @@ spec:
 
                     If empty, "/" is the default.'
                   items:
-                    nullable: true
                     type: string
                   nullable: true
                   type: array
@@ -6105,14 +6322,12 @@ spec:
                                 key:
                                   description: key is the label key that the selector
                                     applies to.
-                                  nullable: true
                                   type: string
                                 operator:
                                   description: 'operator represents a key''s relationship
                                     to a set of values.
 
                                     Valid operators are In, NotIn, Exists and DoesNotExist.'
-                                  nullable: true
                                   type: string
                                 values:
                                   description: 'values is an array of string values.
@@ -6126,16 +6341,17 @@ spec:
 
                                     merge patch.'
                                   items:
-                                    nullable: true
                                     type: string
-                                  nullable: true
                                   type: array
+                                  x-kubernetes-list-type: atomic
+                              required:
+                                - key
+                                - operator
                               type: object
-                            nullable: true
                             type: array
+                            x-kubernetes-list-type: atomic
                           matchLabels:
                             additionalProperties:
-                              nullable: true
                               type: string
                             description: 'matchLabels is a map of {key,value} pairs.
                               A single {key,value} in the matchLabels
@@ -6145,9 +6361,9 @@ spec:
 
                               operator is "In", and the values array contains only
                               "value". The requirements are ANDed.'
-                            nullable: true
                             type: object
                         type: object
+                        x-kubernetes-map-type: atomic
                       clusterName:
                         description: ClusterName is the name of a cluster.
                         nullable: true
@@ -6169,14 +6385,12 @@ spec:
                                 key:
                                   description: key is the label key that the selector
                                     applies to.
-                                  nullable: true
                                   type: string
                                 operator:
                                   description: 'operator represents a key''s relationship
                                     to a set of values.
 
                                     Valid operators are In, NotIn, Exists and DoesNotExist.'
-                                  nullable: true
                                   type: string
                                 values:
                                   description: 'values is an array of string values.
@@ -6190,16 +6404,17 @@ spec:
 
                                     merge patch.'
                                   items:
-                                    nullable: true
                                     type: string
-                                  nullable: true
                                   type: array
+                                  x-kubernetes-list-type: atomic
+                              required:
+                                - key
+                                - operator
                               type: object
-                            nullable: true
                             type: array
+                            x-kubernetes-list-type: atomic
                           matchLabels:
                             additionalProperties:
-                              nullable: true
                               type: string
                             description: 'matchLabels is a map of {key,value} pairs.
                               A single {key,value} in the matchLabels
@@ -6209,23 +6424,21 @@ spec:
 
                               operator is "In", and the values array contains only
                               "value". The requirements are ANDed.'
-                            nullable: true
                             type: object
                         type: object
+                        x-kubernetes-map-type: atomic
                       name:
                         description: Name is the name of this target.
                         nullable: true
                         type: string
                     type: object
-                  nullable: true
                   type: array
               type: object
             status:
               properties:
                 commit:
-                  description: Commit is the Git commit hash from the last gitjob
+                  description: Commit is the Git commit hash from the last git job
                     run.
-                  nullable: true
                   type: string
                 conditions:
                   description: 'Conditions is a list of Wrangler conditions that describe
@@ -6237,32 +6450,28 @@ spec:
                       lastTransitionTime:
                         description: Last time the condition transitioned from one
                           status to another.
-                        nullable: true
                         type: string
                       lastUpdateTime:
                         description: The last time this condition was updated.
-                        nullable: true
                         type: string
                       message:
                         description: Human-readable message indicating details about
                           last transition
-                        nullable: true
                         type: string
                       reason:
                         description: The reason for the condition's last transition.
-                        nullable: true
                         type: string
                       status:
                         description: Status of the condition, one of True, False,
                           Unknown.
-                        nullable: true
                         type: string
                       type:
                         description: Type of cluster condition.
-                        nullable: true
                         type: string
+                    required:
+                      - status
+                      - type
                     type: object
-                  nullable: true
                   type: array
                 desiredReadyClusters:
                   description: "DesiredReadyClusters\tis the number of clusters that\
@@ -6277,7 +6486,6 @@ spec:
                     message:
                       description: Message contains the relevant message from the
                         deployment conditions.
-                      nullable: true
                       type: string
                     readyBundleDeployments:
                       description: 'ReadyBundleDeployments is a string in the form
@@ -6285,25 +6493,27 @@ spec:
 
                         number of ready bundledeployments over the total number of
                         bundledeployments.'
-                      nullable: true
                       type: string
                     state:
                       description: 'State is the state of the GitRepo, e.g. "GitUpdating"
                         or the maximal
 
                         BundleState according to StateRank.'
-                      nullable: true
                       type: string
                   type: object
                 gitJobStatus:
-                  description: GitJobStatus is the status of the last GitJob run,
+                  description: GitJobStatus is the status of the last Git job run,
                     e.g. "Current" if there was no error.
-                  nullable: true
+                  type: string
+                lastPollingTriggered:
+                  description: LastPollingTime is the last time the polling check
+                    was triggered
+                  format: date-time
                   type: string
                 lastSyncedImageScanTime:
                   description: LastSyncedImageScanTime is the time of the last image
                     scan.
-                  nullable: true
+                  format: date-time
                   type: string
                 observedGeneration:
                   description: 'ObservedGeneration is the current generation of the
@@ -6311,6 +6521,7 @@ spec:
 
                     metadata.Generation. The value is incremented for all changes,
                     except for changes to .metadata or .status.'
+                  format: int64
                   type: integer
                 readyClusters:
                   description: 'ReadyClusters is the lowest number of clusters that
@@ -6358,9 +6569,7 @@ spec:
                   description: ResourceErrors is a sorted list of errors from the
                     resources.
                   items:
-                    nullable: true
                     type: string
-                  nullable: true
                   type: array
                 resources:
                   description: Resources contains metadata about the resources of
@@ -6450,7 +6659,6 @@ spec:
                       state:
                         description: State is the state of the resource, e.g. "Unknown",
                           "WaitApplied", "ErrApplied" or "Ready".
-                        nullable: true
                         type: string
                       transitioning:
                         description: Transitioning is true if any Transitioning in
@@ -6459,10 +6667,8 @@ spec:
                       type:
                         description: Type is the type of the resource, e.g. "apiextensions.k8s.io.customresourcedefinition"
                           or "configmap".
-                        nullable: true
                         type: string
                     type: object
-                  nullable: true
                   type: array
                 summary:
                   description: Summary contains the number of bundle deployments in
@@ -6577,12 +6783,9 @@ spec:
                                       type: boolean
                                     message:
                                       items:
-                                        nullable: true
                                         type: string
-                                      nullable: true
                                       type: array
                                     state:
-                                      nullable: true
                                       type: string
                                     transitioning:
                                       type: boolean
@@ -6638,6 +6841,15 @@ spec:
                         to be deployed.'
                       type: integer
                   type: object
+                updateGeneration:
+                  description: Update generation is the force update generation if
+                    spec.forceSyncGeneration is set
+                  format: int64
+                  type: integer
+                webhookCommit:
+                  description: WebhookCommit is the latest Git commit hash received
+                    from a webhook
+                  type: string
               type: object
           type: object
       served: true
@@ -6648,16 +6860,16 @@ spec:
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
   name: imagescans.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
-    categories:
-      - fleet
     kind: ImageScan
+    listKind: ImageScanList
     plural: imagescans
     singular: imagescan
-  preserveUnknownFields: false
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
@@ -6764,14 +6976,26 @@ spec:
                   nullable: true
                   properties:
                     name:
+                      default: ''
                       description: 'Name of the referent.
+
+                        This field is effectively required, but due to backwards compatibility
+                        is
+
+                        allowed to be empty. Instances of this type with an empty
+                        value here are
+
+                        almost certainly wrong.
+
+                        TODO: Add other useful fields. apiVersion, kind, uid?
 
                         More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
 
-                        TODO: Add other useful fields. apiVersion, kind, uid?'
-                      nullable: true
+                        TODO: Drop `kubebuilder:default` when controller-gen doesn''t
+                        need it https://github.com/kubernetes-sigs/kubebuilder/issues/3896.'
                       type: string
                   type: object
+                  x-kubernetes-map-type: atomic
                 suspend:
                   description: 'This flag tells the controller to suspend subsequent
                     image scans.
@@ -6793,7 +7017,6 @@ spec:
                     implied bits made explicit; e.g., `docker.io/library/alpine`
 
                     rather than `alpine`.'
-                  nullable: true
                   type: string
                 conditions:
                   items:
@@ -6801,40 +7024,35 @@ spec:
                       lastTransitionTime:
                         description: Last time the condition transitioned from one
                           status to another.
-                        nullable: true
                         type: string
                       lastUpdateTime:
                         description: The last time this condition was updated.
-                        nullable: true
                         type: string
                       message:
                         description: Human-readable message indicating details about
                           last transition
-                        nullable: true
                         type: string
                       reason:
                         description: The reason for the condition's last transition.
-                        nullable: true
                         type: string
                       status:
                         description: Status of the condition, one of True, False,
                           Unknown.
-                        nullable: true
                         type: string
                       type:
                         description: Type of cluster condition.
-                        nullable: true
                         type: string
+                    required:
+                      - status
+                      - type
                     type: object
-                  nullable: true
                   type: array
                 lastScanTime:
                   description: LastScanTime is the last time image was scanned
-                  nullable: true
+                  format: date-time
                   type: string
                 latestDigest:
                   description: LatestDigest is the digest of latest tag
-                  nullable: true
                   type: string
                 latestImage:
                   description: 'LatestImage gives the first in the list of images
@@ -6843,13 +7061,12 @@ spec:
                     the image repository, when filtered and ordered according to
 
                     the policy.'
-                  nullable: true
                   type: string
                 latestTag:
                   description: Latest tag is the latest tag filtered by the policy
-                  nullable: true
                   type: string
                 observedGeneration:
+                  format: int64
                   type: integer
               type: object
           type: object
