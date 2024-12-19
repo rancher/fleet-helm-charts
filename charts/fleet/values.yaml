@@ -1,11 +1,11 @@
 image:
   repository: rancher/fleet
-  tag: v0.11.2
+  tag: v0.12.0-alpha.1
   imagePullPolicy: IfNotPresent
 
 agentImage:
   repository: rancher/fleet-agent
-  tag: v0.11.2
+  tag: v0.12.0-alpha.1
   imagePullPolicy: IfNotPresent
 
 # For cluster registration the public URL of the Kubernetes API server must be set here
@@ -104,10 +104,23 @@ controller:
       gitrepo: "50"
       bundle: "50"
       bundledeployment: "50"
+      cluster: "50"
+      clustergroup: "50"
+      imagescan: "50"
+
+## Fleet agent configuration
+agent:
+  reconciler:
+    # The number of workers that are allowed for each type of reconciler
+    workers:
+      bundledeployment: "50"
+      drift: "50"
 
 # Extra environment variables passed to the fleet pods.
 # extraEnv:
 # - name: EXPERIMENTAL_OCI_STORAGE
+#   value: "true"
+# - name: EXPERIMENTAL_HELM_OPS
 #   value: "true"
 
 # shards:
