@@ -1,11 +1,11 @@
 image:
   repository: rancher/fleet
-  tag: v0.12.0-alpha.1
+  tag: v0.11.3-beta.1
   imagePullPolicy: IfNotPresent
 
 agentImage:
   repository: rancher/fleet-agent
-  tag: v0.12.0-alpha.1
+  tag: v0.11.3-beta.1
   imagePullPolicy: IfNotPresent
 
 # For cluster registration the public URL of the Kubernetes API server must be set here
@@ -119,8 +119,6 @@ agent:
 # Extra environment variables passed to the fleet pods.
 # extraEnv:
 # - name: EXPERIMENTAL_OCI_STORAGE
-#   value: "true"
-# - name: EXPERIMENTAL_HELM_OPS
 #   value: "true"
 
 # shards:
