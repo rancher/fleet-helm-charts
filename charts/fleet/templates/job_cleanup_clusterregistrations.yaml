@@ -21,7 +21,7 @@ spec:
         runAsUser: 1000
       containers:
       - name: cleanup
-        image: "{{ template "system_default_registry" . }}{{.Values.image.repository}}:{{.Values.image.tag}}"
+        image: "{{ template "system_default_registry" . }}{{.Values.agentImage.repository}}:{{.Values.agentImage.tag}}"
         imagePullPolicy: {{ .Values.global.imagePullPolicy }}
         securityContext:
           allowPrivilegeEscalation: false
@@ -34,11 +34,7 @@ spec:
         - fleet
         args:
         - cleanup
-        - clusterregistration
       nodeSelector: {{ include "linux-node-selector" . | nindent 8 }}
       tolerations: {{ include "linux-node-tolerations" . | nindent 8 }}
-{{- if $.Values.tolerations }}
-{{ toYaml $.Values.tolerations | indent 8 }}
-{{- end }}
   backoffLimit: 1
 {{- end }}
