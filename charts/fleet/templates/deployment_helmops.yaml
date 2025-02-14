@@ -1,3 +1,4 @@
+{{- if has (dict "name" "EXPERIMENTAL_HELM_OPS" "value" "true") .Values.extraEnv }}
 {{- $shards := list (dict "id" "" "nodeSelector" dict) -}}
 {{- $uniqueShards := list -}}
 {{- if .Values.shards -}}
@@ -10,28 +11,27 @@
 {{- end -}}
 
 {{ range $shard := $shards }}
-{{- if $.Values.gitops.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "gitjob{{if $shard.id }}-shard-{{ $shard.id }}{{end}}"
+  name: "helmops{{if $shard.id }}-shard-{{ $shard.id }}{{end}}"
 spec:
   selector:
     matchLabels:
-      app: "gitjob"
+      app: "helmops"
   template:
     metadata:
       labels:
-        app: "gitjob"
+        app: "helmops"
         fleet.cattle.io/shard-id: "{{ $shard.id }}"
         {{- if empty $shard.id }}
         fleet.cattle.io/shard-default: "true"
         {{- end }}
     spec:
-      serviceAccountName: gitjob
+      serviceAccountName: helmops
       containers:
         - image: "{{ template "system_default_registry" $ }}{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
-          name: gitjob
+          name: helmops
           {{- if $.Values.metrics.enabled }}
           ports:
           - containerPort: 8081
@@ -39,9 +39,7 @@ spec:
           {{- end }}
           args:
           - fleetcontroller
-          - gitjob
-          - --gitjob-image
-          - "{{ template "system_default_registry" $ }}{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          - helmops
           {{- if $.Values.debug }}
           - --debug
           - --debug-level
@@ -50,10 +48,6 @@ spec:
           {{- if $shard.id }}
           - --shard-id
           - {{ quote $shard.id }}
-          {{- end }}
-          {{- if $shard.nodeSelector }}
-          - --shard-node-selector
-          - {{ toJson $shard.nodeSelector | squote }}
           {{- end }}
           {{- if not $.Values.metrics.enabled }}
           - --disable-metrics
@@ -83,12 +77,8 @@ spec:
             - name: NO_PROXY
               value: {{ $.Values.noProxy }}
           {{- end }}
-          {{- if $.Values.gitops.syncPeriod }}
-            - name: GITREPO_SYNC_PERIOD
-              value: {{ quote $.Values.gitops.syncPeriod }}
-          {{- end }}
           {{- if $.Values.controller.reconciler.workers.gitrepo }}
-            - name: GITREPO_RECONCILER_WORKERS
+            - name: HELMOPS_RECONCILER_WORKERS
               value: {{ quote $.Values.controller.reconciler.workers.gitrepo }}
           {{- end }}
 {{- if $.Values.extraEnv }}
@@ -136,6 +126,6 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
-{{- end }}
 ---
+{{- end }}
 {{- end }}
