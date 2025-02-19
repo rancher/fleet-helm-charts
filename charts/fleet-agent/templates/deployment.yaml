@@ -70,8 +70,6 @@ spec:
             - ALL
         {{- end }}
         volumeMounts:
-          - mountPath: /tmp
-            name: tmp
           - mountPath: /.kube
             name: kube
       - env:
@@ -99,8 +97,6 @@ spec:
             - ALL
         {{- end }}
       volumes:
-        - name: tmp
-          emptyDir: {}
         - name: kube
           emptyDir: {}
       serviceAccountName: fleet-agent
