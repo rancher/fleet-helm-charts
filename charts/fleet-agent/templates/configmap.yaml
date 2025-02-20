@@ -10,7 +10,4 @@ data:
       {{ end }}
       "clientID":"{{.Values.clientID}}",
       "agentTLSMode": "{{.Values.agentTLSMode}}"
-      {{ if .Values.garbageCollectionInterval }}
-      "garbageCollectionInterval": "{{.Values.garbageCollectionInterval}}"
-      {{ end }}
     }
