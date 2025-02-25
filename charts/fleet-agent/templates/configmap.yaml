@@ -9,5 +9,8 @@ data:
       "labels":{{toJson .Values.labels}},
       {{ end }}
       "clientID":"{{.Values.clientID}}",
+      {{ if .Values.garbageCollectionInterval }}
+      "garbageCollectionInterval": "{{.Values.garbageCollectionInterval}}",
+      {{ end }}
       "agentTLSMode": "{{.Values.agentTLSMode}}"
     }
