@@ -12,6 +12,13 @@ data:
       "apiServerCA": "{{b64enc .Values.apiServerCA}}",
       "agentCheckinInterval": "{{.Values.agentCheckinInterval}}",
       "agentTLSMode": "{{.Values.agentTLSMode}}",
+      "agentWorkers": {
+            "bundledeployment": "{{.Values.agent.reconciler.workers.bundledeployment}}",
+            "drift": "{{.Values.agent.reconciler.workers.drift}}"
+      },
+      {{ if .Values.garbageCollectionInterval }}
+      "garbageCollectionInterval": "{{.Values.garbageCollectionInterval}}",
+      {{ end }}
       "ignoreClusterRegistrationLabels": {{.Values.ignoreClusterRegistrationLabels}},
       "bootstrap": {
         "paths": "{{.Values.bootstrap.paths}}",
@@ -19,8 +26,9 @@ data:
         "secret": "{{.Values.bootstrap.secret}}",
         "branch":  "{{.Values.bootstrap.branch}}",
         "namespace": "{{.Values.bootstrap.namespace}}",
-        "agentNamespace": "{{.Values.bootstrap.agentNamespace}}",
+        "agentNamespace": "{{.Values.bootstrap.agentNamespace}}"
       },
       "webhookReceiverURL": "{{.Values.webhookReceiverURL}}",
-      "githubURLPrefix": "{{.Values.githubURLPrefix}}"
+      "githubURLPrefix": "{{.Values.githubURLPrefix}}",
+      "gitClientTimeout": "{{.Values.gitClientTimeout}}"
     }
