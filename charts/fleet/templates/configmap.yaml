@@ -12,10 +12,6 @@ data:
       "apiServerCA": "{{b64enc .Values.apiServerCA}}",
       "agentCheckinInterval": "{{.Values.agentCheckinInterval}}",
       "agentTLSMode": "{{.Values.agentTLSMode}}",
-      "agentWorkers": {
-            "bundledeployment": "{{.Values.agent.reconciler.workers.bundledeployment}}",
-            "drift": "{{.Values.agent.reconciler.workers.drift}}"
-      },
       {{ if .Values.garbageCollectionInterval }}
       "garbageCollectionInterval": "{{.Values.garbageCollectionInterval}}",
       {{ end }}
@@ -29,6 +25,5 @@ data:
         "agentNamespace": "{{.Values.bootstrap.agentNamespace}}"
       },
       "webhookReceiverURL": "{{.Values.webhookReceiverURL}}",
-      "githubURLPrefix": "{{.Values.githubURLPrefix}}",
-      "gitClientTimeout": "{{.Values.gitClientTimeout}}"
+      "githubURLPrefix": "{{.Values.githubURLPrefix}}"
     }
