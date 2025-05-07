@@ -16,7 +16,6 @@ kind: Deployment
 metadata:
   name: "helmops{{if $shard.id }}-shard-{{ $shard.id }}{{end}}"
 spec:
-  replicas: {{ $.Values.helmops.replicas }}
   selector:
     matchLabels:
       app: "helmops"
@@ -28,13 +27,6 @@ spec:
         {{- if empty $shard.id }}
         fleet.cattle.io/shard-default: "true"
         {{- end }}
-{{- if $.Values.extraLabels }}
-{{ toYaml $.Values.extraLabels | indent 8 }}
-{{- end }}
-{{- if $.Values.extraAnnotations }}
-      annotations:
-{{ toYaml $.Values.extraAnnotations | indent 8 }}
-{{- end }}
     spec:
       serviceAccountName: helmops
       containers:

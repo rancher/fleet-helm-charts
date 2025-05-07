@@ -15,7 +15,6 @@ kind: Deployment
 metadata:
   name: "fleet-controller{{if $shard.id }}-shard-{{ $shard.id }}{{end}}"
 spec:
-  replicas: {{ $.Values.controller.replicas }}
   selector:
     matchLabels:
       app: fleet-controller
@@ -27,13 +26,6 @@ spec:
         {{- if empty $shard.id }}
         fleet.cattle.io/shard-default: "true"
         {{- end }}
-{{- if $.Values.extraLabels }}
-{{ toYaml $.Values.extraLabels | indent 8 }}
-{{- end }}
-{{- if $.Values.extraAnnotations }}
-      annotations:
-{{ toYaml $.Values.extraAnnotations | indent 8 }}
-{{- end }}
     spec:
       containers:
       - env:
@@ -192,22 +184,6 @@ spec:
         {{- if $.Values.leaderElection.renewDeadline }}
         - name: CATTLE_ELECTION_RENEW_DEADLINE
           value: {{$.Values.leaderElection.renewDeadline}}
-        {{- end }}
-        {{- if $.Values.agent.replicas }}
-        - name: FLEET_AGENT_REPLICA_COUNT
-          value: "{{ $.Values.agent.replicas }}"
-        {{- end }}
-        {{- if $.Values.agent.leaderElection.leaseDuration }}
-        - name: FLEET_AGENT_ELECTION_LEASE_DURATION
-          value: {{$.Values.agent.leaderElection.leaseDuration}}
-        {{- end }}
-        {{- if $.Values.agent.leaderElection.retryPeriod }}
-        - name: FLEET_AGENT_ELECTION_RETRY_PERIOD
-          value: {{$.Values.agent.leaderElection.retryPeriod}}
-        {{- end }}
-        {{- if $.Values.agent.leaderElection.renewDeadline }}
-        - name: FLEET_AGENT_ELECTION_RENEW_DEADLINE
-          value: {{$.Values.agent.leaderElection.renewDeadline}}
         {{- end }}
         image: '{{ template "system_default_registry" $ }}{{ $.Values.image.repository }}:{{ $.Values.image.tag }}'
         name: fleet-agentmanagement
