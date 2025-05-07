@@ -16,7 +16,6 @@ kind: Deployment
 metadata:
   name: "gitjob{{if $shard.id }}-shard-{{ $shard.id }}{{end}}"
 spec:
-  replicas: {{ $.Values.gitjob.replicas }}
   selector:
     matchLabels:
       app: "gitjob"
@@ -28,13 +27,6 @@ spec:
         {{- if empty $shard.id }}
         fleet.cattle.io/shard-default: "true"
         {{- end }}
-{{- if $.Values.extraLabels }}
-{{ toYaml $.Values.extraLabels | indent 8 }}
-{{- end }}
-{{- if $.Values.extraAnnotations }}
-      annotations:
-{{ toYaml $.Values.extraAnnotations | indent 8 }}
-{{- end }}
     spec:
       serviceAccountName: gitjob
       containers:
