@@ -1,11 +1,11 @@
 image:
   repository: rancher/fleet
-  tag: v0.10.13
+  tag: v0.9.18
   imagePullPolicy: IfNotPresent
 
 agentImage:
   repository: rancher/fleet-agent
-  tag: v0.10.13
+  tag: v0.9.18
   imagePullPolicy: IfNotPresent
 
 # For cluster registration the public URL of the Kubernetes API server must be set here
@@ -52,6 +52,7 @@ bootstrap:
   branch: master
   paths: ""
 
+
 global:
   cattle:
     systemDefaultRegistry: ""
@@ -66,14 +67,7 @@ tolerations: []
 ## PriorityClassName assigned to deployment.
 priorityClassName: ""
 
-## Determines whether SSH operations (eg. cloning git repos, downloading Helm charts) could succeed if
-## host verification fails. Insecure when set to true. Default: true.
-insecureSkipHostKeyChecks: true
-
 gitops:
-  enabled: true
-
-metrics:
   enabled: true
 
 debug: false
@@ -82,44 +76,12 @@ propagateDebugSettingsToAgents: true
 
 ## Optional CPU pprof configuration. Profiles are collected continuously and saved every period
 ## Any valid volume configuration can be provided, the example below uses hostPath
-# cpuPprof:
-#   period: "60s"
-#   volumeConfiguration:
-#     hostPath:
-#       path: /tmp/pprof
-#       type: DirectoryOrCreate
+#cpuPprof:
+#  period: "60s"
+#  volumeConfiguration:
+#    hostPath:
+#      path: /tmp/pprof
+#      type: DirectoryOrCreate
 
 migrations:
   clusterRegistrationCleanup: true
-  gitrepoJobsCleanup: true
-
-## Leader election configuration
-leaderElection:
-  leaseDuration: 30s
-  retryPeriod: 10s
-  renewDeadline: 25s
-
-## Fleet controller configuration
-controller:
-  reconciler:
-    # The number of workers that are allowed to each type of reconciler
-    workers:
-      gitrepo: "50"
-      bundle: "50"
-      bundledeployment: "50"
-
-# Extra environment variables passed to the fleet pods.
-# extraEnv:
-# - name: EXPERIMENTAL_OCI_STORAGE
-#   value: "true"
-
-# shards:
-#   - id: shard0
-#     nodeSelector:
-#       kubernetes.io/hostname: k3d-upstream-server-0
-#   - id: shard1
-#     nodeSelector:
-#       kubernetes.io/hostname: k3d-upstream-server-1
-#   - id: shard2
-#     nodeSelector:
-#       kubernetes.io/hostname: k3d-upstream-server-2
