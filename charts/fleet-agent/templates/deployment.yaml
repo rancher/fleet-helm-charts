@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: fleet-agent
 spec:
+  replicas: {{ .Values.agent.replicas }}
   selector:
     matchLabels:
       app: fleet-agent
@@ -17,6 +18,26 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+        {{- if $.Values.agent.reconciler.workers.bundledeployment }}
+        - name: BUNDLEDEPLOYMENT_RECONCILER_WORKERS
+          value: {{ quote $.Values.agent.reconciler.workers.bundledeployment }}
+        {{- end }}
+        {{- if $.Values.agent.reconciler.workers.drift }}
+        - name: DRIFT_RECONCILER_WORKERS
+          value: {{ quote $.Values.agent.reconciler.workers.drift }}
+        {{- end }}
+        {{- if $.Values.leaderElection.leaseDuration }}
+        - name: CATTLE_ELECTION_LEASE_DURATION
+          value: {{$.Values.leaderElection.leaseDuration}}
+        {{- end }}
+        {{- if $.Values.leaderElection.retryPeriod }}
+        - name: CATTLE_ELECTION_RETRY_PERIOD
+          value: {{$.Values.leaderElection.retryPeriod}}
+        {{- end }}
+        {{- if $.Values.leaderElection.renewDeadline }}
+        - name: CATTLE_ELECTION_RENEW_DEADLINE
+          value: {{$.Values.leaderElection.renewDeadline}}
+        {{- end }}
         image: '{{ template "system_default_registry" . }}{{.Values.image.repository}}:{{.Values.image.tag}}'
         name: fleet-agent
         command:
@@ -25,7 +46,8 @@ spec:
         - --debug
         - --debug-level
         - {{ quote .Values.debugLevel }}
-        {{- else }}
+        {{- end }}
+        {{- if not .Values.disableSecurityContext }}
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true
@@ -34,7 +56,20 @@ spec:
             drop:
             - ALL
         {{- end }}
+        volumeMounts:
+          - mountPath: /tmp
+            name: tmp
+          - mountPath: /.kube
+            name: kube
+      volumes:
+        - name: tmp
+          emptyDir: {}
+        - name: kube
+          emptyDir: {}
       serviceAccountName: fleet-agent
+      {{- if .Values.fleetAgent.hostNetwork }}
+      hostNetwork: true
+      {{- end }}
       nodeSelector: {{ include "linux-node-selector" . | nindent 8 }}
 {{- if .Values.fleetAgent.nodeSelector }}
 {{ toYaml .Values.fleetAgent.nodeSelector | indent 8 }}
@@ -43,7 +78,7 @@ spec:
 {{- if .Values.fleetAgent.tolerations }}
 {{ toYaml .Values.fleetAgent.tolerations | indent 8 }}
 {{- end }}
-{{- if not .Values.debug }}
+{{- if not .Values.disableSecurityContext }}
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
