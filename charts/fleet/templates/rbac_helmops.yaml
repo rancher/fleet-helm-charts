@@ -20,8 +20,8 @@ rules:
   - apiGroups:
       - "fleet.cattle.io"
     resources:
-      - "helmops"
-      - "helmops/status"
+      - "helmapps"
+      - "helmapps/status"
     verbs:
       - "*"
   - apiGroups:
