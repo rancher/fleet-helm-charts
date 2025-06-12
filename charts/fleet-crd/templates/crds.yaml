@@ -3,7 +3,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: bundledeployments.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -168,15 +168,15 @@ spec:
 
                     should be downloaded from a helm chart'
                   properties:
-                    helmAppInsecureSkipTLSVerify:
+                    helmOpInsecureSkipTLSVerify:
                       description: InsecureSkipTLSverify will use insecure HTTPS to
                         clone the helm app resource.
                       type: boolean
-                    helmAppSecretName:
+                    helmOpSecretName:
                       description: 'SecretName stores the secret name for storing
                         credentials when accessing
 
-                        a remote helm repository defined in a HelmApp resource'
+                        a remote helm repository defined in a HelmOp resource'
                       type: string
                   type: object
                 ociContents:
@@ -1133,7 +1133,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: bundlenamespacemappings.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -1313,7 +1313,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: bundles.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -1717,25 +1717,25 @@ spec:
                         will wait for as long as timeoutSeconds'
                       type: boolean
                   type: object
-                helmAppOptions:
-                  description: 'HelmAppOptions stores the options relative to HelmApp
+                helmOpOptions:
+                  description: 'HelmOpOptions stores the options relative to HelmOp
                     resources
 
-                    Non-nil HelmAppOptions indicate that the source of resources is
+                    Non-nil HelmOpOptions indicate that the source of resources is
                     a Helm chart,
 
                     not a git repository.'
                   nullable: true
                   properties:
-                    helmAppInsecureSkipTLSVerify:
+                    helmOpInsecureSkipTLSVerify:
                       description: InsecureSkipTLSverify will use insecure HTTPS to
                         clone the helm app resource.
                       type: boolean
-                    helmAppSecretName:
+                    helmOpSecretName:
                       description: 'SecretName stores the secret name for storing
                         credentials when accessing
 
-                        a remote helm repository defined in a HelmApp resource'
+                        a remote helm repository defined in a HelmOp resource'
                       type: string
                   type: object
                 ignore:
@@ -3049,7 +3049,8 @@ spec:
                     actual list of resources on a cluster might differ, depending
                     on the
 
-                    helm chart, value templating, etc..'
+                    helm chart, value templating, etc.. (deprecated to reduce bundle
+                    size)'
                   items:
                     description: ResourceKey lists resources, which will likely be
                       deployed.
@@ -3280,7 +3281,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: clustergroups.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -3707,7 +3708,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: clusterregistrations.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -3811,7 +3812,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: clusterregistrationtokens.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -3890,7 +3891,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: clusters.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -4360,10 +4361,7 @@ spec:
                                       and labelSelector.
 
                                       Also, matchLabelKeys cannot be set when labelSelector
-                                      isn''t set.
-
-                                      This is a beta field and requires enabling MatchLabelKeysInPodAffinity
-                                      feature gate (enabled by default).'
+                                      isn''t set.'
                                     items:
                                       type: string
                                     type: array
@@ -4392,10 +4390,7 @@ spec:
                                       and labelSelector.
 
                                       Also, mismatchLabelKeys cannot be set when labelSelector
-                                      isn''t set.
-
-                                      This is a beta field and requires enabling MatchLabelKeysInPodAffinity
-                                      feature gate (enabled by default).'
+                                      isn''t set.'
                                     items:
                                       type: string
                                     type: array
@@ -4645,10 +4640,7 @@ spec:
                                   and labelSelector.
 
                                   Also, matchLabelKeys cannot be set when labelSelector
-                                  isn''t set.
-
-                                  This is a beta field and requires enabling MatchLabelKeysInPodAffinity
-                                  feature gate (enabled by default).'
+                                  isn''t set.'
                                 items:
                                   type: string
                                 type: array
@@ -4676,10 +4668,7 @@ spec:
                                   and labelSelector.
 
                                   Also, mismatchLabelKeys cannot be set when labelSelector
-                                  isn''t set.
-
-                                  This is a beta field and requires enabling MatchLabelKeysInPodAffinity
-                                  feature gate (enabled by default).'
+                                  isn''t set.'
                                 items:
                                   type: string
                                 type: array
@@ -4919,10 +4908,7 @@ spec:
                                       and labelSelector.
 
                                       Also, matchLabelKeys cannot be set when labelSelector
-                                      isn''t set.
-
-                                      This is a beta field and requires enabling MatchLabelKeysInPodAffinity
-                                      feature gate (enabled by default).'
+                                      isn''t set.'
                                     items:
                                       type: string
                                     type: array
@@ -4951,10 +4937,7 @@ spec:
                                       and labelSelector.
 
                                       Also, mismatchLabelKeys cannot be set when labelSelector
-                                      isn''t set.
-
-                                      This is a beta field and requires enabling MatchLabelKeysInPodAffinity
-                                      feature gate (enabled by default).'
+                                      isn''t set.'
                                     items:
                                       type: string
                                     type: array
@@ -5204,10 +5187,7 @@ spec:
                                   and labelSelector.
 
                                   Also, matchLabelKeys cannot be set when labelSelector
-                                  isn''t set.
-
-                                  This is a beta field and requires enabling MatchLabelKeysInPodAffinity
-                                  feature gate (enabled by default).'
+                                  isn''t set.'
                                 items:
                                   type: string
                                 type: array
@@ -5235,10 +5215,7 @@ spec:
                                   and labelSelector.
 
                                   Also, mismatchLabelKeys cannot be set when labelSelector
-                                  isn''t set.
-
-                                  This is a beta field and requires enabling MatchLabelKeysInPodAffinity
-                                  feature gate (enabled by default).'
+                                  isn''t set.'
                                 items:
                                   type: string
                                 type: array
@@ -6100,7 +6077,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: contents.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -6168,7 +6145,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: gitreporestrictions.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -6274,7 +6251,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: gitrepos.fleet.cattle.io
 spec:
   group: fleet.cattle.io
@@ -6342,6 +6319,23 @@ spec:
                   description: Branch The git branch to follow.
                   nullable: true
                   type: string
+                bundles:
+                  description: 'Bundles defines the paths of bundles to be read.
+
+                    This drives the fleet resource scanner that simply loads the specified
+                    folders'
+                  items:
+                    properties:
+                      base:
+                        description: Base is the base path for the bundle resources
+                        type: string
+                      options:
+                        description: Options is the path (relative to path above)
+                          that defines a fleet.yaml file to configure the bundle
+                        nullable: true
+                        type: string
+                    type: object
+                  type: array
                 caBundle:
                   description: CABundle is a PEM encoded CA bundle which will be used
                     to validate the repo's certificate.
@@ -6435,28 +6429,10 @@ spec:
                   description: KeepResources specifies if the resources created must
                     be kept after deleting the GitRepo.
                   type: boolean
-                ociRegistry:
-                  description: OCIRegistry specifies the OCI registry related parameters
-                  properties:
-                    authSecretName:
-                      description: AuthSecretName contains the auth secret where the
-                        OCI registry credentials are stored.
-                      nullable: true
-                      type: string
-                    basicHTTP:
-                      description: BasicHTTP uses HTTP connections to the OCI registry
-                        when enabled.
-                      nullable: true
-                      type: boolean
-                    insecureSkipTLS:
-                      description: InsecureSkipTLS allows connections to OCI registry
-                        without certs when enabled.
-                      nullable: true
-                      type: boolean
-                    reference:
-                      description: Reference of the OCI Registry
-                      type: string
-                  type: object
+                ociRegistrySecret:
+                  description: OCIRegistrySecret contains the name of the secret to
+                    be used for retrieving the OCI registry connection details.
+                  type: string
                 paths:
                   description: 'Paths is the directories relative to the git repo
                     root that contain resources to be applied.
@@ -6481,7 +6457,7 @@ spec:
                   type: string
                 repo:
                   description: Repo is a URL to a git repo to clone and index.
-                  nullable: true
+                  minLength: 1
                   type: string
                 revision:
                   description: Revision A specific commit or tag to operate on.
@@ -6639,6 +6615,12 @@ spec:
                         type: string
                     type: object
                   type: array
+                webhookSecret:
+                  description: WebhookSecret contains the name of the secret to use
+                    for webhook parsing
+                  type: string
+              required:
+                - repo
               type: object
             status:
               properties:
@@ -7124,17 +7106,17 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
-  name: helmapps.fleet.cattle.io
+    controller-gen.kubebuilder.io/version: v0.18.0
+  name: helmops.fleet.cattle.io
 spec:
   group: fleet.cattle.io
   names:
     categories:
       - fleet
-    kind: HelmApp
-    listKind: HelmAppList
-    plural: helmapps
-    singular: helmapp
+    kind: HelmOp
+    listKind: HelmOpList
+    plural: helmops
+    singular: helmop
   scope: Namespaced
   versions:
     - additionalPrinterColumns:
@@ -7156,7 +7138,7 @@ spec:
       name: v1alpha1
       schema:
         openAPIV3Schema:
-          description: 'HelmApp describes a helm chart information.
+          description: 'HelmOp describes a helm chart information.
 
             The resource contains the necessary information to deploy the chart to
             target clusters.'
@@ -7522,25 +7504,25 @@ spec:
                         will wait for as long as timeoutSeconds'
                       type: boolean
                   type: object
-                helmAppOptions:
-                  description: 'HelmAppOptions stores the options relative to HelmApp
+                helmOpOptions:
+                  description: 'HelmOpOptions stores the options relative to HelmOp
                     resources
 
-                    Non-nil HelmAppOptions indicate that the source of resources is
+                    Non-nil HelmOpOptions indicate that the source of resources is
                     a Helm chart,
 
                     not a git repository.'
                   nullable: true
                   properties:
-                    helmAppInsecureSkipTLSVerify:
+                    helmOpInsecureSkipTLSVerify:
                       description: InsecureSkipTLSverify will use insecure HTTPS to
                         clone the helm app resource.
                       type: boolean
-                    helmAppSecretName:
+                    helmOpSecretName:
                       description: 'SecretName stores the secret name for storing
                         credentials when accessing
 
-                        a remote helm repository defined in a HelmApp resource'
+                        a remote helm repository defined in a HelmOp resource'
                       type: string
                   type: object
                 helmSecretName:
@@ -9024,7 +9006,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.17.2
+    controller-gen.kubebuilder.io/version: v0.18.0
   name: imagescans.fleet.cattle.io
 spec:
   group: fleet.cattle.io
