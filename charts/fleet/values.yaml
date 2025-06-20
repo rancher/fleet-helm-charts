@@ -1,11 +1,11 @@
 image:
   repository: rancher/fleet
-  tag: v0.12.4
+  tag: v0.10.14
   imagePullPolicy: IfNotPresent
 
 agentImage:
   repository: rancher/fleet-agent
-  tag: v0.12.4
+  tag: v0.10.14
   imagePullPolicy: IfNotPresent
 
 # For cluster registration the public URL of the Kubernetes API server must be set here
@@ -23,10 +23,6 @@ agentTLSMode: "system-store"
 # A duration string for how often agents should report a heartbeat
 agentCheckinInterval: "15m"
 
-# The amount of time that agents will wait before they clean up old Helm releases.
-# A non-existent value or 0 will result in an interval of 15 minutes.
-garbageCollectionInterval: "15m"
-
 # Whether you want to allow cluster upon registration to specify their labels.
 ignoreClusterRegistrationLabels: false
 
@@ -40,11 +36,6 @@ ignoreClusterRegistrationLabels: false
 
 # comma separated list of domains or ip addresses that will not use the proxy
 noProxy: 127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.svc,.cluster.local
-
-# The amount of time to wait for a response from the server before canceling the
-# request.  Used to retrieve the latest commit of configured git repositories.
-# A non-existent value or 0 will result in a timeout of 30 seconds.
-gitClientTimeout: 30s
 
 bootstrap:
   enabled: true
@@ -81,9 +72,6 @@ insecureSkipHostKeyChecks: true
 
 gitops:
   enabled: true
-  # syncPeriod is used to pick up polling for lost gitrepo events.
-  # It should be larger than the largest gitrepo pollinginterval.
-  syncPeriod: 2h
 
 metrics:
   enabled: true
@@ -91,7 +79,15 @@ metrics:
 debug: false
 debugLevel: 0
 propagateDebugSettingsToAgents: true
-disableSecurityContext: false
+
+## Optional CPU pprof configuration. Profiles are collected continuously and saved every period
+## Any valid volume configuration can be provided, the example below uses hostPath
+# cpuPprof:
+#   period: "60s"
+#   volumeConfiguration:
+#     hostPath:
+#       path: /tmp/pprof
+#       type: DirectoryOrCreate
 
 migrations:
   clusterRegistrationCleanup: true
@@ -111,23 +107,10 @@ controller:
       gitrepo: "50"
       bundle: "50"
       bundledeployment: "50"
-      cluster: "50"
-      clustergroup: "50"
-      imagescan: "50"
-
-## Fleet agent configuration
-agent:
-  reconciler:
-    # The number of workers that are allowed for each type of reconciler
-    workers:
-      bundledeployment: "50"
-      drift: "50"
 
 # Extra environment variables passed to the fleet pods.
 # extraEnv:
 # - name: EXPERIMENTAL_OCI_STORAGE
-#   value: "true"
-# - name: EXPERIMENTAL_HELM_OPS
 #   value: "true"
 
 # shards:
