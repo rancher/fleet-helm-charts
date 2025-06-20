@@ -4,8 +4,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.34.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -15,7 +15,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.13.0-alpha.6
-    created: '2025-06-18T07:36:03.970377084Z'
+    created: "2025-06-18T07:36:03.970377084Z"
     description: Fleet Controller - GitOps at Scale
     digest: 94832bd55914c857c317b46d9c92ddea0f162309be11c920ffe20a87c40a95e9
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -26,8 +26,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -37,7 +37,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.12.4
-    created: '2025-06-20T06:33:58.898787711Z'
+    created: "2025-06-20T06:33:58.898787711Z"
     description: Fleet Controller - GitOps at Scale
     digest: ed64a5a9ade461a60305e0ce92bb0250b2b9fbfd476e14930a58df10533fa8ab
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -48,8 +48,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -59,7 +59,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.12.3
-    created: '2025-05-16T09:12:50.928257529Z'
+    created: "2025-05-16T09:12:50.928257529Z"
     description: Fleet Controller - GitOps at Scale
     digest: 71e58c4e78e4a12f999c7377bc8d5da1efbaacfef8527924733e42d053d56370
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -70,8 +70,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -81,7 +81,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.12.2
-    created: '2025-04-22T14:45:31.035107598Z'
+    created: "2025-04-22T14:45:31.035107598Z"
     description: Fleet Controller - GitOps at Scale
     digest: 124eb829016d326614b75da6d20b3db37c53524e852c478cae6c3a33eb3039bb
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -92,8 +92,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -103,7 +103,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.12.1
-    created: '2025-04-17T08:49:45.08440542Z'
+    created: "2025-04-17T08:49:45.08440542Z"
     description: Fleet Controller - GitOps at Scale
     digest: 217fd020ccb8d27938c4f86ceba3bb9624f325983ed886a534c5508424eb53ef
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -114,8 +114,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -125,7 +125,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.12.0
-    created: '2025-03-24T14:24:10.675190867Z'
+    created: "2025-03-24T14:24:10.675190867Z"
     description: Fleet Controller - GitOps at Scale
     digest: 574fbe2075ec2ec453ff5ff6ca60396b5702bea0a38e653898087d11f09005ba
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -136,8 +136,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -147,7 +147,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.9
-    created: '2025-06-19T06:18:53.850817657Z'
+    created: "2025-06-19T06:18:53.850817657Z"
     description: Fleet Controller - GitOps at Scale
     digest: f686619cecf7a3286da33fd06fa251ca1fbb225348cacf8b28124d3dbb748238
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -158,8 +158,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -169,7 +169,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.9-rc.2
-    created: '2025-06-18T08:14:35.785278815Z'
+    created: "2025-06-18T08:14:35.785278815Z"
     description: Fleet Controller - GitOps at Scale
     digest: 3e9293e5fc00aa9ade825d8bb6c8da9a4bac070507d76f73c16b5aae844c15a4
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -180,8 +180,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -191,7 +191,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.8
-    created: '2025-05-16T08:48:14.890966595Z'
+    created: "2025-05-16T08:48:14.890966595Z"
     description: Fleet Controller - GitOps at Scale
     digest: 4926da52f5a5fd0e4ed72f646bac4b299023b1cc5823dc9fe7f6212ff4fade78
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -202,8 +202,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -213,7 +213,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.7
-    created: '2025-04-22T15:00:53.120457923Z'
+    created: "2025-04-22T15:00:53.120457923Z"
     description: Fleet Controller - GitOps at Scale
     digest: ff3865a6afa47571932dfdb3213e2816d8a3cb726b4ee7c5931c34fdfa74b1b9
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -224,8 +224,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -235,7 +235,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.6
-    created: '2025-04-17T08:17:08.337140056Z'
+    created: "2025-04-17T08:17:08.337140056Z"
     description: Fleet Controller - GitOps at Scale
     digest: 0ad121089878e15684b5b3cb87de533d9d53b1767dcda5b1c0779fa59278f702
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -246,8 +246,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -257,7 +257,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.5
-    created: '2025-03-04T15:35:12.399812487Z'
+    created: "2025-03-04T15:35:12.399812487Z"
     description: Fleet Controller - GitOps at Scale
     digest: af348750007d05c49bdbb9f6e15d4cef6f211366f2265d3e32bce46b6ae240f4
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -268,8 +268,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -279,7 +279,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.4
-    created: '2025-02-19T16:57:57.860217233Z'
+    created: "2025-02-19T16:57:57.860217233Z"
     description: Fleet Controller - GitOps at Scale
     digest: 2c3bb77ea5ba7173cfd31458499335228941dd81ad70b7f35efcc7a79e6838ea
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -290,8 +290,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -299,7 +299,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.3
-    created: '2025-01-17T16:09:03.383034019Z'
+    created: "2025-01-17T16:09:03.383034019Z"
     description: Fleet Controller - GitOps at Scale
     digest: 679fa765ffbe8cec5c548e419422835754d9d6032c43b85f20b63b4f05f688fe
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -310,8 +310,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -319,7 +319,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.2
-    created: '2024-12-12T15:22:26.173894935Z'
+    created: "2024-12-12T15:22:26.173894935Z"
     description: Fleet Controller - GitOps at Scale
     digest: 35bc0b587e4962b94512fe6c24d06f4277e1346573029463b9cf9f633271c64c
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -330,8 +330,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -339,7 +339,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.1
-    created: '2024-11-15T15:53:37.612185432Z'
+    created: "2024-11-15T15:53:37.612185432Z"
     description: Fleet Controller - GitOps at Scale
     digest: a4067fa5b7749b4387f256a4a39f37711925b4212b4dc1dde261a7a825354614
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -350,8 +350,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -359,7 +359,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.11.0
-    created: '2024-11-11T05:50:58.39401975Z'
+    created: "2024-11-11T05:50:58.39401975Z"
     description: Fleet Controller - GitOps at Scale
     digest: 9be547eff04351879bd230458060bc37018c9322409930e505b252c27a8649b2
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -370,8 +370,28 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/namespace: cattle-fleet-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/provides-gvr: clusters.fleet.cattle.io/v1alpha1
+      catalog.cattle.io/release-name: fleet
+    apiVersion: v2
+    appVersion: 0.10.14
+    created: "2025-06-20T16:39:42.93063842Z"
+    description: Fleet Manager - GitOps at Scale
+    digest: fee81708aba502f54693975a59f2a6d7fed2d374a7fa2aba96d1bd634f83bed5
+    icon: https://charts.rancher.io/assets/logos/fleet.svg
+    name: fleet
+    urls:
+    - https://github.com/rancher/fleet-helm-charts/releases/download/fleet-0.10.14/fleet-0.10.14.tgz
+    version: 0.10.14
+  - annotations:
+      catalog.cattle.io/auto-install: fleet-crd=match
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -379,7 +399,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.14-rc.2
-    created: '2025-06-18T07:01:36.958256749Z'
+    created: "2025-06-18T07:01:36.958256749Z"
     description: Fleet Manager - GitOps at Scale
     digest: ffa4967ae00099b1b036d59b988afb4dad0bb3a3fb6c51e687fd1813fbeb3aa3
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -390,8 +410,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -399,7 +419,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.14-rc.1
-    created: '2025-06-17T16:49:34.058786384Z'
+    created: "2025-06-17T16:49:34.058786384Z"
     description: Fleet Manager - GitOps at Scale
     digest: bfd7d4415e4426aec7871e8c150d46486a0b9a06fba7ad9c9ae1821610466539
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -410,8 +430,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -419,7 +439,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.13
-    created: '2025-05-16T09:26:59.703382634Z'
+    created: "2025-05-16T09:26:59.703382634Z"
     description: Fleet Manager - GitOps at Scale
     digest: 15366f3de9576de745802dd388bd9857d4922920cef7f1e808c85853788ce6bc
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -430,8 +450,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -439,7 +459,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.12
-    created: '2025-04-22T15:06:50.916033212Z'
+    created: "2025-04-22T15:06:50.916033212Z"
     description: Fleet Manager - GitOps at Scale
     digest: 37c6d81e630377028cd1c146594265f3db56c5986a6d537ddddf41e985909148
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -450,8 +470,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -459,7 +479,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.11
-    created: '2025-04-15T16:26:07.87811401Z'
+    created: "2025-04-15T16:26:07.87811401Z"
     description: Fleet Manager - GitOps at Scale
     digest: eb5417241da72ae5408f14dd79374d1b5207428a8e096f60f31ceb91a868ac96
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -470,8 +490,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -479,7 +499,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.10
-    created: '2025-03-04T14:18:34.413555947Z'
+    created: "2025-03-04T14:18:34.413555947Z"
     description: Fleet Manager - GitOps at Scale
     digest: bd406ab1f4de9ed7fa5cbaa4c10fadecb8929e79fc2d286fabd02fcaee878293
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -490,8 +510,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -499,7 +519,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.9
-    created: '2025-02-19T17:12:04.159857101Z'
+    created: "2025-02-19T17:12:04.159857101Z"
     description: Fleet Manager - GitOps at Scale
     digest: 27e9c898028c7b9b82e5ef2015499465b5e75580b552473f48826992fa3a3379
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -510,8 +530,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -519,7 +539,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.8
-    created: '2025-01-17T16:44:03.659128901Z'
+    created: "2025-01-17T16:44:03.659128901Z"
     description: Fleet Manager - GitOps at Scale
     digest: 9655a960ae9f5ae724073fefea9e599bafc4f8173ed30936b17658d2e536e317
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -530,8 +550,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -539,7 +559,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.7
-    created: '2024-12-11T12:35:27.621283683Z'
+    created: "2024-12-11T12:35:27.621283683Z"
     description: Fleet Manager - GitOps at Scale
     digest: fd19675a19c0edccc3480962d1f870b6b682c9befc8c1123ec69699e042fdc15
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -550,8 +570,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -559,7 +579,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.6
-    created: '2024-12-02T10:33:19.230454944Z'
+    created: "2024-12-02T10:33:19.230454944Z"
     description: Fleet Manager - GitOps at Scale
     digest: 33d604679c64db47fb984f1ba66d0b329a5b573220ed0cc0e1b2cea4a81ad032
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -570,8 +590,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -579,7 +599,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.5
-    created: '2024-11-06T15:50:10.161648938Z'
+    created: "2024-11-06T15:50:10.161648938Z"
     description: Fleet Manager - GitOps at Scale
     digest: 269d1c7d7e547e0710c456afce0e2a1fbb3512a215410d4c5c7ee27c5e4c0c3c
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -590,8 +610,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -599,7 +619,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.4
-    created: '2024-10-17T15:37:23.359396726Z'
+    created: "2024-10-17T15:37:23.359396726Z"
     description: Fleet Manager - GitOps at Scale
     digest: 21a370b093c9ae50ea5e02343a8749b0aeba237759ad42dc993e0d221b49a110
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -610,8 +630,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -619,7 +639,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.3
-    created: '2024-09-30T14:56:03.970655563Z'
+    created: "2024-09-30T14:56:03.970655563Z"
     description: Fleet Manager - GitOps at Scale
     digest: 9b9a8fb43c31b0908af60a835a2b79d138fa8510d0916778ab1dba97eef11b65
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -630,8 +650,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -639,7 +659,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.2
-    created: '2024-09-13T12:32:12.057983248Z'
+    created: "2024-09-13T12:32:12.057983248Z"
     description: Fleet Manager - GitOps at Scale
     digest: 3158489c7e9330a72fbdeaded1b805ed78eedf075eb2b87326f4e469b086acdf
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -650,8 +670,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -659,7 +679,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.1
-    created: '2024-08-15T04:36:23.618468055Z'
+    created: "2024-08-15T04:36:23.618468055Z"
     description: Fleet Manager - GitOps at Scale
     digest: facdc1f2dde6dda463c5cd1592c523e308472c790db1718c9b6245bf52bab82c
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -670,8 +690,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -679,7 +699,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.10.0
-    created: '2024-07-17T12:13:24.605742155Z'
+    created: "2024-07-17T12:13:24.605742155Z"
     description: Fleet Manager - GitOps at Scale
     digest: a9f5f003c3221aa9fa33afaf9933c286dfdfd5c83649ee8a0e53789a2e1becca
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -690,8 +710,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -699,7 +719,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.18
-    created: '2025-05-16T12:18:27.677951745Z'
+    created: "2025-05-16T12:18:27.677951745Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -715,8 +735,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -724,7 +744,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.17
-    created: '2025-04-07T12:48:06.062275228Z'
+    created: "2025-04-07T12:48:06.062275228Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -740,8 +760,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -749,7 +769,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.16
-    created: '2025-03-04T15:13:11.265320101Z'
+    created: "2025-03-04T15:13:11.265320101Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -765,8 +785,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -774,7 +794,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.15
-    created: '2025-02-20T13:16:32.960656183Z'
+    created: "2025-02-20T13:16:32.960656183Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -790,8 +810,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -799,7 +819,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.14
-    created: '2025-02-20T10:02:39.778620591Z'
+    created: "2025-02-20T10:02:39.778620591Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -815,8 +835,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -824,7 +844,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.13
-    created: '2025-01-20T13:20:16.043979752Z'
+    created: "2025-01-20T13:20:16.043979752Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -840,8 +860,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -849,7 +869,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.12
-    created: '2024-12-11T10:13:33.931334705Z'
+    created: "2024-12-11T10:13:33.931334705Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -865,8 +885,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -874,7 +894,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.11
-    created: '2024-11-04T06:22:54.99466291Z'
+    created: "2024-11-04T06:22:54.99466291Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -890,8 +910,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -899,7 +919,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.10
-    created: '2024-10-18T05:59:34.975703749Z'
+    created: "2024-10-18T05:59:34.975703749Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -915,8 +935,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -924,7 +944,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.9
-    created: '2024-09-13T13:03:32.004214031Z'
+    created: "2024-09-13T13:03:32.004214031Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -940,8 +960,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -949,7 +969,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.8
-    created: '2024-08-13T14:43:01.978514984Z'
+    created: "2024-08-13T14:43:01.978514984Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -965,8 +985,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -974,7 +994,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.6
-    created: '2024-07-17T20:26:18.277820144Z'
+    created: "2024-07-17T20:26:18.277820144Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -990,8 +1010,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -999,7 +1019,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.5
-    created: '2024-06-05T08:13:46.929655226Z'
+    created: "2024-06-05T08:13:46.929655226Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1015,8 +1035,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1024,7 +1044,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.4
-    created: '2024-05-02T13:16:03.606066383Z'
+    created: "2024-05-02T13:16:03.606066383Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1040,8 +1060,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1049,7 +1069,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.3
-    created: '2024-04-17T13:04:59.323000752Z'
+    created: "2024-04-17T13:04:59.323000752Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1065,8 +1085,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1074,7 +1094,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.2
-    created: '2024-03-30T06:05:58.636558988Z'
+    created: "2024-03-30T06:05:58.636558988Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1090,8 +1110,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1099,7 +1119,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.9.0
-    created: '2023-11-07T14:05:56.695049578Z'
+    created: "2023-11-07T14:05:56.695049578Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1115,8 +1135,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1124,7 +1144,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.8.6
-    created: '2024-10-18T06:15:44.532414519Z'
+    created: "2024-10-18T06:15:44.532414519Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1140,8 +1160,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1149,7 +1169,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.8.5
-    created: '2024-06-05T07:53:03.603031636Z'
+    created: "2024-06-05T07:53:03.603031636Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1165,8 +1185,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1174,7 +1194,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.8.4
-    created: '2024-05-02T12:43:28.058055416Z'
+    created: "2024-05-02T12:43:28.058055416Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1190,8 +1210,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1199,7 +1219,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.8.3
-    created: '2024-03-19T12:57:57.152515538Z'
+    created: "2024-03-19T12:57:57.152515538Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1215,8 +1235,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1224,7 +1244,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.8.2
-    created: '2024-02-23T07:11:22.204337094Z'
+    created: "2024-02-23T07:11:22.204337094Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1240,8 +1260,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1249,7 +1269,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.8.1
-    created: '2023-11-23T11:16:06.413914783Z'
+    created: "2023-11-23T11:16:06.413914783Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1265,8 +1285,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1274,7 +1294,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.8.0
-    created: '2023-09-11T15:33:53.606341978Z'
+    created: "2023-09-11T15:33:53.606341978Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1290,8 +1310,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1299,7 +1319,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.7.1
-    created: '2023-08-18T08:19:33.107831368Z'
+    created: "2023-08-18T08:19:33.107831368Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1315,8 +1335,8 @@ entries:
   - annotations:
       catalog.cattle.io/auto-install: fleet-crd=match
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/experimental: 'true'
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/experimental: "true"
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
@@ -1324,7 +1344,7 @@ entries:
       catalog.cattle.io/release-name: fleet
     apiVersion: v2
     appVersion: 0.7.0
-    created: '2023-06-19T13:17:29.685760811Z'
+    created: "2023-06-19T13:17:29.685760811Z"
     dependencies:
     - condition: gitops.enabled
       name: gitjob
@@ -1340,7 +1360,7 @@ entries:
   fleet-agent:
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.34.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1349,7 +1369,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.13.0-alpha.6
-    created: '2025-06-18T07:36:04.122433139Z'
+    created: "2025-06-18T07:36:04.122433139Z"
     description: Fleet Agent - GitOps at Scale
     digest: 2fc87a3a34600fa0c8ad7009ddbc972d4ca33fb78d16fa696ebd879b9716df24
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1359,7 +1379,7 @@ entries:
     version: 0.13.0-alpha.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1368,7 +1388,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.12.4
-    created: '2025-06-20T06:33:59.083175881Z'
+    created: "2025-06-20T06:33:59.083175881Z"
     description: Fleet Agent - GitOps at Scale
     digest: 94708cc176be098dcb68dcdfe153cdc27bbf9a45f362a827203e17f7b2274698
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1378,7 +1398,7 @@ entries:
     version: 0.12.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1387,7 +1407,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.12.3
-    created: '2025-05-16T09:12:51.029695388Z'
+    created: "2025-05-16T09:12:51.029695388Z"
     description: Fleet Agent - GitOps at Scale
     digest: 4c82ebe8eca373caded57a089934c452115f279ec33686cd889a4f39feeb649a
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1397,7 +1417,7 @@ entries:
     version: 0.12.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1406,7 +1426,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.12.2
-    created: '2025-04-22T14:45:31.180778124Z'
+    created: "2025-04-22T14:45:31.180778124Z"
     description: Fleet Agent - GitOps at Scale
     digest: abf24adc10889075a3b16b0ec905c1e325ddf888e0c192982ad3f3c8141b1dd2
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1416,7 +1436,7 @@ entries:
     version: 0.12.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1425,7 +1445,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.12.1
-    created: '2025-04-17T08:49:45.241182935Z'
+    created: "2025-04-17T08:49:45.241182935Z"
     description: Fleet Agent - GitOps at Scale
     digest: 25ac8072cc6be05e54d60703292d2614a80e20d62f81b7d71106cd60322b7a13
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1435,7 +1455,7 @@ entries:
     version: 0.12.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.33.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1444,7 +1464,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.12.0
-    created: '2025-03-24T14:24:10.799002112Z'
+    created: "2025-03-24T14:24:10.799002112Z"
     description: Fleet Agent - GitOps at Scale
     digest: 4545bbfe373b757898fb0b95436832fba08410435b48d21bd0de6a640255d417
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1454,7 +1474,7 @@ entries:
     version: 0.12.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1463,7 +1483,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.9
-    created: '2025-06-19T06:18:53.989863987Z'
+    created: "2025-06-19T06:18:53.989863987Z"
     description: Fleet Agent - GitOps at Scale
     digest: c1b9def33d00a398da644c18ffd65ff4d53367f05375e3dec6e006bed975a643
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1473,7 +1493,7 @@ entries:
     version: 0.11.9
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1482,7 +1502,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.9-rc.2
-    created: '2025-06-18T08:14:35.930569888Z'
+    created: "2025-06-18T08:14:35.930569888Z"
     description: Fleet Agent - GitOps at Scale
     digest: 3dc65524f56268f3309b9bc00f2def13b1126ea5913952eda81085407944c478
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1492,7 +1512,7 @@ entries:
     version: 0.11.9-rc.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1501,7 +1521,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.8
-    created: '2025-05-16T08:48:15.054228269Z'
+    created: "2025-05-16T08:48:15.054228269Z"
     description: Fleet Agent - GitOps at Scale
     digest: 2f75fd7fcf11f3b399b2fa17522eb499e1d3a8c3cbeaadf1e0ede6adf129b725
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1511,7 +1531,7 @@ entries:
     version: 0.11.8
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1520,7 +1540,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.7
-    created: '2025-04-22T15:00:53.233441612Z'
+    created: "2025-04-22T15:00:53.233441612Z"
     description: Fleet Agent - GitOps at Scale
     digest: 81791545d5a98e42aa2884542ac9043adc714acfcefffe779a5f57e2e8483516
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1530,7 +1550,7 @@ entries:
     version: 0.11.7
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1539,7 +1559,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.6
-    created: '2025-04-17T08:17:08.54318467Z'
+    created: "2025-04-17T08:17:08.54318467Z"
     description: Fleet Agent - GitOps at Scale
     digest: 8cd852d28e0b323acfebd2d1fb749e717ec9d1db094382a3839bee948203b57d
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1549,7 +1569,7 @@ entries:
     version: 0.11.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1558,7 +1578,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.5
-    created: '2025-03-04T15:35:12.544155594Z'
+    created: "2025-03-04T15:35:12.544155594Z"
     description: Fleet Agent - GitOps at Scale
     digest: 30bf41202a87e7f07d9795585a835f6f292a104291b715aad3725cbbeab00277
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1568,7 +1588,7 @@ entries:
     version: 0.11.5
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/kube-version: '>= 1.28.0-0 < 1.32.0-0'
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
@@ -1577,7 +1597,7 @@ entries:
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.4
-    created: '2025-02-19T16:57:57.952027814Z'
+    created: "2025-02-19T16:57:57.952027814Z"
     description: Fleet Agent - GitOps at Scale
     digest: df725df7b40d386a0744a66537f8d0ca302935bb38b94635de8bbb0cefb19e67
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1587,14 +1607,14 @@ entries:
     version: 0.11.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.3
-    created: '2025-01-17T16:09:03.576219697Z'
+    created: "2025-01-17T16:09:03.576219697Z"
     description: Fleet Agent - GitOps at Scale
     digest: 8e4fcd46650497d8ce4fcad3a9e9727f0a31958892342203903d1913f2a67184
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1604,14 +1624,14 @@ entries:
     version: 0.11.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.2
-    created: '2024-12-12T15:22:26.302605458Z'
+    created: "2024-12-12T15:22:26.302605458Z"
     description: Fleet Agent - GitOps at Scale
     digest: d50c75db8c61654f948a4dc9028819a856d4e88e206a17d79dedb9cb09d28dfc
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1621,14 +1641,14 @@ entries:
     version: 0.11.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.1
-    created: '2024-11-15T15:53:37.742939129Z'
+    created: "2024-11-15T15:53:37.742939129Z"
     description: Fleet Agent - GitOps at Scale
     digest: 4c11a0e6bd5c8cfc1d940f58fffa2e837426c0588738e94dd630d10ed3df17ab
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1638,14 +1658,14 @@ entries:
     version: 0.11.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.11.0
-    created: '2024-11-11T05:50:58.491517009Z'
+    created: "2024-11-11T05:50:58.491517009Z"
     description: Fleet Agent - GitOps at Scale
     digest: f7de7a79b9ebde00afd0f311891f89a0caac744da2564152e6d618e7ebaa45c2
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1655,14 +1675,31 @@ entries:
     version: 0.11.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/namespace: cattle-fleet-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/release-name: fleet-agent
+    apiVersion: v2
+    appVersion: 0.10.14
+    created: "2025-06-20T16:39:43.138720827Z"
+    description: Fleet Manager Agent - GitOps at Scale
+    digest: 5a2f415ed0009fb5d919ea8ee1b626b3572d2d93f492595e040652dd79fe07fd
+    icon: https://charts.rancher.io/assets/logos/fleet.svg
+    name: fleet-agent
+    urls:
+    - https://github.com/rancher/fleet-helm-charts/releases/download/fleet-agent-0.10.14/fleet-agent-0.10.14.tgz
+    version: 0.10.14
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.14-rc.2
-    created: '2025-06-18T07:01:37.15157317Z'
+    created: "2025-06-18T07:01:37.15157317Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: e3f736124fbe9dcb454c811886ce89a7fd794e3a54c9477082f42b4f616e0666
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1672,14 +1709,14 @@ entries:
     version: 0.10.14-rc.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.14-rc.1
-    created: '2025-06-17T16:49:34.269457784Z'
+    created: "2025-06-17T16:49:34.269457784Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: ed260b72f944fa19af7ec6481520a9b386ea780f583dda9d3e85f55d39b2e272
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1689,14 +1726,14 @@ entries:
     version: 0.10.14-rc.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.13
-    created: '2025-05-16T09:26:59.838901588Z'
+    created: "2025-05-16T09:26:59.838901588Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 2a5d8da82bf3d51cbd39a0eeccc7cdbebccabe98004d37d823a7b945c66c9be8
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1706,14 +1743,14 @@ entries:
     version: 0.10.13
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.12
-    created: '2025-04-22T15:06:51.139022979Z'
+    created: "2025-04-22T15:06:51.139022979Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: d3085307a7bd18bd24f910e9d09b6fb92cf9c7a4de866cd395d371af0e8ee683
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1723,14 +1760,14 @@ entries:
     version: 0.10.12
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.11
-    created: '2025-04-15T16:26:08.085105667Z'
+    created: "2025-04-15T16:26:08.085105667Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 6b92ba9e35400fdc9bee123f35840a2803aa8835a2ad31e34f4f9e29e0a9bc8c
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1740,14 +1777,14 @@ entries:
     version: 0.10.11
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.10
-    created: '2025-03-04T14:18:34.651108579Z'
+    created: "2025-03-04T14:18:34.651108579Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 7449340c8392288b5b1bbca814d10db9d4624f484ee68d18056c6bbad0e37139
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1757,14 +1794,14 @@ entries:
     version: 0.10.10
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.9
-    created: '2025-02-19T17:12:04.278540693Z'
+    created: "2025-02-19T17:12:04.278540693Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 0c2794d7071b984942ae638adfd3ddfb481c49a475751977d11f01b0515766f4
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1774,14 +1811,14 @@ entries:
     version: 0.10.9
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.8
-    created: '2025-01-17T16:44:03.778599372Z'
+    created: "2025-01-17T16:44:03.778599372Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: b2d2299566c3c7e2203a8016de2a3025cc50f9852be9695a91e0d0e4a7588830
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1791,14 +1828,14 @@ entries:
     version: 0.10.8
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.7
-    created: '2024-12-11T12:35:27.766071544Z'
+    created: "2024-12-11T12:35:27.766071544Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 0c2028782164529a4f0c90767ccd55ba39b8850d629465071fad374ea0308f35
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1808,14 +1845,14 @@ entries:
     version: 0.10.7
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.6
-    created: '2024-12-02T10:33:19.405600931Z'
+    created: "2024-12-02T10:33:19.405600931Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 36484ec96a31e30b76e567843969e93ef90e9558145b566b2671955d020f2f89
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1825,14 +1862,14 @@ entries:
     version: 0.10.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.5
-    created: '2024-11-06T15:50:10.273274605Z'
+    created: "2024-11-06T15:50:10.273274605Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: ae9832a5e9c81900160d82389807862db1e3631d16298298ec8e08a62f078f83
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1842,14 +1879,14 @@ entries:
     version: 0.10.5
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.4
-    created: '2024-10-17T15:37:23.476872654Z'
+    created: "2024-10-17T15:37:23.476872654Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 9ad67234f1c6e2e3cd4f91874ac3595a275c2a21c999e9b8ce821e9ecc2b3107
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1859,14 +1896,14 @@ entries:
     version: 0.10.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.3
-    created: '2024-09-30T14:56:04.094007118Z'
+    created: "2024-09-30T14:56:04.094007118Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 073c4bb481689684e0a3dd9979e57ac68dc98f9e32edb689abd84d67d2b0c6ae
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1876,14 +1913,14 @@ entries:
     version: 0.10.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.2
-    created: '2024-09-13T12:32:12.158517895Z'
+    created: "2024-09-13T12:32:12.158517895Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 2ba4bbe8edcc1d4269bf227aba2698e412b3e2b31f053531b786b31c7a2cf034
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1893,14 +1930,14 @@ entries:
     version: 0.10.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.1
-    created: '2024-08-15T04:36:23.794417581Z'
+    created: "2024-08-15T04:36:23.794417581Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 864b448fa5817bf8edcf2e4f883ef42c8ade4cfc99342e8bb445895567e37f29
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1910,14 +1947,14 @@ entries:
     version: 0.10.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.10.0
-    created: '2024-07-17T12:13:24.716984858Z'
+    created: "2024-07-17T12:13:24.716984858Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: e0e958b9cd3dc19bb0a716773eb64f911b24d6c9f2d63fc26e83d7157383b4f5
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1927,14 +1964,14 @@ entries:
     version: 0.10.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.18
-    created: '2025-05-16T12:18:27.934510677Z'
+    created: "2025-05-16T12:18:27.934510677Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: fe3d7878362a96056aa2a1e8275e990adbe28ea7b9d28dc39ced80231f1fb471
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1944,14 +1981,14 @@ entries:
     version: 0.9.18
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.17
-    created: '2025-04-07T12:48:06.206798251Z'
+    created: "2025-04-07T12:48:06.206798251Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 41efa2fe3f4d49b04956d6003605522b7166ae6acfc126a539dae878f3fc126d
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1961,14 +1998,14 @@ entries:
     version: 0.9.17
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.16
-    created: '2025-03-04T15:13:11.38530091Z'
+    created: "2025-03-04T15:13:11.38530091Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 91eb277840b4dae3e5031277f1eb31b00eafda0e97682366e459fe084ff3a6dc
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1978,14 +2015,14 @@ entries:
     version: 0.9.16
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.15
-    created: '2025-02-20T13:16:33.080775586Z'
+    created: "2025-02-20T13:16:33.080775586Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 0723719bafd4c7c9b55e25df430741812891fe1e4dc55dbcb6c694706b1c3074
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -1995,14 +2032,14 @@ entries:
     version: 0.9.15
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.14
-    created: '2025-02-20T10:02:39.87387023Z'
+    created: "2025-02-20T10:02:39.87387023Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 3e170cedee91503ca3110259077ba09328e4783c4cf13615b241fbb57da3a171
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2012,14 +2049,14 @@ entries:
     version: 0.9.14
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.13
-    created: '2025-01-20T13:20:16.333443407Z'
+    created: "2025-01-20T13:20:16.333443407Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 795443ffd89e6ae93c35130b5a3b5fa99bdf38a71205d5810211d8cb2822ca7b
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2029,14 +2066,14 @@ entries:
     version: 0.9.13
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.12
-    created: '2024-12-11T10:13:34.111645692Z'
+    created: "2024-12-11T10:13:34.111645692Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 8dfc41a669cd652fe6a1ce5e938030e98e400311591724f9b98bdb3a93f5f548
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2046,14 +2083,14 @@ entries:
     version: 0.9.12
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.11
-    created: '2024-11-04T06:22:55.163993836Z'
+    created: "2024-11-04T06:22:55.163993836Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: b6da3ed72c1c6fa4143ca218977eb2c3963bf7b6d2b09fbc386c150c7cd860de
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2063,14 +2100,14 @@ entries:
     version: 0.9.11
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.10
-    created: '2024-10-18T05:59:35.182062427Z'
+    created: "2024-10-18T05:59:35.182062427Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: f78f8d6f7c0ce4535ce6cc13c265a2204db65ce7c63cce8185e6d7e82a79759d
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2080,14 +2117,14 @@ entries:
     version: 0.9.10
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.9
-    created: '2024-09-13T13:03:32.147353378Z'
+    created: "2024-09-13T13:03:32.147353378Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 4d48bf2dfe049cd6c1287761696960232ed5c7898aad092fb6f5fb4f39f1ef88
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2097,14 +2134,14 @@ entries:
     version: 0.9.9
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.8
-    created: '2024-08-13T14:43:02.170115985Z'
+    created: "2024-08-13T14:43:02.170115985Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 56df78e6940bd56e9d02019eabc017e42dee7fd1e410c4d195351136142148a2
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2114,14 +2151,14 @@ entries:
     version: 0.9.8
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.7
-    created: '2024-08-13T09:07:44.077091376Z'
+    created: "2024-08-13T09:07:44.077091376Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 7896a5e6286bfe636d4f89431599d33b5cf53828dc9e47e3078d2fa0c1939d1c
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2131,14 +2168,14 @@ entries:
     version: 0.9.7
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.6
-    created: '2024-07-17T20:26:18.420349086Z'
+    created: "2024-07-17T20:26:18.420349086Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: c2f0d02cfd5e336dfc531512e12dca8af3b2c1753a8ac037ff382a368867c941
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2148,14 +2185,14 @@ entries:
     version: 0.9.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.5
-    created: '2024-06-05T08:13:47.030340843Z'
+    created: "2024-06-05T08:13:47.030340843Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: c6b2164d20ae7a0cfe741e6e25e1d8fe2ea50f0e873e050a2f08401098bef800
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2165,14 +2202,14 @@ entries:
     version: 0.9.5
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.4
-    created: '2024-05-02T13:16:03.778182198Z'
+    created: "2024-05-02T13:16:03.778182198Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 48f1cd1497dcd2c33938d33390256b87b1565f4481514e6f529e36b21e696cc9
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2182,14 +2219,14 @@ entries:
     version: 0.9.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.3
-    created: '2024-04-17T13:04:59.516503912Z'
+    created: "2024-04-17T13:04:59.516503912Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 4468c2972cd9f3e02124c621cc718e1daa5430e255dfc0279fc08da6b7240417
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2199,14 +2236,14 @@ entries:
     version: 0.9.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.2
-    created: '2024-03-30T06:05:58.745719261Z'
+    created: "2024-03-30T06:05:58.745719261Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 23af3f48de7175767cd719beb909add39cee8663af90312728efe25c9a3f0d44
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2216,14 +2253,14 @@ entries:
     version: 0.9.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.9.0
-    created: '2023-11-07T14:05:56.831802596Z'
+    created: "2023-11-07T14:05:56.831802596Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 077dc94830070b29e3bb7189fa58db3f7eabc278a7753a21c8763cc9afa6a2c4
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2233,14 +2270,14 @@ entries:
     version: 0.9.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.8.6
-    created: '2024-10-18T06:15:44.632107593Z'
+    created: "2024-10-18T06:15:44.632107593Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 5cc0f7decaad593b0c13348cd046d7b9f8478db12db019446a7e9accc49a71a3
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2250,14 +2287,14 @@ entries:
     version: 0.8.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.8.5
-    created: '2024-06-05T07:53:03.700831866Z'
+    created: "2024-06-05T07:53:03.700831866Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: a82c3bf529e54d9b0177b5460d670baa5fdff2f90d7fecff2cf1bf6095102ee1
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2267,14 +2304,14 @@ entries:
     version: 0.8.5
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.8.4
-    created: '2024-05-02T12:43:28.165160721Z'
+    created: "2024-05-02T12:43:28.165160721Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: cb1edc6721b35f62efcc26a71ad314b40f41e47743cf32898cae5973fe226ffb
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2284,14 +2321,14 @@ entries:
     version: 0.8.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.8.3
-    created: '2024-03-19T12:57:57.250442562Z'
+    created: "2024-03-19T12:57:57.250442562Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 94aa0ee76da7252c337b96aadcedbc23c756d7bf8e7b09549cba3bae61cb0448
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2301,14 +2338,14 @@ entries:
     version: 0.8.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.8.2
-    created: '2024-02-23T07:11:22.321752727Z'
+    created: "2024-02-23T07:11:22.321752727Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 14c9e20d94e1f93a4761b6ace8c23b477c13cde91d4d817ed66015b09f34039f
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2318,14 +2355,14 @@ entries:
     version: 0.8.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.8.1
-    created: '2023-11-23T11:16:06.567412216Z'
+    created: "2023-11-23T11:16:06.567412216Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 890c8003884fce3d849bad507ccd624c565c593528efe8d8bede815b9c32c9cd
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2335,14 +2372,14 @@ entries:
     version: 0.8.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.8.0
-    created: '2023-09-11T15:33:53.797937262Z'
+    created: "2023-09-11T15:33:53.797937262Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: 03b785bcb295b60071cc9e5e3596e8e15836a3f9ce10c4cc3ef4d4463d77c5c6
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2352,14 +2389,14 @@ entries:
     version: 0.8.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.7.1
-    created: '2023-08-18T08:19:33.245349895Z'
+    created: "2023-08-18T08:19:33.245349895Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: f7e7e962666b24ce45777c8eeebf0c5d60ad04c5329fa1149777f3633a59be9b
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2369,14 +2406,14 @@ entries:
     version: 0.7.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-agent
     apiVersion: v2
     appVersion: 0.7.0
-    created: '2023-06-19T13:17:29.841342466Z'
+    created: "2023-06-19T13:17:29.841342466Z"
     description: Fleet Manager Agent - GitOps at Scale
     digest: ab8436fb487bc1925effcf5bf16b2fdf0b6fed07bd64353f5e18d45bf124ac26
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2387,14 +2424,14 @@ entries:
   fleet-crd:
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.13.0-alpha.6
-    created: '2025-06-18T07:36:04.22752534Z'
+    created: "2025-06-18T07:36:04.22752534Z"
     description: Fleet CustomResourceDefinitions
     digest: f3e812eb06e22a3c94d6bd1398c469c4ded2200ee34d9b559ba0395a21f87761
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2404,14 +2441,14 @@ entries:
     version: 0.13.0-alpha.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.12.4
-    created: '2025-06-20T06:33:59.258255038Z'
+    created: "2025-06-20T06:33:59.258255038Z"
     description: Fleet CustomResourceDefinitions
     digest: 92ea3f41947854ac9d3c4e04c005bd2cc235f002840e92f372ae0bf5de6ffc74
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2421,14 +2458,14 @@ entries:
     version: 0.12.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.12.3
-    created: '2025-05-16T09:12:51.12047919Z'
+    created: "2025-05-16T09:12:51.12047919Z"
     description: Fleet CustomResourceDefinitions
     digest: c48b742d43d5fdb7f70cfde8e09cef415010d8c45497573ac93645c9e10e385b
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2438,14 +2475,14 @@ entries:
     version: 0.12.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.12.2
-    created: '2025-04-22T14:45:31.349481332Z'
+    created: "2025-04-22T14:45:31.349481332Z"
     description: Fleet CustomResourceDefinitions
     digest: 6c0e9945b55f9a88f7fd3067115bafefb7c7b477a14e4c4abef38ab0d68f7870
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2455,14 +2492,14 @@ entries:
     version: 0.12.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.12.1
-    created: '2025-04-17T08:49:45.378577356Z'
+    created: "2025-04-17T08:49:45.378577356Z"
     description: Fleet CustomResourceDefinitions
     digest: 997d023223c6b4ae7adf834a61bf52d154a60ae0353527050b0a4cd2baacbc8e
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2472,14 +2509,14 @@ entries:
     version: 0.12.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.12.0
-    created: '2025-03-24T14:24:10.938847775Z'
+    created: "2025-03-24T14:24:10.938847775Z"
     description: Fleet CustomResourceDefinitions
     digest: a89633385d3447f500b66efe7f12e7462896be43480b47c668400a76fc8b4fea
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2489,14 +2526,14 @@ entries:
     version: 0.12.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.9
-    created: '2025-06-19T06:18:54.128329564Z'
+    created: "2025-06-19T06:18:54.128329564Z"
     description: Fleet CustomResourceDefinitions
     digest: 70e4635f22cf30226801eef424e8e1cb30d4dedbd06a2b5217ab11215e0b2fca
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2506,14 +2543,14 @@ entries:
     version: 0.11.9
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.9-rc.2
-    created: '2025-06-18T08:14:36.076302123Z'
+    created: "2025-06-18T08:14:36.076302123Z"
     description: Fleet CustomResourceDefinitions
     digest: ec3a0a5a40b3f5e8c05826e7baae25a40b09d9a855fbcda54848c6068d087bdc
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2523,14 +2560,14 @@ entries:
     version: 0.11.9-rc.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.8
-    created: '2025-05-16T08:48:15.204984412Z'
+    created: "2025-05-16T08:48:15.204984412Z"
     description: Fleet CustomResourceDefinitions
     digest: f4852d8651e4c78830defafa7321bb26799707df37d14e8401459d6dce63cd69
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2540,14 +2577,14 @@ entries:
     version: 0.11.8
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.7
-    created: '2025-04-22T15:00:53.359778106Z'
+    created: "2025-04-22T15:00:53.359778106Z"
     description: Fleet CustomResourceDefinitions
     digest: 350c1df7a49260f8c1a10d4f0e315239443ae8d8b509ae7a38f8f6c49fbfb788
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2557,14 +2594,14 @@ entries:
     version: 0.11.7
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.6
-    created: '2025-04-17T08:17:08.759765685Z'
+    created: "2025-04-17T08:17:08.759765685Z"
     description: Fleet CustomResourceDefinitions
     digest: a8fb8c4431abbf65d47b0cd7e90d11620dcefdd086cd7d5b7a27b1f736f92b70
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2574,14 +2611,14 @@ entries:
     version: 0.11.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.5
-    created: '2025-03-04T15:35:12.663534001Z'
+    created: "2025-03-04T15:35:12.663534001Z"
     description: Fleet CustomResourceDefinitions
     digest: 78d7e06ea81332e8f4eccfecfd1f2e889e021044414472035f1f441186036f5a
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2591,14 +2628,14 @@ entries:
     version: 0.11.5
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.4
-    created: '2025-02-19T16:57:58.070430067Z'
+    created: "2025-02-19T16:57:58.070430067Z"
     description: Fleet CustomResourceDefinitions
     digest: 2033f376bc9d4ac34ffca224999452d3cfc90ee8f69ed35ad0b594f2d125fcde
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2608,14 +2645,14 @@ entries:
     version: 0.11.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.3
-    created: '2025-01-17T16:09:03.787038227Z'
+    created: "2025-01-17T16:09:03.787038227Z"
     description: Fleet CustomResourceDefinitions
     digest: 5c915ce086aa72ce45aba78b398a6010daa9b45c62f1a5022d492aeaab9a91f7
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2625,14 +2662,14 @@ entries:
     version: 0.11.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.2
-    created: '2024-12-12T15:22:26.435401491Z'
+    created: "2024-12-12T15:22:26.435401491Z"
     description: Fleet CustomResourceDefinitions
     digest: 169b06f81e52ad0a4b8a924efce5117c44e2d112ba6edb30eaf4069ba4f31879
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2642,14 +2679,14 @@ entries:
     version: 0.11.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.1
-    created: '2024-11-15T15:53:37.880953894Z'
+    created: "2024-11-15T15:53:37.880953894Z"
     description: Fleet CustomResourceDefinitions
     digest: e69aeb13f99b0dadc9563ce77543a9bf489cdd02410d3e69338e0a37fb2af5fc
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2659,14 +2696,14 @@ entries:
     version: 0.11.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.11.0
-    created: '2024-11-11T05:50:58.588557294Z'
+    created: "2024-11-11T05:50:58.588557294Z"
     description: Fleet CustomResourceDefinitions
     digest: 2b249f6254f054eaf488a5d5fb85e4057bdfbca7193cd503586a5da0a04c98bd
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2676,14 +2713,31 @@ entries:
     version: 0.11.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
+      catalog.cattle.io/namespace: cattle-fleet-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/release-name: fleet-crd
+    apiVersion: v2
+    appVersion: 0.10.14
+    created: "2025-06-20T16:39:43.338746164Z"
+    description: Fleet Manager CustomResourceDefinitions
+    digest: 218dfcd0624385809a200120ca92da43cae42fdbf08fd7964d1e49b403255add
+    icon: https://charts.rancher.io/assets/logos/fleet.svg
+    name: fleet-crd
+    urls:
+    - https://github.com/rancher/fleet-helm-charts/releases/download/fleet-crd-0.10.14/fleet-crd-0.10.14.tgz
+    version: 0.10.14
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.14-rc.2
-    created: '2025-06-18T07:01:37.364145236Z'
+    created: "2025-06-18T07:01:37.364145236Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: bbd468788f36e94bd761bcce3a2ef6d649e0bfc77949b1e3d8f4aeb95db5299e
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2693,14 +2747,14 @@ entries:
     version: 0.10.14-rc.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.14-rc.1
-    created: '2025-06-17T16:49:34.467975244Z'
+    created: "2025-06-17T16:49:34.467975244Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 23a3ee0c8058d171b31194c40e87a84e17f955abfa56df4f153dfd640e27fa71
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2710,14 +2764,14 @@ entries:
     version: 0.10.14-rc.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.13
-    created: '2025-05-16T09:26:59.960025348Z'
+    created: "2025-05-16T09:26:59.960025348Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: c3dea5451266c92ea81e5fcd122fa354475b57fabeb217d0044a5519ceac59a0
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2727,14 +2781,14 @@ entries:
     version: 0.10.13
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.12
-    created: '2025-04-22T15:06:51.360467257Z'
+    created: "2025-04-22T15:06:51.360467257Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: afcda34e4807ec973311264a6ff7d974a961240687740d8e6a0c2759d7636189
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2744,14 +2798,14 @@ entries:
     version: 0.10.12
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.11
-    created: '2025-04-15T16:26:08.274398878Z'
+    created: "2025-04-15T16:26:08.274398878Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: fa444f1aeecd60d4d529b5eda24d084e6f6f90987a49f33361a163b41be82686
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2761,14 +2815,14 @@ entries:
     version: 0.10.11
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.10
-    created: '2025-03-04T14:18:34.889156893Z'
+    created: "2025-03-04T14:18:34.889156893Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 9792a72fb6826637e44e553190887d917ab670ef4fc910933ac773653bbd3a30
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2778,14 +2832,14 @@ entries:
     version: 0.10.10
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.9
-    created: '2025-02-19T17:12:04.384302708Z'
+    created: "2025-02-19T17:12:04.384302708Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 189f718dbf52607d43875f613487b52850a15915300ca443edbe9af870863a9e
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2795,14 +2849,14 @@ entries:
     version: 0.10.9
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.8
-    created: '2025-01-17T16:44:03.913735524Z'
+    created: "2025-01-17T16:44:03.913735524Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 16a683b6b110ed222cce1e491d6bf76f755c1f826bec70d8a8c5dd623b800e68
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2812,14 +2866,14 @@ entries:
     version: 0.10.8
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.7
-    created: '2024-12-11T12:35:27.915148187Z'
+    created: "2024-12-11T12:35:27.915148187Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: cef011398c9bf784765ea44b080b1b6054b8779eccd12d75b5d373f38ebbc892
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2829,14 +2883,14 @@ entries:
     version: 0.10.7
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.6
-    created: '2024-12-02T10:33:19.56140854Z'
+    created: "2024-12-02T10:33:19.56140854Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 6fc578e215732028036390fc349c34f27f036edc3d1bcd1994bc9895e570b7b1
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2846,14 +2900,14 @@ entries:
     version: 0.10.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.5
-    created: '2024-11-06T15:50:10.370705029Z'
+    created: "2024-11-06T15:50:10.370705029Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: d66a270cfeb9b7c44a1f59c17fcb05dbd331c247cbae02355ef10a308bc00d4f
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2863,14 +2917,14 @@ entries:
     version: 0.10.5
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.4
-    created: '2024-10-17T15:37:23.591951156Z'
+    created: "2024-10-17T15:37:23.591951156Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: c7451959d4b2c0b8ac1a8099993e37ba5a374aab2ac98b6a3339e468f0d108bd
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2880,14 +2934,14 @@ entries:
     version: 0.10.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.3
-    created: '2024-09-30T14:56:04.19087366Z'
+    created: "2024-09-30T14:56:04.19087366Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: a5c40bd0fd0266bdcbcbf65126cbd1d61d0f86c1cbf279f59f73f0e3b633577d
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2897,14 +2951,14 @@ entries:
     version: 0.10.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.2
-    created: '2024-09-13T12:32:12.315016471Z'
+    created: "2024-09-13T12:32:12.315016471Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: a66bc9e2103d7a74bf89cd5fea581b5ca8dd7e20740a0764cf9d055eef4f62af
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2914,14 +2968,14 @@ entries:
     version: 0.10.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.1
-    created: '2024-08-15T04:36:23.97563687Z'
+    created: "2024-08-15T04:36:23.97563687Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 3f9d048c84179b6e26351d8ef58191a0f7937bed876c5c971ff569b90906098e
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2931,14 +2985,14 @@ entries:
     version: 0.10.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.10.0
-    created: '2024-07-17T12:13:24.831353926Z'
+    created: "2024-07-17T12:13:24.831353926Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: f55b31b8a383a9d3d93f55d73b6b2e9fff0938341e65795276ecb817872b64dc
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2948,14 +3002,14 @@ entries:
     version: 0.10.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.18
-    created: '2025-05-16T12:18:28.158501005Z'
+    created: "2025-05-16T12:18:28.158501005Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 1bef8bb71dc029f284448616724a05846e4a4f328165d0598e8344bd520ac0e2
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2965,14 +3019,14 @@ entries:
     version: 0.9.18
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.17
-    created: '2025-04-07T12:48:06.356248855Z'
+    created: "2025-04-07T12:48:06.356248855Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 64941ca3bfd10c17abf58ecfc4c665e38ddbf0d999f8e0ae70e7bee0eb136090
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2982,14 +3036,14 @@ entries:
     version: 0.9.17
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.16
-    created: '2025-03-04T15:13:11.497542005Z'
+    created: "2025-03-04T15:13:11.497542005Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: f192d7fd1593f23248e389d5759ee2cd8e631fcf7b8bef8c026ec01f3a5efd85
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -2999,14 +3053,14 @@ entries:
     version: 0.9.16
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.15
-    created: '2025-02-20T13:16:33.193245944Z'
+    created: "2025-02-20T13:16:33.193245944Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 03065ad0fcfc45fe53d9b8746b224d3e912024976e556dbc852cbde7ed4f688f
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3016,14 +3070,14 @@ entries:
     version: 0.9.15
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.14
-    created: '2025-02-20T10:02:40.007612302Z'
+    created: "2025-02-20T10:02:40.007612302Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: cdfac4782af88e56f0d0587f63ca6c41c85c185019d90cd0a6c4436fde64a97a
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3033,14 +3087,14 @@ entries:
     version: 0.9.14
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.13
-    created: '2025-01-20T13:20:16.527293634Z'
+    created: "2025-01-20T13:20:16.527293634Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 464dcd5b43ffe95976d2031c747b26a7db6bb023bbf939766a2a1945070ca19e
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3050,14 +3104,14 @@ entries:
     version: 0.9.13
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.12
-    created: '2024-12-11T10:13:34.29187498Z'
+    created: "2024-12-11T10:13:34.29187498Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: d1a02c0194edaaad4dee4981c751d714282a8d3eb4bc5fde3bcf416e9975eef9
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3067,14 +3121,14 @@ entries:
     version: 0.9.12
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.11
-    created: '2024-11-04T06:22:55.325779509Z'
+    created: "2024-11-04T06:22:55.325779509Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 52d204eb7d18ee5bc1d197530b74a19efebecae9b13e285382e282956f5a4159
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3084,14 +3138,14 @@ entries:
     version: 0.9.11
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.10
-    created: '2024-10-18T05:59:35.460220564Z'
+    created: "2024-10-18T05:59:35.460220564Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: f3800f45e02adb995c5b6ae66d5f7524384b9b574aaeb90f6c0c59ae19c52040
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3101,14 +3155,14 @@ entries:
     version: 0.9.10
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.9
-    created: '2024-09-13T13:03:32.290893668Z'
+    created: "2024-09-13T13:03:32.290893668Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: bb0714efcc3891560cf1defc2337526207aca80f925056613512e192b31b41c6
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3118,14 +3172,14 @@ entries:
     version: 0.9.9
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.8
-    created: '2024-08-13T14:43:02.381759661Z'
+    created: "2024-08-13T14:43:02.381759661Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 6d789c51af8d71303f21ca8e6410383ccd3b305a02ac0bb65106f0c89d46c6d6
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3135,14 +3189,14 @@ entries:
     version: 0.9.8
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.7
-    created: '2024-08-13T09:07:44.306902732Z'
+    created: "2024-08-13T09:07:44.306902732Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 2a480ae86ba5e048754aefc682381b2400dcadac1830d517eab9c2ff3b767db7
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3152,14 +3206,14 @@ entries:
     version: 0.9.7
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.6
-    created: '2024-07-17T20:26:18.581153275Z'
+    created: "2024-07-17T20:26:18.581153275Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: d22717ac1c9a81a300b8c1d123ae6b62226bcf78183187e87af394ca7b50b64f
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3169,14 +3223,14 @@ entries:
     version: 0.9.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.5
-    created: '2024-06-05T08:13:47.131639851Z'
+    created: "2024-06-05T08:13:47.131639851Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 074b2f4e1090a4490ae3fb7a350f2011c15f520b694b183cc9ee88bbc4f6a366
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3186,14 +3240,14 @@ entries:
     version: 0.9.5
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.4
-    created: '2024-05-02T13:16:04.013482137Z'
+    created: "2024-05-02T13:16:04.013482137Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 19e94d13c389a9ba387bee3cf51bb2487e4891c11d3e99e1a1cec292fc8cefee
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3203,14 +3257,14 @@ entries:
     version: 0.9.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.3
-    created: '2024-04-17T13:04:59.710733174Z'
+    created: "2024-04-17T13:04:59.710733174Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 0d509996dfe87068a0adf28b2dc9ad000774e3b5c94583156d0ff04970bc7aee
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3220,14 +3274,14 @@ entries:
     version: 0.9.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.2
-    created: '2024-03-30T06:05:58.855246632Z'
+    created: "2024-03-30T06:05:58.855246632Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 3e31bc6853fec35037993e2e8aeb798f7a3a90edfc158d322d1e11fb22022eed
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3237,14 +3291,14 @@ entries:
     version: 0.9.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.9.0
-    created: '2023-11-07T14:05:57.00009467Z'
+    created: "2023-11-07T14:05:57.00009467Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 970e3356b8b867d185fe1ff5077122d363a3de2acd99cb77e2a9769262e0fd35
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3254,14 +3308,14 @@ entries:
     version: 0.9.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.8.6
-    created: '2024-10-18T06:15:44.753123826Z'
+    created: "2024-10-18T06:15:44.753123826Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 0dc05c7525b8b2060cb9773d95f5191643356307da0c8374a86bfb28fa436345
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3271,14 +3325,14 @@ entries:
     version: 0.8.6
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.8.5
-    created: '2024-06-05T07:53:03.843343172Z'
+    created: "2024-06-05T07:53:03.843343172Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 04ecb9b72a364c5167eda06be1942d5694d36c6e4461b0c00c3dd558dace649b
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3288,14 +3342,14 @@ entries:
     version: 0.8.5
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.8.4
-    created: '2024-05-02T12:43:28.262882588Z'
+    created: "2024-05-02T12:43:28.262882588Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: fe0422a3f6767596aaf7b653602091a91dc5b60fbcb10e12916d8afde791c7d5
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3305,14 +3359,14 @@ entries:
     version: 0.8.4
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.8.3
-    created: '2024-03-19T12:57:57.366761447Z'
+    created: "2024-03-19T12:57:57.366761447Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 8430115c2204e1ea0a8f72bd06323160531e688a4be3f5d93c695e7a2b59317c
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3322,14 +3376,14 @@ entries:
     version: 0.8.3
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.8.2
-    created: '2024-02-23T07:11:22.44163983Z'
+    created: "2024-02-23T07:11:22.44163983Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 2cfb66a15eb436eeca4284015e2d8315e06b628da8468b0b75561ee597cf4fb1
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3339,14 +3393,14 @@ entries:
     version: 0.8.2
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.8.1
-    created: '2023-11-23T11:16:06.705286692Z'
+    created: "2023-11-23T11:16:06.705286692Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: ebdfc25340a2764e3e89ae74a3b1d998df403e4f50f8d6156d2ad88d7690e2a2
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3356,14 +3410,14 @@ entries:
     version: 0.8.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.8.0
-    created: '2023-09-11T15:33:53.973169917Z'
+    created: "2023-09-11T15:33:53.973169917Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: b5a8f025f451c4bb7b5f84c09f0cf4e602c636fdaba2abb674c4c1459eafa817
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3373,14 +3427,14 @@ entries:
     version: 0.8.0
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.7.1
-    created: '2023-08-18T08:19:33.400068189Z'
+    created: "2023-08-18T08:19:33.400068189Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 63c935f90f1dd8582d7c67b361aef4c36c78e055990155f6e0f3ff090d9059eb
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3390,14 +3444,14 @@ entries:
     version: 0.7.1
   - annotations:
       catalog.cattle.io/certified: rancher
-      catalog.cattle.io/hidden: 'true'
+      catalog.cattle.io/hidden: "true"
       catalog.cattle.io/namespace: cattle-fleet-system
       catalog.cattle.io/os: linux
       catalog.cattle.io/permits-os: linux,windows
       catalog.cattle.io/release-name: fleet-crd
     apiVersion: v2
     appVersion: 0.7.0
-    created: '2023-06-19T13:17:29.973900982Z'
+    created: "2023-06-19T13:17:29.973900982Z"
     description: Fleet Manager CustomResourceDefinitions
     digest: 637d8c07320fc159b45ca3b8ab41b2bb25c6420c361964f67513ee0eaa11fdb3
     icon: https://charts.rancher.io/assets/logos/fleet.svg
@@ -3405,4 +3459,4 @@ entries:
     urls:
     - https://github.com/rancher/fleet-helm-charts/releases/download/fleet-crd-0.7.0/fleet-crd-0.7.0.tgz
     version: 0.7.0
-generated: '2025-06-20T06:33:59.258780228Z'
+generated: "2025-06-20T16:39:43.339374856Z"
