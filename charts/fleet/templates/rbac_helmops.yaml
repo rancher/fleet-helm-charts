@@ -1,29 +1,16 @@
-{{- if .Values.gitops.enabled }}
+{{- if has (dict "name" "EXPERIMENTAL_HELM_OPS" "value" "true") .Values.extraEnv }}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: gitjob
+  name: helmops
 rules:
-  - apiGroups:
-      - "batch"
-    resources:
-      - 'jobs'
-    verbs:
-      - '*'
-  - apiGroups:
-      - ""
-    resources:
-      - 'pods'
-    verbs:
-      - 'list'
-      - 'get'
-      - 'watch'
   - apiGroups:
       - ""
     resources:
       - 'secrets'
     verbs:
-      - '*'
+      - "create"
+      - "list"
   - apiGroups:
       - ""
     resources:
@@ -33,37 +20,28 @@ rules:
   - apiGroups:
       - "fleet.cattle.io"
     resources:
-      - "gitrepos"
-      - "gitrepos/status"
+      - "helmapps"
+      - "helmapps/status"
     verbs:
       - "*"
   - apiGroups:
       - "fleet.cattle.io"
     resources:
-      - "gitreporestrictions"
-    verbs:
-      - list
-      - get
-      - watch
-  - apiGroups:
-      - "fleet.cattle.io"
-    resources:
       - "bundles"
       - "bundledeployments"
-      - "imagescans"
-      - "contents"
     verbs:
       - list
       - delete
       - get
       - watch
       - update
+      - create
   - apiGroups:
       - ""
     resources:
       - 'events'
     verbs:
-      - '*'
+      - "create"
   - apiGroups:
       - ""
     resources:
@@ -77,55 +55,26 @@ rules:
     verbs:
       - "create"
       - "delete"
-  - apiGroups:
-      - rbac.authorization.k8s.io
-    resources:
-      - roles
-    verbs:
-      - escalate
-      - create
-      - bind
-      - get
-      - list
-      - watch
-      - update
-  - apiGroups:
-      - rbac.authorization.k8s.io
-    resources:
-      - rolebindings
-    verbs:
-      - create
-      - get
-      - list
-      - watch
-      - update
-  - apiGroups:
-      - "apps"
-    resources:
-      - 'deployments'
-    verbs:
-      - 'list'
-      - 'get'
-      - 'watch'
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: gitjob-binding
+  name: helmops-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: gitjob
+  name: helmops
 subjects:
   - kind: ServiceAccount
-    name: gitjob
+    name: helmops
     namespace: {{ .Release.Namespace }}
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: gitjob
+  name: helmops
 rules:
   - apiGroups:
       - "coordination.k8s.io"
@@ -137,12 +86,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: gitjob
+  name: helmops
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: gitjob
+  name: helmops
 subjects:
   - kind: ServiceAccount
-    name: gitjob
+    name: helmops
 {{- end }}
