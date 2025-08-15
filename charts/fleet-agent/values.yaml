@@ -1,7 +1,7 @@
 image:
   os: "windows,linux"
   repository: rancher/fleet-agent
-  tag: v0.11.10-rc.3
+  tag: v0.13.1-rc.6
 
 # The public URL of the Kubernetes API server running the Fleet Controller must be set here
 # Example: https://example.com:6443
@@ -73,8 +73,15 @@ disableSecurityContext: false
 
 ## Fleet agent configuration
 agent:
+  replicas: 1
   reconciler:
     # The number of workers that are allowed for each type of reconciler
     workers:
       bundledeployment: "50"
       drift: "50"
+
+## Leader election configuration
+leaderElection:
+  leaseDuration: 30s
+  retryPeriod: 10s
+  renewDeadline: 25s
