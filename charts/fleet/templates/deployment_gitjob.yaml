@@ -86,6 +86,10 @@ spec:
             - name: NO_PROXY
               value: {{ $.Values.noProxy }}
           {{- end }}
+          {{- if $.Values.gitops.syncPeriod }}
+            - name: GITREPO_SYNC_PERIOD
+              value: {{ quote $.Values.gitops.syncPeriod }}
+          {{- end }}
           {{- if $.Values.controller.reconciler.workers.gitrepo }}
             - name: GITREPO_RECONCILER_WORKERS
               value: {{ quote $.Values.controller.reconciler.workers.gitrepo }}
@@ -96,7 +100,8 @@ spec:
           {{- if $.Values.debug }}
             - name: CATTLE_DEV_MODE
               value: "true"
-          {{- else }}
+          {{- end }}
+          {{- if not $.Values.disableSecurityContext }}
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
@@ -125,7 +130,7 @@ spec:
       priorityClassName: "{{$.Values.priorityClassName}}"
       {{- end }}
 
-{{- if not $.Values.debug }}
+{{- if not $.Values.disableSecurityContext }}
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
