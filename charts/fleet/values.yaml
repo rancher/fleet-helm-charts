@@ -1,11 +1,11 @@
 image:
   repository: rancher/fleet
-  tag: v0.14.0-alpha.1
+  tag: v0.12.7-rc.1
   imagePullPolicy: IfNotPresent
 
 agentImage:
   repository: rancher/fleet-agent
-  tag: v0.14.0-alpha.1
+  tag: v0.12.7-rc.1
   imagePullPolicy: IfNotPresent
 
 # For cluster registration the public URL of the Kubernetes API server must be set here
@@ -76,8 +76,8 @@ tolerations: []
 priorityClassName: ""
 
 ## Determines whether SSH operations (eg. cloning git repos, downloading Helm charts) could succeed if
-## host verification fails. Insecure when set to true. Default: false.
-insecureSkipHostKeyChecks: false
+## host verification fails. Insecure when set to true. Default: true.
+insecureSkipHostKeyChecks: true
 
 gitops:
   enabled: true
@@ -105,7 +105,6 @@ leaderElection:
 
 ## Fleet controller configuration
 controller:
-  replicas: 1
   reconciler:
     # The number of workers that are allowed to each type of reconciler
     workers:
@@ -116,32 +115,20 @@ controller:
       clustergroup: "50"
       imagescan: "50"
 
-gitjob:
-  replicas: 1
-
-helmops:
-  enabled: true
-  replicas: 1
-
 ## Fleet agent configuration
 agent:
-  replicas: 1
   reconciler:
     # The number of workers that are allowed for each type of reconciler
     workers:
       bundledeployment: "50"
       drift: "50"
-  ## Leader election configuration
-  leaderElection:
-    leaseDuration: 30s
-    retryPeriod: 10s
-    renewDeadline: 25s
-
 
 # Extra environment variables passed to the fleet pods.
 # extraEnv:
-# - name: OCI_STORAGE
-#   value: "false"
+# - name: EXPERIMENTAL_OCI_STORAGE
+#   value: "true"
+# - name: EXPERIMENTAL_HELM_OPS
+#   value: "true"
 
 # shards:
 #   - id: shard0
@@ -153,27 +140,3 @@ agent:
 #   - id: shard2
 #     nodeSelector:
 #       kubernetes.io/hostname: k3d-upstream-server-2
-
-# Extra labels passed to the fleet pods.
-# extraLabels:
-#   fleetController:
-#     new-label: "new-label-value"
-#     new-label-2: "new-label-value-2"
-#   gitjob:
-#     new-label: "new-label-value"
-#     new-label-2: "new-label-value-2"
-#   helmops:
-#     new-label: "new-label-value"
-#     new-label-2: "new-label-value-2"
-
-# Extra annotations passed to the fleet pods.
-# extraAnnotations:
-#   fleetController:
-#     new-annotation: "new-annotation-value"
-#     new-annotation-2: "new-annotation-value-2"
-#   gitjob:
-#     new-annotation: "new-annotation-value"
-#     new-annotation-2: "new-annotation-value-2"
-#   helmops:
-#     new-annotation: "new-annotation-value"
-#     new-annotation-2: "new-annotation-value-2"
