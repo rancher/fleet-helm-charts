@@ -1,11 +1,11 @@
 image:
   repository: rancher/fleet
-  tag: v0.10.16-rc.1
+  tag: v0.14.0-alpha.2
   imagePullPolicy: IfNotPresent
 
 agentImage:
   repository: rancher/fleet-agent
-  tag: v0.10.16-rc.1
+  tag: v0.14.0-alpha.2
   imagePullPolicy: IfNotPresent
 
 # For cluster registration the public URL of the Kubernetes API server must be set here
@@ -23,6 +23,10 @@ agentTLSMode: "system-store"
 # A duration string for how often agents should report a heartbeat
 agentCheckinInterval: "15m"
 
+# The amount of time that agents will wait before they clean up old Helm releases.
+# A non-existent value or 0 will result in an interval of 15 minutes.
+garbageCollectionInterval: "15m"
+
 # Whether you want to allow cluster upon registration to specify their labels.
 ignoreClusterRegistrationLabels: false
 
@@ -36,6 +40,11 @@ ignoreClusterRegistrationLabels: false
 
 # comma separated list of domains or ip addresses that will not use the proxy
 noProxy: 127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.svc,.cluster.local
+
+# The amount of time to wait for a response from the server before canceling the
+# request.  Used to retrieve the latest commit of configured git repositories.
+# A non-existent value or 0 will result in a timeout of 30 seconds.
+gitClientTimeout: 30s
 
 bootstrap:
   enabled: true
@@ -67,11 +76,14 @@ tolerations: []
 priorityClassName: ""
 
 ## Determines whether SSH operations (eg. cloning git repos, downloading Helm charts) could succeed if
-## host verification fails. Insecure when set to true. Default: true.
-insecureSkipHostKeyChecks: true
+## host verification fails. Insecure when set to true. Default: false.
+insecureSkipHostKeyChecks: false
 
 gitops:
   enabled: true
+  # syncPeriod is used to pick up polling for lost gitrepo events.
+  # It should be larger than the largest gitrepo pollinginterval.
+  syncPeriod: 2h
 
 metrics:
   enabled: true
@@ -79,15 +91,7 @@ metrics:
 debug: false
 debugLevel: 0
 propagateDebugSettingsToAgents: true
-
-## Optional CPU pprof configuration. Profiles are collected continuously and saved every period
-## Any valid volume configuration can be provided, the example below uses hostPath
-# cpuPprof:
-#   period: "60s"
-#   volumeConfiguration:
-#     hostPath:
-#       path: /tmp/pprof
-#       type: DirectoryOrCreate
+disableSecurityContext: false
 
 migrations:
   clusterRegistrationCleanup: true
@@ -101,17 +105,43 @@ leaderElection:
 
 ## Fleet controller configuration
 controller:
+  replicas: 1
   reconciler:
     # The number of workers that are allowed to each type of reconciler
     workers:
       gitrepo: "50"
       bundle: "50"
       bundledeployment: "50"
+      cluster: "50"
+      clustergroup: "50"
+      imagescan: "50"
+
+gitjob:
+  replicas: 1
+
+helmops:
+  enabled: true
+  replicas: 1
+
+## Fleet agent configuration
+agent:
+  replicas: 1
+  reconciler:
+    # The number of workers that are allowed for each type of reconciler
+    workers:
+      bundledeployment: "50"
+      drift: "50"
+  ## Leader election configuration
+  leaderElection:
+    leaseDuration: 30s
+    retryPeriod: 10s
+    renewDeadline: 25s
+
 
 # Extra environment variables passed to the fleet pods.
 # extraEnv:
-# - name: EXPERIMENTAL_OCI_STORAGE
-#   value: "true"
+# - name: OCI_STORAGE
+#   value: "false"
 
 # shards:
 #   - id: shard0
@@ -123,3 +153,27 @@ controller:
 #   - id: shard2
 #     nodeSelector:
 #       kubernetes.io/hostname: k3d-upstream-server-2
+
+# Extra labels passed to the fleet pods.
+# extraLabels:
+#   fleetController:
+#     new-label: "new-label-value"
+#     new-label-2: "new-label-value-2"
+#   gitjob:
+#     new-label: "new-label-value"
+#     new-label-2: "new-label-value-2"
+#   helmops:
+#     new-label: "new-label-value"
+#     new-label-2: "new-label-value-2"
+
+# Extra annotations passed to the fleet pods.
+# extraAnnotations:
+#   fleetController:
+#     new-annotation: "new-annotation-value"
+#     new-annotation-2: "new-annotation-value-2"
+#   gitjob:
+#     new-annotation: "new-annotation-value"
+#     new-annotation-2: "new-annotation-value-2"
+#   helmops:
+#     new-annotation: "new-annotation-value"
+#     new-annotation-2: "new-annotation-value-2"
