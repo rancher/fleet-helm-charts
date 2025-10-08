@@ -15,6 +15,7 @@ kind: Deployment
 metadata:
   name: "fleet-controller{{if $shard.id }}-shard-{{ $shard.id }}{{end}}"
 spec:
+  replicas: {{ $.Values.controller.replicas }}
   selector:
     matchLabels:
       app: fleet-controller
@@ -26,6 +27,13 @@ spec:
         {{- if empty $shard.id }}
         fleet.cattle.io/shard-default: "true"
         {{- end }}
+{{- if and $.Values.extraLabels $.Values.extraLabels.fleetController }}
+{{ toYaml $.Values.extraLabels.fleetController | indent 8 }}
+{{- end }}
+{{- if and $.Values.extraAnnotations $.Values.extraAnnotations.fleetController }}
+      annotations:
+{{ toYaml $.Values.extraAnnotations.fleetController | indent 8 }}
+{{- end }}
     spec:
       containers:
       - env:
@@ -80,6 +88,10 @@ spec:
         {{- if $.Values.controller.reconciler.workers.imagescan }}
         - name: IMAGESCAN_RECONCILER_WORKERS
           value: {{ quote $.Values.controller.reconciler.workers.imagescan }}
+        {{- end }}
+        {{- if $.Values.controller.reconciler.workers.schedule }}
+        - name: SCHEDULE_RECONCILER_WORKERS
+          value: {{ quote $.Values.controller.reconciler.workers.schedule }}
         {{- end }}
 {{- if $.Values.extraEnv }}
 {{ toYaml $.Values.extraEnv | indent 8}}
@@ -185,6 +197,22 @@ spec:
         - name: CATTLE_ELECTION_RENEW_DEADLINE
           value: {{$.Values.leaderElection.renewDeadline}}
         {{- end }}
+        {{- if $.Values.agent.replicas }}
+        - name: FLEET_AGENT_REPLICA_COUNT
+          value: "{{ $.Values.agent.replicas }}"
+        {{- end }}
+        {{- if $.Values.agent.leaderElection.leaseDuration }}
+        - name: FLEET_AGENT_ELECTION_LEASE_DURATION
+          value: {{$.Values.agent.leaderElection.leaseDuration}}
+        {{- end }}
+        {{- if $.Values.agent.leaderElection.retryPeriod }}
+        - name: FLEET_AGENT_ELECTION_RETRY_PERIOD
+          value: {{$.Values.agent.leaderElection.retryPeriod}}
+        {{- end }}
+        {{- if $.Values.agent.leaderElection.renewDeadline }}
+        - name: FLEET_AGENT_ELECTION_RENEW_DEADLINE
+          value: {{$.Values.agent.leaderElection.renewDeadline}}
+        {{- end }}
         image: '{{ template "system_default_registry" $ }}{{ $.Values.image.repository }}:{{ $.Values.image.tag }}'
         name: fleet-agentmanagement
         imagePullPolicy: "{{ $.Values.image.imagePullPolicy }}"
@@ -227,6 +255,14 @@ spec:
 {{- if $.Values.tolerations }}
 {{ toYaml $.Values.tolerations | indent 8 }}
 {{- end }}
+      {{- with $.Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $.Values.resources }}
+      resources:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- if $.Values.priorityClassName }}
       priorityClassName: "{{$.Values.priorityClassName}}"
       {{- end }}
