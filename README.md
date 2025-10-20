@@ -2,6 +2,10 @@
 
 <img src="./assets/fleet.svg" align="right" width="200" height="50%">
 
+This repository hosts Helm charts for [Fleet], the GitOps at Scale project from Rancher.
+
+[Fleet]: https://github.com/rancher/fleet
+
 ## Usage
 
 The documentation is centralized in a unique place, checkout the [doc website].
@@ -15,4 +19,7 @@ This [repo] is used as Helm chart repository, by publishing the [index.yaml] thr
 [repo]: https://github.com/rancher/fleet-helm-charts
 [index.yaml]: https://rancher.github.io/fleet-helm-charts/index.yaml
 
-We are using the chart-releaser-action github action to automatically publish the new chart version when a Fleet release is out.
+Fleet releases are automatically synced from the [rancher/fleet] repository to this helm chart repository daily.
+
+[rancher/fleet]: https://github.com/rancher/fleet
+[sync-fleet-releases]: .github/workflows/sync-fleet-releases.yml
