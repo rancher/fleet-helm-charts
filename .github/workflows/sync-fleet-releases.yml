@@ -1,0 +1,60 @@
+---
+name: "Sync All Fleet Releases"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'
+  repository_dispatch:
+    types: [fleet-release]
+
+permissions:
+  contents: write
+
+jobs:
+  sync-fleet-releases:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+
+      - name: Checkout sync script from main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          sparse-checkout: |
+            .github/scripts/sync-fleet-releases.py
+          sparse-checkout-cone-mode: false
+          path: main-repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python dependencies
+        run: pip install requests pyyaml
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.19.0
+
+      - name: Sync all Fleet releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python main-repo/.github/scripts/sync-fleet-releases.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.yaml
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: sync Fleet releases to helm repository"
+            git push
+          fi
