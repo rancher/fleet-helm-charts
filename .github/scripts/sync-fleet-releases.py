@@ -147,6 +147,11 @@ def main():
 
     print(f"Successfully added: {added}, Failed: {failed}")
 
+    # Write synced versions to file for commit message
+    if added > 0:
+        with open("synced_versions.txt", "w") as f:
+            f.write(",".join(v for v, _ in missing[:added]))
+
 
 if __name__ == "__main__":
     main()
