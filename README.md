@@ -2,7 +2,7 @@
 
 <img src="./assets/fleet.svg" align="right" width="200" height="50%">
 
-This repository hosts Helm charts for [Fleet], the GitOps at Scale project from Rancher.
+This repository hosts Helm charts for [Fleet], the GitOps and HelmOps at scale project from Rancher.
 
 [Fleet]: https://github.com/rancher/fleet
 
