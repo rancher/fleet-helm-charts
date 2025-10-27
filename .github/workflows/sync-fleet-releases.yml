@@ -55,6 +55,11 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: sync Fleet releases to helm repository"
+            if [ -f synced_versions.txt ]; then
+              VERSIONS=$(cat synced_versions.txt)
+              git commit -m "Sync Fleet releases ($VERSIONS)"
+            else
+              git commit -m "Sync Fleet releases"
+            fi
             git push
           fi
