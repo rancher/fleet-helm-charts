@@ -43,6 +43,7 @@ def is_old(version, cutoff_date):
     return parse_created_date(version) < cutoff_date
 
 cutoff_date = datetime.now() - AGE_LIMIT
+removed_versions = []
 
 for chart in list(data['entries']):
     versions = data['entries'][chart]
@@ -71,12 +72,18 @@ for chart in list(data['entries']):
 
     for v in versions:
         if v not in kept_versions:
-            print(f"Removing {chart} {v.get('version')}")
+            version = v.get('version')
+            print(f"Removing {chart} {version}")
+            removed_versions.append(version)
 
     data['entries'][chart] = kept_versions
 
     if not data['entries'][chart]:
         del data['entries'][chart]
+
+if removed_versions:
+    with open('removed_versions.txt', 'w') as f:
+        f.write(','.join(removed_versions))
 
 with open('index.yaml', 'w') as file:
     yaml.dump(data, file)
