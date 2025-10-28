@@ -15,6 +15,11 @@ from datetime import datetime, timedelta
 yaml = YAML()
 yaml.preserve_quotes = True
 yaml.width = 4096
+yaml.map_indent = 2
+yaml.sequence_indent = 2
+yaml.sequence_dash_offset = 0
+yaml.default_flow_style = False
+yaml.sort_keys = False
 
 with open('index.yaml', 'r') as file:
     data = yaml.load(file)
@@ -47,11 +52,12 @@ for chart in list(data['entries']):
 
     if final_versions:
         final_base_versions = {extract_base_version(v.get('version', '')) for v in final_versions}
-
-        kept_versions = final_versions + [
-            v for v in dev_versions
-            if extract_base_version(v.get('version', '')) not in final_base_versions
-            and not is_old(v, cutoff_date)
+        kept_versions = [
+            v for v in versions
+            if not is_dev_version(v) or (
+                extract_base_version(v.get('version', '')) not in final_base_versions
+                and not is_old(v, cutoff_date)
+            )
         ]
     else:
         recent_dev = [v for v in dev_versions if not is_old(v, cutoff_date)]
@@ -59,7 +65,7 @@ for chart in list(data['entries']):
 
         if old_dev:
             latest_old_dev = max(old_dev, key=parse_created_date)
-            kept_versions = recent_dev + [latest_old_dev]
+            kept_versions = [v for v in versions if v in recent_dev or v == latest_old_dev]
         else:
             kept_versions = recent_dev
 
