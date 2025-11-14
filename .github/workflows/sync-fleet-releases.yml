@@ -1,5 +1,5 @@
 ---
-name: "Sync All Fleet Releases"
+name: "Sync Fleet Releases"
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 jobs:
-  sync-fleet-releases:
+  sync-and-cleanup:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout gh-pages branch
@@ -20,12 +20,12 @@ jobs:
         with:
           ref: gh-pages
 
-      - name: Checkout sync script from main
+      - name: Checkout script from main
         uses: actions/checkout@v5
         with:
-          ref: main
+          ref: ${{ github.ref_name == 'gh-pages' && 'main' || github.ref_name }}
           sparse-checkout: |
-            .github/scripts/sync-fleet-releases.py
+            .github/scripts/manage-fleet-charts.py
           sparse-checkout-cone-mode: false
           path: main-repo
 
@@ -35,31 +35,51 @@ jobs:
           python-version: '3.x'
 
       - name: Install Python dependencies
-        run: pip install requests pyyaml
+        run: pip install requests ruamel.yaml
 
       - name: Install Helm
         uses: azure/setup-helm@v4
         with:
           version: v3.19.0
 
-      - name: Sync all Fleet releases
+      - name: Sync new Fleet releases
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python main-repo/.github/scripts/sync-fleet-releases.py
+        run: python main-repo/.github/scripts/manage-fleet-charts.py sync
 
-      - name: Commit and push changes
+      - name: Commit sync changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.yaml
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No new releases to sync"
           else
             if [ -f synced_versions.txt ]; then
               VERSIONS=$(cat synced_versions.txt)
               git commit -m "Sync Fleet releases ($VERSIONS)"
             else
               git commit -m "Sync Fleet releases"
+            fi
+            git push
+          fi
+
+      - name: Cleanup old dev versions
+        run: python main-repo/.github/scripts/manage-fleet-charts.py cleanup
+
+      - name: Commit cleanup changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.yaml
+          if git diff --staged --quiet; then
+            echo "No old versions to remove"
+          else
+            if [ -f removed_versions.txt ]; then
+              VERSIONS=$(cat removed_versions.txt)
+              git commit --signoff -m "Remove old dev releases from index ($VERSIONS)"
+            else
+              git commit --signoff -m "Remove old dev releases from index"
             fi
             git push
           fi
