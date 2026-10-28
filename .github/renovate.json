@@ -6,5 +6,16 @@
   "baseBranchPatterns": [
     "main"
   ],
-  "prHourlyLimit": 2
+  "prHourlyLimit": 2,
+  "packageRules": [
+    {
+      "description": "Activate automerge for eligible updates",
+      "matchBaseBranches": [
+        "main"
+      ],
+      "extends": [
+        "github>rancher/renovate-config//automerge#release"
+      ]
+    }
+  ]
 }
