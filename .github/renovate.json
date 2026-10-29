@@ -1,10 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>rancher/renovate-config#release"
+    "github>rancher/renovate-config//default#release"
   ],
   "baseBranchPatterns": [
     "main"
   ],
-  "prHourlyLimit": 2
+  "prHourlyLimit": 2,
+  "packageRules": [
+    {
+      "description": "Activate automerge for eligible updates",
+      "matchBaseBranches": [
+        "main"
+      ],
+      "extends": [
+        "github>rancher/renovate-config//automerge#release"
+      ]
+    }
+  ]
 }
